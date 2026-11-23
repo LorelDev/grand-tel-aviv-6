@@ -1,0 +1,37 @@
+/* מסך הפתיחה של Grand Tel Aviv 6 */
+:root { color-scheme: dark; }
+html, body { margin: 0; height: 100%; background: #0b0613; overflow: hidden; font-family: 'Heebo', 'Rubik', system-ui, sans-serif; }
+#title {
+  position: fixed; inset: 0; display: grid; place-items: center; text-align: center; color: #fff;
+  background:
+    radial-gradient(120% 80% at 50% 110%, #ff8a3d 0%, #ff4f81 28%, #7b2ff7 58%, #150a2e 100%);
+  transition: opacity .35s ease;
+}
+#title.gone { opacity: 0; pointer-events: none; }
+#title::before { /* קו רקיע של העיר */
+  content: ''; position: absolute; inset: auto 0 0 0; height: 34vh; opacity: .9;
+  background:
+    linear-gradient(#0b0613, #0b0613) 4% 100% / 7% 46% no-repeat,
+    linear-gradient(#0b0613, #0b0613) 13% 100% / 5% 70% no-repeat,
+    linear-gradient(#0b0613, #0b0613) 20% 100% / 8% 38% no-repeat,
+    linear-gradient(#0b0613, #0b0613) 31% 100% / 4% 92% no-repeat,
+    linear-gradient(#0b0613, #0b0613) 37% 100% / 6% 80% no-repeat,
+    linear-gradient(#0b0613, #0b0613) 45% 100% / 5% 100% no-repeat,
+    linear-gradient(#0b0613, #0b0613) 54% 100% / 9% 50% no-repeat,
+    linear-gradient(#0b0613, #0b0613) 66% 100% / 5% 76% no-repeat,
+    linear-gradient(#0b0613, #0b0613) 74% 100% / 7% 42% no-repeat,
+    linear-gradient(#0b0613, #0b0613) 84% 100% / 4% 64% no-repeat,
+    linear-gradient(#0b0613, #0b0613) 92% 100% / 8% 34% no-repeat,
+    linear-gradient(#0b0613, #0b0613) 0 100% / 100% 12% no-repeat;
+}
+.t-box { position: relative; z-index: 1; padding: 24px; transform: translateY(-6vh); }
+.t-kicker { letter-spacing: .5em; font-size: clamp(11px, 1.4vw, 15px); font-weight: 700; opacity: .85; text-transform: uppercase; }
+.t-name { margin: 10px 0 6px; font-family: 'Rubik', sans-serif; font-weight: 900; font-size: clamp(44px, 9vw, 128px); line-height: .92; letter-spacing: -.02em; text-shadow: 0 6px 0 rgba(0,0,0,.25), 0 24px 60px rgba(0,0,0,.45); }
+.t-name b { display: inline-block; color: #ffe14d; transform: rotate(-4deg) translateY(.04em); margin-inline-start: .12em; }
+.t-sub { font-size: clamp(15px, 2vw, 22px); font-weight: 500; opacity: .92; margin: 0 0 30px; direction: rtl; }
+#start { font: inherit; font-weight: 800; font-size: clamp(17px, 2.2vw, 24px); color: #1a0b2e; background: #ffe14d; border: 0; border-radius: 999px; padding: 16px 44px; cursor: pointer; box-shadow: 0 10px 0 #b98a00, 0 22px 40px rgba(0,0,0,.4); transition: transform .12s ease, box-shadow .12s ease; direction: rtl; }
+#start:hover { transform: translateY(-2px); }
+#start:active { transform: translateY(8px); box-shadow: 0 2px 0 #b98a00, 0 8px 16px rgba(0,0,0,.4); }
+#start:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+.t-keys { margin-top: 26px; font-size: 13px; opacity: .8; direction: rtl; }
+@media (prefers-reduced-motion: reduce) { #title, #start { transition: none; } }

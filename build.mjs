@@ -1,0 +1,19 @@
+// בנייה לפרסום → ./dist (אתר סטטי: index.html + app.js + app.css)
+import * as esbuild from 'esbuild';
+import { workerSourcePlugin } from './scripts/esbuild-worker-plugin.mjs';
+import { cpSync, mkdirSync, rmSync } from 'node:fs';
+
+rmSync('dist', { recursive: true, force: true });
+mkdirSync('dist', { recursive: true });
+await esbuild.build({
+  entryPoints: ['src/main.js'],
+  bundle: true,
+  minify: true,
+  format: 'iife',
+  target: 'es2020',
+  outfile: 'dist/app.js',
+  legalComments: 'none',
+  plugins: [workerSourcePlugin({ minify: true })],
+});
+cpSync('public/index.html', 'dist/index.html');
+console.log('Built → dist/');

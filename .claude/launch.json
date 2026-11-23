@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "gta6-tlv", "runtimeExecutable": "node", "runtimeArgs": ["dev.mjs"], "port": 5196 }
+  ]
+}
