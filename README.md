@@ -1,6 +1,7 @@
 # Grand Tel Aviv 6
 
 משחק עולם פתוח בתל אביב, בדפדפן. הכול נבנה בקוד (Three.js) — בעזרת Fable 5.2
+
 **לשחק:** https://grand-tel-aviv-6.web.app
 
 ## מה יש במשחק
