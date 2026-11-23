@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the save slot (PURE). One versioned schema; a sanitiser that turns ANYTHING (a corrupted text, an old save, a hand-edited one) into a safe save or null;
+// Grand Tel Aviv 6 — the save slot (PURE). One versioned schema; a sanitiser that turns ANYTHING (a corrupted text, an old save, a hand-edited one) into a safe save or null;
 // a storage that never throws and remembers what went wrong; and a short "save code" to copy and paste (export / import). Nothing here touches the DOM.
 //   version 1 = the first format (no stamp) · version 2 = the same fields + `version` + `savedAt`. A save from a NEWER game is read for the fields this game knows.
 import { WEEK, GOLDEN, UPGRADES, ECON } from './play-content.js';

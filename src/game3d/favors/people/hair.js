@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — hair as a smooth lumpy volume: a dome round the skull plus a few hundred curl blobs blended into it (a signed distance
-// field again, see sdf.js), carved back where the face, the ears and the neck must show. Styles: curly (Ori), short, buzz, wavy, long, bun,
+// Grand Tel Aviv 6 — hair as a smooth lumpy volume: a dome round the skull plus a few hundred curl blobs blended into it (a signed distance
+// field again, see sdf.js), carved back where the face, the ears and the neck must show. Styles: curly (the hero), short, buzz, wavy, long, bun,
 // bald. PURE: gives a mesh in the head frame (vertex colours carry the shading: baked occlusion + a little tonal variation).
 import { smin, smax, sdEllipsoid, sdSphere, meshSDF, aoAt } from '../sdf.js';
 import { buildClumpHair } from './hair-clumps.js';

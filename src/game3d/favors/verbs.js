@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the eight little actions Ori does for a favour (PURE state machines, seeded, no DOM): carry (keep it level), fix (hold and
+// Grand Tel Aviv 6 — the eight little actions the hero does for a favour (PURE state machines, seeded, no DOM): carry (keep it level), fix (hold and
 // let go in the green), queue (take a number and sigh at the right moments), chat (three timed answers), shop (pick the right thing from the
 // shelf), escort (walk someone and keep up), assemble (the right keys in order) and handle (stamp on the beat). Each lasts 5-25 seconds and
 // ends with a quality 0..1 that the quest engine turns into points. The UI draws `view()`; the keys come in through press / release.
@@ -282,7 +282,7 @@ const BUILDERS = { carry, fix, queue, chat, shop, escort, assemble, handle };
 
 /**
  * One little action. `params`: chat { likes, prompts }, shop { aisle }, escort { length }.
- * Drive it with update(dt[, ctx]) (ctx.dist = how far Ori is from the person he escorts) and press / release; read view().
+ * Drive it with update(dt[, ctx]) (ctx.dist = how far the hero is from the person he escorts) and press / release; read view().
  */
 export function createVerb(kind, { seed = 1, tone = 'trivial', params = {} } = {}) {
   const build = BUILDERS[kind];

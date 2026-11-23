@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the SOUND LAB: a page (public/soundlab.html, built by `npm run soundlab`) where every sound of the ring and the fight music can be played and judged by ear,
+// Grand Tel Aviv 6 — the SOUND LAB: a page (public/soundlab.html, built by `npm run soundlab`) where every sound of the ring and the fight music can be played and judged by ear,
 // with the very code the game runs (fight-sfx.js, fight-music.js). Buttons for every sound (grouped, with the loudness it is calibrated to), a scripted fight to hear the mix
 // (whooshes that peak at the blow, ducking, slow motion, knock-down count, K.O. and sting), the music with an intensity slider that moves the layers live, the boss track,
 // the crowd bed with a love slider, a master volume, a mute switch and a meter (peak, limiter reduction) so clipping is visible.
@@ -78,7 +78,7 @@ export function mountSoundLab(root) {
     at(t, () => sfx.whoosh(wind, w, who === 'player'));
     at(t + wind, () => { if (o.block) sfx.block(dmg * 0.14 + 0.5); else if (o.parry) { sfx.parry(); sfx.setSlow(true); at(0.5, () => sfx.setSlow(false)); } else sfx.thud({ dmg, heavy: dmg >= 13, combo: o.combo || 1, counter: !!o.counter, target: who === 'player' ? 'opp' : 'player' }); if (!o.block && !o.parry && dmg >= 13) sfx.gasp(0.6); });
   };
-  const fightA = el('button', 'go', 'Fight night: Ori vs Moti<small>bell · music builds · hits, block, parry, perfect dodge · knock-down and count · K.O. · cheer · sting</small>');
+  const fightA = el('button', 'go', 'Fight night: You vs Moti<small>bell · music builds · hits, block, parry, perfect dodge · knock-down and count · K.O. · cheer · sting</small>');
   fightA.addEventListener('click', () => {
     clearFight(); sfx.audio.ready();
     sfx.crowdStart(55); sfx.bell(1);
@@ -96,7 +96,7 @@ export function mountSoundLab(root) {
     at(15.6, () => { sfx.ko('opp'); music.stop({ fade: 0.08 }); music.sting('win', 1.6); sfx.cheer(1.4, 1.0); });
     at(20, () => sfx.crowdStop());
   });
-  const fightB = el('button', 'go', 'Boss: Ori vs Shilo<small>the "???" lights, glitch blink, the boss track, buffering, the boss falls</small>');
+  const fightB = el('button', 'go', 'Boss fight: You vs Shilo<small>the "???" lights, glitch blink, the boss track, buffering, the boss falls</small>');
   fightB.addEventListener('click', () => {
     clearFight(); sfx.audio.ready();
     sfx.crowdStart(70); sfx.blink();

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — hair as BIG SCULPTED CLUMPS (style 'clumps': Shilo). The hair is a shell that follows the skull of the measured head (head-real.js; `A.base` is its
+// Grand Tel Aviv 6 — hair as BIG SCULPTED CLUMPS (style 'clumps': Shilo). The hair is a shell that follows the skull of the measured head (head-real.js; `A.base` is its
 // distance field) plus a list of capsule clumps that give the volume and the swept-up waves. Every number is DATA in the person spec (hair.clumps, hair.hairline, hair.shell),
 // and they were FITTED by scripts/_fit-hair.mjs so that the silhouette of the hair in front, side, back and top view matches the reference turnaround (.duo/gpt, private).
 // PURE: returns { mesh, curls: null, bounds } like buildHair in hair.js (head frame; vertex colours carry the shading).

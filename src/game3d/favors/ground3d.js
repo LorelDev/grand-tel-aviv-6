@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the ground: raised sidewalk slabs, asphalt with markings, the park lawn and fountain, the court, the boardwalk,
+// Grand Tel Aviv 6 — the ground: raised sidewalk slabs, asphalt with markings, the park lawn and fountain, the court, the boardwalk,
 // the sand and the sea. Flat quads merged by material; the sea is one animated shader plane. Heights: road 0, sand 0, kerb 0.14.
 import * as THREE from 'three';
 import { GeoBuilder } from './gfx.js';

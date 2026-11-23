@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — every sound of the ring as a list: what it is called in the sound lab (public/soundlab.html), how to play it on a createFightSfx(), how long to render
+// Grand Tel Aviv 6 — every sound of the ring as a list: what it is called in the sound lab (public/soundlab.html), how to play it on a createFightSfx(), how long to render
 // it offline, and what the measurements (scripts/sound-render.mjs) must find: how long it lasts, how loud it is (A-weighted dBFS over its active part), where its energy is.
 // `expect` is the design intent in numbers, so the sound can be judged without ears: a punch must have weight (a low band) and snap (a high band), a block must be softer and duller
 // than a hit, a bell must ring for seconds, a whoosh must peak at the strike...
@@ -15,10 +15,10 @@ export const SOUNDS = [
   { id: 'hit-hook', group: 'Punches that land', label: 'Hook lands (22, combo 3)', len: 1.4, play: (s) => s.thud(hit(22, { combo: 3 })), expect: { dur: [0.3, 1.2], band: [30, 500, 0.35] } },
   { id: 'hit-upper', group: 'Punches that land', label: 'Uppercut lands (31)', len: 1.5, play: (s) => s.thud(hit(31, { combo: 4 })), expect: { dur: [0.35, 1.4], band: [30, 500, 0.35] } },
   { id: 'hit-counter', group: 'Punches that land', label: 'COUNTER lands (33, gold number)', len: 1.5, play: (s) => s.thud(hit(33, { counter: true, combo: 2 })), expect: { dur: [0.35, 1.5], band: [30, 500, 0.35] } },
-  { id: 'hit-you', group: 'Punches that land', label: 'Ori takes a hit (12)', len: 1.2, play: (s) => s.thud(hit(12, { target: 'player' })), expect: { dur: [0.1, 1.0] } },
+  { id: 'hit-you', group: 'Punches that land', label: 'Boss takes a hit (12)', len: 1.2, play: (s) => s.thud(hit(12, { target: 'player' })), expect: { dur: [0.1, 1.0] } },
   { id: 'hit-slowmo', group: 'Punches that land', label: 'Hit in slow motion (dull)', len: 1.2, play: (s) => { s.setSlow(true); s.thud(hit(17)); }, expect: { max: [2000, 20000, 0.02], band: [35, 400, 0.5] } },
   // ── punches thrown ──
-  { id: 'whoosh-jab', group: 'Punches thrown', label: 'Whoosh: Ori jab (wind-up 0.12 s)', len: 0.6, play: (s) => s.whoosh(0.12, 0.45, true), expect: { dur: [0.1, 0.45], centroid: [600, 5000], peakAt: [0.08, 0.2] } },
+  { id: 'whoosh-jab', group: 'Punches thrown', label: 'Whoosh: Boss jab (wind-up 0.12 s)', len: 0.6, play: (s) => s.whoosh(0.12, 0.45, true), expect: { dur: [0.1, 0.45], centroid: [600, 5000], peakAt: [0.08, 0.2] } },
   { id: 'whoosh-cross', group: 'Punches thrown', label: 'Whoosh: opponent cross (0.38 s)', len: 0.9, play: (s) => s.whoosh(0.38, 0.8, false), expect: { dur: [0.25, 0.7], centroid: [600, 5000], peakAt: [0.3, 0.46] } },
   { id: 'whoosh-upper', group: 'Punches thrown', label: 'Whoosh: opponent uppercut (0.55 s)', len: 1.1, play: (s) => s.whoosh(0.55, 1.0, false), expect: { dur: [0.4, 0.85], centroid: [500, 5000], peakAt: [0.45, 0.65] } },
   { id: 'dash', group: 'Punches thrown', label: 'Dash', len: 0.7, play: (s) => s.dash(), expect: { dur: [0.12, 0.5], centroid: [400, 4500] } },

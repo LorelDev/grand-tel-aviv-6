@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — small pure geometry helpers for the character parts (no three, no DOM): a vertex builder with optional skin weights,
+// Grand Tel Aviv 6 — small pure geometry helpers for the character parts (no three, no DOM): a vertex builder with optional skin weights,
 // swept tubes (brows, moustache, chain, lips, glasses arms), patches that hug the face, rounded-rect rings (the glasses), lathed spheres.
 // Meshes are plain `{ positions, normals, colors, indices, skinIndex?, skinWeight? }` typed arrays so node can test and preview them.
 

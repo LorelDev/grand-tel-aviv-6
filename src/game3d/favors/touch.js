@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — touch devices (PURE) [experimental]: is this one, and which on-screen keys belong to which part of the game. A pad button is a KEY: it sends the same key the keyboard would
+// Grand Tel Aviv 6 — touch devices (PURE) [experimental]: is this one, and which on-screen keys belong to which part of the game. A pad button is a KEY: it sends the same key the keyboard would
 // (down when the finger lands, up when it leaves), so nothing in the game has a second code path and every card that can be played with keys can be played with a thumb. Hold a button and the key
 // stays down (walk the camera round, slide a block along); tap it and it is a press.
 

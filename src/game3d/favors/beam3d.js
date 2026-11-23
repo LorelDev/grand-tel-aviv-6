@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the beam of light over the place of the task Ori is following, with a pulsing ring on the ground. One cylinder + one
+// Grand Tel Aviv 6 — the beam of light over the place of the task the hero is following, with a pulsing ring on the ground. One cylinder + one
 // ring, additive, no depth write: it reads from across the neighbourhood and never hides anything.
 import * as THREE from 'three';
 

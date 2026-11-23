@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — what is where (PURE data): the stars of the map (the ring, the office computer, the garage, the cafe: the places where something happens) and one
+// Grand Tel Aviv 6 — what is where (PURE data): the stars of the map (the ring, the office computer, the garage, the cafe: the places where something happens) and one
 // short line for every place. They are shown on the minimap, in the big map (M) and under "G Go inside" at a door, so nobody has to wander around guessing which
 // shop has something special. The words are warm and short; the persona test reads them.
 
@@ -14,11 +14,11 @@ export const LANDMARKS = [
 export const CUP = { icon: 'flag', short: 'RACES', name: 'The Sababa Cup', what: "Car races, out of town: end of the main road, R", color: '#e5484d' };
 
 /** His car on the map: it shows while it is parked; a click on it in the big map makes the beam and the arrow lead to it. */
-export const CAR = { icon: 'car', short: 'CAR', name: "Ori's car", what: 'Parked where he left it. Press F next to it to get in', color: '#6a5cff' };
+export const CAR = { icon: 'car', short: 'CAR', name: 'Your car', what: 'Parked where he left it. Press F next to it to get in', color: '#6a5cff' };
 
 /** One line for every place of content.js: what is there. */
 export const PLACE_LINES = {
-  home: "Ori's flat - the desk where it all started",
+  home: 'The JLL offices - where it all starts',
   mum: 'Mum is here - and the plastic sofa',
   auntie: 'Auntie, a lemon tree and the router',
   cityhall: 'Take a number - the Inspector is around',

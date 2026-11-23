@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the numbers that float up over whoever is hit (PURE: no DOM, no three). `floatFor(event)` turns an event of the sim (boxing.js) into
+// Grand Tel Aviv 6 — the numbers that float up over whoever is hit (PURE: no DOM, no three). `floatFor(event)` turns an event of the sim (boxing.js) into
 // what to show: white = a clean hit, gold = a counter (the payoff of a perfect dodge or a parry) and the PERFECT of the dodge itself, small grey = a punch the
 // guard took. `createFloatPool(n)` is the fixed set of slots they live in: the DOM side (fight-ui.js) paints exactly these n elements and nothing is created
 // while a fight is on, so a long fight cannot leak anything.

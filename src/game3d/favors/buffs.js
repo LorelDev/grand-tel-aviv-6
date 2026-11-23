@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — food for the next fight (PURE) [experimental]: the places that have something to eat give Ori a little help in the ring, once, for the next fight of the day (Mum's soup, Auntie's tea, the kiosk's gum, a
+// Grand Tel Aviv 6 — food for the next fight (PURE) [experimental]: the places that have something to eat give the hero a little help in the ring, once, for the next fight of the day (Mum's soup, Auntie's tea, the kiosk's gum, a
 // Perach snack, Roee's espresso). A bite is a small thing: every help is a multiplier of 1.1 to 1.35 on one or two of the boxer's numbers (see boxer.js statsFor), it lasts for ONE fight and is gone at the end of the day.
 
 /**

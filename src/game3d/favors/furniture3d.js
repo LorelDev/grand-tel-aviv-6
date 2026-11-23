@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the little things that make a pavement look lived in: litter bins, bike racks with bikes leaning on them, A-frame menu boards, the cafe's big
+// Grand Tel Aviv 6 — the little things that make a pavement look lived in: litter bins, bike racks with bikes leaning on them, A-frame menu boards, the cafe's big
 // parasols and its string of warm bulbs (they come on at dusk), and the fountain's spray. Everything is placed along the walls of the buildings (never in the middle
 // of a walk), deterministic from the map, drawn as a few instanced meshes.
 import * as THREE from 'three';

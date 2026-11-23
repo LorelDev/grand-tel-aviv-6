@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the FIGHT MUSIC, synthesised (no files) and nothing like the street music's marimba: E minor, 128 bpm, four on the floor, a bass riff, stabs and
+// Grand Tel Aviv 6 — the FIGHT MUSIC, synthesised (no files) and nothing like the street music's marimba: E minor, 128 bpm, four on the floor, a bass riff, stabs and
 // arps, a lead on top. It is a look-ahead scheduler (a 30 ms timer books the notes 150 ms ahead on the audio clock, so it never drifts and never stutters when the
 // game does), and every note is PURE DATA first: `stepEvents(track, step, level)` says what plays on a 16th-note step, `instrument()` turns an event into voices for the
 // engine of fight-sfx.js. So the music is tested in Node, and rendered offline to WAV for the loudness checks.

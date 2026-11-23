@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the touch buttons of the ring (DOM). A phone or a tablet has no keyboard: a stick on the left to walk, and on the right JAB, CROSS, GUARD (hold),
+// Grand Tel Aviv 6 — the touch buttons of the ring (DOM). A phone or a tablet has no keyboard: a stick on the left to walk, and on the right JAB, CROSS, GUARD (hold),
 // DASH and, once Peach Fury is open, FURY. They are only on screen on a touch device (a coarse pointer, or from the first finger that touches the game) and only
 // while a fight or the speed bag is on. They do exactly what the keys do: fight3d.js hands them the same pulses.
 import { TEXT } from './texts.js';

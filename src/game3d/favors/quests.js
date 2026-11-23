@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the quest engine (PURE, seeded: no DOM, no three, no Math.random). The phone keeps buzzing: a DIRECTOR plans the
+// Grand Tel Aviv 6 — the quest engine (PURE, seeded: no DOM, no three, no Math.random). The phone keeps buzzing: a DIRECTOR plans the
 // whole day from the seed (a rising stream of tasks, bursts, double bookings, fake-URGENT mum calls), the engine runs the life of each
 // task (new -> accepted -> done / failed / declined / delegated), the chaos meter, seven relationships, the score, the Do-Not-Disturb
 // power-up, the mentors who take over trivial jobs, and the report card at midnight. Times are GAME MINUTES since 00:00.
@@ -217,7 +217,7 @@ export function createQuests({ seed = 1, dist, difficulty = 'normal', rel = null
     state, plan,
     get(uid) { return get(uid); },
     open() { return state.tasks.filter(isOpen); },
-    /** Open tasks, soonest deadline first, with the numbers the phone shows. `from` = the place Ori is at (for the distance). */
+    /** Open tasks, soonest deadline first, with the numbers the phone shows. `from` = the place the hero is at (for the distance). */
     list(from = 'home') {
       return state.tasks.filter(isOpen).map((t) => ({ ...t, remaining: t.deadline - state.min, urgency: clamp(1 - (t.deadline - state.min) / Math.max(1, t.window), 0, 1), metres: Math.round(dist[from]?.[t.at] ?? 0) })).sort((a, b) => a.deadline - b.deadline || b.pri - a.pri);
     },
@@ -290,7 +290,7 @@ export function createQuests({ seed = 1, dist, difficulty = 'normal', rel = null
       return false;
     },
 
-    /** Ori did it: `quality` 0..1 (how well the little action went). */
+    /** the hero did it: `quality` 0..1 (how well the little action went). */
     complete(uid, quality = 1) {
       const t = get(uid);
       if (!t || !isOpen(t)) return null;

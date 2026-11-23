@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the street cats (PURE) [experimental]: the three cats that sit about the neighbourhood (on a bench, on a car, by the kiosk door) can be petted. Space next to one: a purr, a heart, a little love for the first
+// Grand Tel Aviv 6 — the street cats (PURE) [experimental]: the three cats that sit about the neighbourhood (on a bench, on a car, by the kiosk door) can be petted. Space next to one: a purr, a heart, a little love for the first
 // few pets; the third pet makes the cat his friend. Three friends make a "Cat person". A cat is only a cat: it never runs away, never scratches, and a second pet a moment later is just more purring.
 
 /** The cats, by the name of their mesh in the street (life3d.js): `color` for "Pet the ginger cat", `name` once they are friends. */

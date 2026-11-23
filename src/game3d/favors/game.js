@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the game controller the host runs (see host.js for the contract): builds the neighbourhood, Ori and the crowd,
+// Grand Tel Aviv 6 — the game controller the host runs (see host.js for the contract): builds the neighbourhood, the hero and the crowd,
 // drives them from the input, runs the game clock and the light of the day, feeds the quest engine (quests.js) and shows it on the phone
 // and the HUD, and draws one frame. The favours themselves (the little actions at each place) arrive with T53; until then Space at the
 // right door simply does the favour.
@@ -86,7 +86,7 @@ import { createGtaMissions } from './gta-missions.js';
 
 const KEY_GAIN = 0.92; // sun / moon intensity
 const HEMI_GAIN = 1.08; // (soft shadows: a lot of sky light fills them)
-const NEAR_PLACE = 16; // metres: the label of a place shows when Ori is this close to its door
+const NEAR_PLACE = 16; // metres: the label of a place shows when the hero is this close to its door
 const USE_RANGE = 3.8; // metres from a door where Space does the favour
 const SETPIECES = { 3: [{ at: 16 * 60, id: 'dov-race' }], 4: [{ at: 9 * 60 + 20, id: 'city-inspection' }], 5: [{ at: 12 * 60, id: 'party-list' }] }; // the big moments of the week (quests.js plans them)
 const KIND_LABEL = { chase: 'CATCH', find: 'SEARCH', race: 'RACE', taxi: 'FARE', list: 'SHOP', delivery: 'DELIVER' };
@@ -126,16 +126,16 @@ export function createFavorsGame(o) {
   let ground = null;
   let props = null;
   let traffic = null;
-  let veh = null; // the car's physics while Ori drives (null on foot)
+  let veh = null; // the car's physics while the hero drives (null on foot)
   let drive = null; // { p: the parked car (a map prop), mesh: the moving copy }
-  let nearCar = null; // the parked car within reach of Ori
+  let nearCar = null; // the parked car within reach of the hero
   let camDist = 8.9;
   let jobs = null; // Grand Tel Aviv: המשימות (gta-missions.js)
   let gta = null; // Grand Tel Aviv: רמת מבוקשות, משטרה, הולכי רגל (gta.js)
   let lastPunch = 0;
   let bodies = null; // cars that were knocked about and now slide and spin on their own
   let fire = null; // the afterburner flames
-  let carTag = null; // the bobbing "ORI CAR" tag over Ori's own car whenever he has stepped out of it (and from the start, until he first gets in)
+  let carTag = null; // the bobbing "YOUR CAR" tag over the hero's own car whenever he has stepped out of it (and from the start, until he first gets in)
   let ownCar = null; // the prop of his car
   let beach = null;
   let life = null;
@@ -152,7 +152,7 @@ export function createFavorsGame(o) {
   let phone = null;
   let social = null;
   let interiors = null;
-  let inside = null; // { id, info, colliders, hidden, saved, t } while Ori is in a building
+  let inside = null; // { id, info, colliders, hidden, saved, t } while the hero is in a building
   let trans = null; // the door: { t, dur, phase, fn } (a quick fade to black and back)
   let fadeEl = null;
   let goHint = null;
@@ -265,7 +265,7 @@ export function createFavorsGame(o) {
       sun.shadow.normalBias = 0.35;
     }
     scene.add(hemi, sun, sun.target);
-    // a little warm light that walks with Ori after dark, so he never disappears into the street
+    // a little warm light that walks with the hero after dark, so he never disappears into the street
     fill = new THREE.PointLight(0xffd2a0, 0, 13, 1.6);
     scene.add(fill);
     scene.fog = new THREE.Fog(0xcfe6f8, 80, 520);
@@ -302,7 +302,7 @@ export function createFavorsGame(o) {
     setOutlineView(size.x * renderer.getPixelRatio(), size.y * renderer.getPixelRatio());
     lap('ori');
     ctrl = createController(map.world, { x: map.spawn.x, z: map.spawn.z, heading: map.spawn.heading });
-    rig = createCameraRig(map.world, { yaw: map.spawn.heading, pitch: 0.38, dist: 8.9 });
+    rig = createCameraRig(map.world, { yaw: map.spawn.camYaw ?? map.spawn.heading, pitch: 0.38, dist: 8.9 });
     findPlaces();
     beam = createBeam();
     scene.add(beam.group);
@@ -365,7 +365,7 @@ export function createFavorsGame(o) {
     if (!o.quick && !reduceMotion()) startIntro();
   }
 
-  // ── the fly-in: down from above the street to behind Ori while he checks his phone (it just buzzed) ──
+  // ── the fly-in: down from above the street to behind the hero while he checks his phone (it just buzzed) ──
   function startIntro() {
     intro = { t: 0, dur: 4.2, base: { yaw: rig.state.yaw, pitch: rig.state.pitch, dist: rig.state.dist } };
     ori.hold('phone');
@@ -432,7 +432,7 @@ export function createFavorsGame(o) {
     return { x: d.x - d.nx * 0.8, z: d.z - d.nz * 0.8, place: gl && gl.place ? gl.place : task.at };
   }
   const missionEnv = (uid) => ({ places: map.places, zones: map.zones, blocked: (x, z, r) => map.world.blocked(x, z, r), seed: subSeed(questSeed, uid * 7 + 1), day: campaign.day });
-  /** What a mission sees of the world this frame. Inside a building Ori stands at its door (the rooms hang far from the street). */
+  /** What a mission sees of the world this frame. Inside a building the hero stands at its door (the rooms hang far from the street). */
   function missionCtx(dt) {
     const pl = inside ? map.places[inside.id].door : null;
     const car = drive && !inside ? { x: veh.state.x, z: veh.state.z, speed: veh.state.speed, heading: veh.state.heading, yawRate: veh.state.yawRate, boost: veh.state.boost } : null;
@@ -528,7 +528,7 @@ export function createFavorsGame(o) {
     night = null;
     ctrl.teleport(map.spawn.x, map.spawn.z, map.spawn.heading);
     ctrl.state.stamina = 1;
-    rig.state.yaw = map.spawn.heading;
+    rig.state.yaw = map.spawn.camYaw ?? map.spawn.heading;
     if (drive) exitCar();
     if (social) social.reset();
     plan = weatherPlan(questSeed);
@@ -569,7 +569,7 @@ export function createFavorsGame(o) {
     campaign.save();
     return fine;
   }
-  /** הרכב שהוא נוהג בו נמסר (למוסך של עוזי): אורי יוצא והרכב נעלם מהעיר. */
+  /** הרכב שהוא נוהג בו נמסר (למוסך של עוזי): הגיבור יוצא והרכב נעלם מהעיר. */
   function takeCar() {
     if (!drive) return;
     const p = drive.p;
@@ -590,7 +590,7 @@ export function createFavorsGame(o) {
     for (const c of traffic.cars) { const d = Math.hypot(c.x - st.x, c.z - st.z); if (d < bd) { bd = d; best = c; } }
     return best;
   }
-  /** חטיפת רכב מהתנועה: הוא יוצא מהנתיב, הופך לרכב "חונה" שאפשר להיכנס אליו, ואורי כבר מאחורי ההגה. */
+  /** חטיפת רכב מהתנועה: הוא יוצא מהנתיב, הופך לרכב "חונה" שאפשר להיכנס אליו, והגיבור כבר מאחורי ההגה. */
   function jackCar(c) {
     const d = traffic.detach(c);
     if (!d) return;
@@ -630,13 +630,13 @@ export function createFavorsGame(o) {
     for (const p of props.cars) { const d = Math.hypot(p.x - st.x, p.z - st.z); if (d < bd) { bd = d; best = p; } }
     nearCar = best;
   }
-  /** The floating "ORI CAR" tag over his car. */
+  /** The floating "YOUR CAR" tag over his car. */
   function makeCarTag(car) {
     const cv = document.createElement('canvas'); cv.width = 512; cv.height = 256;
     const x = cv.getContext('2d');
     x.fillStyle = 'rgba(20,24,36,0.86)'; x.beginPath(); x.roundRect(36, 30, 440, 120, 60); x.fill();
     x.strokeStyle = 'rgba(255,255,255,0.35)'; x.lineWidth = 4; x.stroke();
-    x.fillStyle = '#ffffff'; x.font = '800 62px Inter, system-ui, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText('ORI CAR', 256, 92);
+    x.fillStyle = '#ffffff'; x.font = '800 62px Inter, system-ui, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText('YOUR CAR', 256, 92);
     x.fillStyle = 'rgba(20,24,36,0.86)'; x.beginPath(); x.moveTo(216, 150); x.lineTo(296, 150); x.lineTo(256, 214); x.closePath(); x.fill();
     const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
     const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false, depthWrite: false, fog: false }));
@@ -656,7 +656,7 @@ export function createFavorsGame(o) {
     if (carTag) carTag.sp.visible = false; // (the tag comes back every time he steps out)
     if (tracked === 'car') tracked = null;
     const pk = campaign.eco.perks();
-    veh = createVehicle(map.world, { x: p.x, z: p.z, heading: p.rot + Math.PI / 2, ...(p.mine ? { accel: 21 * pk.accel, top: 27 * pk.top * driverTop(), reverse: 17, maxSteer: 0.82, grip: 2.6 * pk.grip } : { accel: 9.5, top: 17 }) }); // Ori's own car is the quick one (the garage makes it quicker)
+    veh = createVehicle(map.world, { x: p.x, z: p.z, heading: p.rot + Math.PI / 2, ...(p.mine ? { accel: 21 * pk.accel, top: 27 * pk.top * driverTop(), reverse: 17, maxSteer: 0.82, grip: 2.6 * pk.grip } : { accel: 9.5, top: 17 }) }); // the hero's own car is the quick one (the garage makes it quicker)
     veh.baseGrip = p.mine ? 2.6 * pk.grip : 1;
     ori.group.visible = false;
     ctrl.teleport(p.x, p.z, veh.state.heading);
@@ -670,7 +670,7 @@ export function createFavorsGame(o) {
     if (!drive) return;
     const { p, mesh } = drive;
     const s = veh.state;
-    // the car stays where it was left (hidden instance moved there, three circles in the collision world), Ori steps out on the driver's side
+    // the car stays where it was left (hidden instance moved there, three circles in the collision world), the hero steps out on the driver's side
     p.x = s.x; p.z = s.z; p.rot = s.heading - Math.PI / 2;
     props.setCarPose(p);
     props.setCarHidden(p, false);
@@ -687,13 +687,13 @@ export function createFavorsGame(o) {
     ctrl.state.sprinting = false;
     drive = null; veh = null;
     ori.group.visible = true;
-    if (p.mine) { if (carTag) carTag.car = p; else carTag = makeCarTag(p); } // "ORI CAR" over it, every time he steps out
+    if (p.mine) { if (carTag) carTag.car = p; else carTag = makeCarTag(p); } // "YOUR CAR" over it, every time he steps out
     rig.state.dist = camDist;
     sfx.engine(-1);
     sfx.tap();
     hud.toast(TEXT.carOut);
   }
-  /** What the car Ori drives touches gets knocked loose: parked cars and traffic cars turn into free bodies that take the hit. */
+  /** What the car the hero drives touches gets knocked loose: parked cars and traffic cars turn into free bodies that take the hit. */
   function knockThings(s) {
     const fx = Math.sin(s.heading); const fz = Math.cos(s.heading);
     const reach = (o) => [s.x + fx * o, s.z + fz * o];
@@ -726,7 +726,7 @@ export function createFavorsGame(o) {
     const wantBoost = !hold && mineCar && input.sprint && input.fwd > 0.05 && boostFuel > 0.04;
     if (wantBoost) boostFuel = Math.max(0, boostFuel - dts); else boostFuel = Math.min(pk.tank, boostFuel + dts * 0.55);
     veh.setGrip(veh.baseGrip * (1 - pk.rainGrip * weatherNow.wet) * (hz && hz.oil > 0 ? 0.3 : 1)); // a wet road is slippery (the tyres in the garage help), and so is oil
-    veh.update(dts, hold ? { throttle: 0, steer: 0, brake: true, boost: false } : { throttle: input.fwd, steer: input.strafe, brake: !mineCar && input.sprint, boost: wantBoost }); // Ori's car boosts on Shift (while the tank lasts), the others brake
+    veh.update(dts, hold ? { throttle: 0, steer: 0, brake: true, boost: false } : { throttle: input.fwd, steer: input.strafe, brake: !mineCar && input.sprint, boost: wantBoost }); // the hero's car boosts on Shift (while the tank lasts), the others brake
     if (hold) { s.speed = 0; s.vx = 0; s.vz = 0; }
     if (track) { trackCars(s, fm); trackHazards(s, dts); trackScrub(s, pk, dts); trackWall(s); }
     knockThings(s);
@@ -746,7 +746,7 @@ export function createFavorsGame(o) {
     drive.mesh.group.rotation.set(0, s.heading - Math.PI / 2, 0);
   }
 
-  /** Space: do the favour at the door Ori stands at (the followed task first, then the soonest one there). T53 puts a little action here. */
+  /** Space: do the favour at the door the hero stands at (the followed task first, then the soonest one there). T53 puts a little action here. */
   function useDoor() {
     if (!nearest) return;
     const d = nearest.door;
@@ -756,9 +756,9 @@ export function createFavorsGame(o) {
     if (!pick) { if (nearest.id === 'workshop') openGarage(); else if (ROOMS[nearest.id]) enterPlace(nearest.id); else hud.toast(TEXT.nobodyAsked(nearest.name)); return; }
     startFavour(pick);
   }
-  /** The place where a task's mission wants Ori right now (the pickup, a shop, the door of the favour). */
+  /** The place where a task's mission wants the hero right now (the pickup, a shop, the door of the favour). */
   function stagePlace(tk) { const m = missions.get(tk.uid); const gl = m && m.goal(); return gl && gl.place ? gl.place : tk.at; }
-  /** Space at the place a favour is waiting for: its mission starts (a little action, the hand-over) - and becomes the one Ori follows. */
+  /** Space at the place a favour is waiting for: its mission starts (a little action, the hand-over) - and becomes the one the hero follows. */
   function startFavour(task) {
     const m = missions.get(task.uid);
     if (!m) { quests.complete(task.uid, 0.85); syncQuests(); return; }
@@ -1087,7 +1087,7 @@ export function createFavorsGame(o) {
     if (!track.since) track.since = now;
     else if (now - track.since > 3800) leaveTrack();
   }
-  /** The other cars of the field: solid. Three circles each (like Ori's car); a bump pushes him back, takes speed from the one who comes from behind, and shoves the rival sideways (missions.js `shove`). */
+  /** The other cars of the field: solid. Three circles each (like the hero's car); a bump pushes him back, takes speed from the one who comes from behind, and shoves the rival sideways (missions.js `shove`). */
   const CAR_OFFS = [-1.35, 0, 1.35];
   function trackCars(s, fm) {
     if (!fm || !fm.cars) return;
@@ -1103,7 +1103,7 @@ export function createFavorsGame(o) {
         if (pen > 0 && (!best || pen > best.pen)) best = { pen, nx: dd > 1e-3 ? dx / dd : -cx, nz: dd > 1e-3 ? dz / dd : -cz };
       }
       if (!best) continue;
-      const { nx, nz, pen } = best; // (n: from the rival to Ori)
+      const { nx, nz, pen } = best; // (n: from the rival to the hero)
       s.x += nx * pen * 0.6; s.z += nz * pen * 0.6;
       const closing = -((s.vx - cx * c.v) * nx + (s.vz - cz * c.v) * nz); // > 0: they are coming together
       if (closing > 0) {
@@ -1264,7 +1264,7 @@ export function createFavorsGame(o) {
     const pr = campaign.state.progress;
     if (!pr.wish || !pr.wish.list || !pr.wish.list.length) return;
     const tips = (pr.tips ||= {});
-    if (!tips.wishes && ((pr.hellos || 0) >= 5 || campaign.day >= 2)) { tips.wishes = true; hud.toast('Ori has three small wishes every day. They are in the journal.', 4600); }
+    if (!tips.wishes && ((pr.hellos || 0) >= 5 || campaign.day >= 2)) { tips.wishes = true; hud.toast('You have three small wishes every day. They are in the journal.', 4600); }
     const s = wishSettle(pr.wish, wishNow(), clock.hour);
     if (!s.newly.length && !s.full) return;
     for (const r of s.newly) {
@@ -1345,7 +1345,7 @@ export function createFavorsGame(o) {
   /** A place he can follow: a place of the map, or his car. */
   function trackInfo(id) {
     if (!id) return null;
-    if (id === 'car') return ownCar ? { name: CAR.name, sign: 'ORI CAR', door: { x: ownCar.x, z: ownCar.z, nx: 0, nz: 0 } } : null;
+    if (id === 'car') return ownCar ? { name: CAR.name, sign: 'YOUR CAR', door: { x: ownCar.x, z: ownCar.z, nx: 0, nz: 0 } } : null;
     if (id === 'cup') return { name: CUP.name, sign: 'RACES', door: { x: START.x, z: START.z, nx: 0, nz: 0 } };
     return map.places[id] || null;
   }
@@ -1790,7 +1790,7 @@ export function createFavorsGame(o) {
     if (Math.abs(camera.fov - c.fov) > 0.05) { camera.fov = c.fov; camera.updateProjectionMatrix(); }
   }
 
-  /** The street lamps closest to Ori: wet roads mirror their light (up to 8). */
+  /** The street lamps closest to the hero: wet roads mirror their light (up to 8). */
   function nearestLamps() {
     const st = ctrl.state;
     const list = [];
@@ -1831,7 +1831,7 @@ export function createFavorsGame(o) {
   }
 
   const api = {
-    /** The host waits for this before open(): Ori and the crowd are built off the main thread (at idle they usually are already). */
+    /** The host waits for this before open(): the hero and the crowd are built off the main thread (at idle they usually are already). */
     preload: () => Promise.all([prewarmOri(tier), prewarmCrowd()]),
     get ori() { return ori; },
     get phase() { return opened ? (over ? 'over' : 'play') : 'loading'; },
@@ -1872,13 +1872,13 @@ export function createFavorsGame(o) {
     get social() { return social; },
     get mapUi() { return mapUi; },
     openFightMenu, startFight, goalTick, journalData, openArcade,
-    /** Dev / tests: say hello to a cast member as if he stood next to Ori ('shilo', 'moti' ...). */
+    /** Dev / tests: say hello to a cast member as if he stood next to the hero ('shilo', 'moti' ...). */
     sayHello(id) { const h = ctrl.state.heading; return social.hello({ id, name: speaker(id).name, x: ctrl.state.x + Math.sin(h) * 1.3, z: ctrl.state.z + Math.cos(h) * 1.3 }); },
     nextDay,
     restartDay,
     boostLeft() { return boostFuel; },
     spawnHail(spec) { if (drive && !hail) { if (spec) { hail = { m: createMission(spec, missionEnv(901)), ttl: 90 }; } else startHail(); } return !!hail; },
-    /** Dev / tests: Ori gets into his own car at once, wherever he is; put the driven car somewhere (heading in radians). */
+    /** Dev / tests: the hero gets into his own car at once, wherever he is; put the driven car somewhere (heading in radians). */
     enterOwnCar() { if (drive) return true; const p = props.cars.find((c) => c.mine); if (!p) return false; ctrl.teleport(p.x + 1.8, p.z, ctrl.state.heading); findCar(); if (nearCar) enterCar(nearCar); return !!drive; },
     placeCar(x, z, heading) { if (!veh) return false; veh.place(x, z, heading); ctrl.teleport(x, z, heading); return true; },
     setStamina(v) { ctrl.state.stamina = v; }, // (dev / tests)
@@ -1970,7 +1970,7 @@ export function createFavorsGame(o) {
       sky.update(camera, t);
       beam.update(t);
       if (shadows) {
-        // the sun's shadow box follows Ori (snapped to texels so the shadows do not shimmer)
+        // the sun's shadow box follows the hero (snapped to texels so the shadows do not shimmer)
         const snap = 1.0;
         const cx = Math.round(st.x / snap) * snap;
         const cz = Math.round(st.z / snap) * snap;
@@ -2007,13 +2007,13 @@ export function createFavorsGame(o) {
         hud.goal(null); hud.arrow(null); beam.hide();
         if (carTag) carTag.sp.visible = false;
       } else {
-        // no task: the goal of the moment (a chip, the beam and the arrow); with none, the arrow points at Ori's car until he first gets in
+        // no task: the goal of the moment (a chip, the beam and the arrow); with none, the arrow points at the hero's car until he first gets in
         const cg = currentGoal(campaign);
         const tp = trackInfo(tracked); // a place he follows from the map beats the goal of the moment
         const gp = tp || (cg && cg.place ? map.places[cg.place] : null);
         if (tp) { const from2 = inside ? map.places[inside.id].door : st; hud.goal({ title: `Heading to ${tp.name}`, meta: `${Math.round(walkDistance(map, from2.x, from2.z, tp.door.x, tp.door.z))} m · M for the map` }); } else if (cg) hud.goal({ title: cg.title, meta: cg.need > 1 ? `${cg.have} / ${cg.need}` : cg.hint }); else hud.goal(null);
         if (gp && !inside) { const d = gp.door; beam.set(d.x - d.nx * 0.8, d.z - d.nz * 0.8, groundHeight(map, d.x, d.z)); } else beam.hide();
-        const ca = carTag && !gp && !drive && !inside ? arrowFor({ door: { x: carTag.car.x, z: carTag.car.z }, sign: 'ORI CAR' }) : null;
+        const ca = carTag && !gp && !drive && !inside ? arrowFor({ door: { x: carTag.car.x, z: carTag.car.z }, sign: 'YOUR CAR' }) : null;
         hud.arrow(gp && !inside ? arrowFor(gp) : ca);
       }
       play.setMission(mview);
@@ -2099,7 +2099,7 @@ export function createFavorsGame(o) {
       if (e.code === PHOTO_KEY && photoFree()) { photoToggle(); return true; }
       if (e.code === 'KeyM' && mapUi && !(social && social.isTalking) && !trans) { mapUi.toggle(); sfx.tap(); return true; }
       if (e.code === 'KeyR' && league && campaign && !track && !trans && !(social && social.isTalking) && photoFree()) { if (startNear() || (inside && inside.id === 'workshop')) openLeague(); else hud.toast('The races are out of town: drive to the east end of the main road, to the flag on the map, and press R.', 4200); return true; } // (the board of the races, from anywhere)
-      // the phone is a panel on the side: its keys (1-9, F, Y / L / N, [ ]) are used, everything else still walks Ori
+      // the phone is a panel on the side: its keys (1-9, F, Y / L / N, [ ]) are used, everything else still walks the hero
       if (play && (play.verbOpen || play.shopOpen) && play.key(e)) return true;
       if (e.code === 'KeyX' && gta && !drive && !inside && !track && !(social && social.isTalking) && !(fight && fight.active)) { if (!e.repeat) streetPunch(); return true; }
       if (e.code === 'KeyG' && !(social && social.isTalking)) { if (!trans) { if (inside) leavePlace(); else if (nearest && !drive && ROOMS[nearest.id] && Math.hypot(nearest.door.x - ctrl.state.x, nearest.door.z - ctrl.state.z) <= USE_RANGE) enterPlace(nearest.id); } return true; }
@@ -2115,7 +2115,7 @@ export function createFavorsGame(o) {
       findPlaces();
       syncQuests();
     },
-    /** Puts Ori in front of a place's door ('home', 'cafe' …) or at {x, z}; the camera snaps behind him. */
+    /** Puts the hero in front of a place's door ('home', 'cafe' …) or at {x, z}; the camera snaps behind him. */
     teleport(target, heading) {
       const p = typeof target === 'string' ? map.places[target] : null;
       if (typeof target === 'string' && !p) return null;
@@ -2135,9 +2135,9 @@ export function createFavorsGame(o) {
     setCamera(c = {}) { if (c.yaw != null) rig.state.yaw = c.yaw; if (c.pitch != null) rig.state.pitch = c.pitch; if (c.dist != null) rig.state.dist = c.dist; rig.reset(); placeCamera(true); },
     /** Dev / tests: put the camera anywhere (null gives the chase camera back). */
     setDebugCamera(cfg) { debugCam = cfg || null; if (!debugCam) rig.reset(); placeCamera(true); },
-    /** Dev / tests: stand cast members ('shilo', 'moti' ...) in a row in front of Ori. */
+    /** Dev / tests: stand cast members ('shilo', 'moti' ...) in a row in front of the hero. */
     spawnCast(ids, o) { return api.spawnPeople(ids.map((id) => speaker(id).spec), o); },
-    /** Dev / tests: stand some people (person specs) in a row in front of Ori. Returns how many were made. */
+    /** Dev / tests: stand some people (person specs) in a row in front of the hero. Returns how many were made. */
     spawnPeople(specs, { spacing = 1.15, ahead = 3.2, quality = 0.5 } = {}) {
       const st = ctrl.state;
       const fx = Math.sin(st.heading); const fz = Math.cos(st.heading);
@@ -2158,7 +2158,7 @@ export function createFavorsGame(o) {
     weather() { return { ...weatherNow, plan: { ...plan } }; },
     /** Dev / tests: start a conversation ('ima', 'clerk', 'stranger:3', 'roee' ...), read its state, close it. */
     talk(id) { return social ? social.start(id, { from: 'dev' }) : false; },
-    /** Dev / tests: walk into a building (instant = no fade) / out again; where Ori is. */
+    /** Dev / tests: walk into a building (instant = no fade) / out again; where the hero is. */
     enter(pid, o) { return enterPlace(pid, o || { instant: true }); },
     leave(o) { return leavePlace(o || { instant: true }); },
     insideId() { return inside ? inside.id : null; },

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — who fights in the ring (data only). The ladder: five neighbours, each with a way of fighting you have to learn, and then somebody
+// Grand Tel Aviv 6 — who fights in the ring (data only). The ladder: five neighbours, each with a way of fighting you have to learn, and then somebody
 // nobody knew about. `ai` is how he moves and thinks: react (seconds he needs to see a punch), block / dodge (how often he reads yours), range, patterns (the
 // punches he throws in a row), rest (seconds he pauses between flurries), punish (how often he hits you when you are open), feint (how often he fakes a punch
 // and throws it a beat later: a dash at the first wind-up is wasted), blink (he teleports), lag.
@@ -9,7 +9,7 @@ export const LADDER = [
     id: 'moti', cast: 'moti', name: 'Moti', title: 'The Neighbour', hp: 230, dmg: 0.9, speed: 0.78, atk: 0.8, st: 90,
     ai: { tell: 1.9, react: 0.6, block: 0.06, dodge: 0.04, range: 1.5, patterns: [['jab'], ['jab'], ['cross'], ['jab', 'cross']], rest: [0.9, 1.7], punish: 0.25 },
     reward: { xp: 48, peaches: 30, love: 3 }, need: { love: 0 },
-    pre: ['Gentle, okay? I have a bad back.', 'I will go easy on you! Mostly.'], win: 'Oh! You are quick! Good for you, Ori.', lose: 'Ha! That is what forty minutes of chatting does to a man.',
+    pre: ['Gentle, okay? I have a bad back.', 'I will go easy on you! Mostly.'], win: 'Oh! You are quick! Good for you, Boss.', lose: 'Ha! That is what forty minutes of chatting does to a man.',
   },
   {
     id: 'albert', cast: 'albert', name: 'Albert', title: 'Kiosk 24/7', hp: 330, dmg: 1.25, speed: 0.72, atk: 0.78, st: 110,
@@ -49,7 +49,7 @@ export const BOSS = {
 export const FIGHTERS = [...LADDER, BOSS];
 export const fighter = (id) => FIGHTERS.find((f) => f.id === id) || null;
 
-/** Is this fighter open to Ori right now? `prog` = the boxer record ({ beaten: [ids] }) and `love` the neighbourhood's love (0..100). Returns { open, why }. */
+/** Is this fighter open to the hero right now? `prog` = the boxer record ({ beaten: [ids] }) and `love` the neighbourhood's love (0..100). Returns { open, why }. */
 export function availability(f, prog, love) {
   const beaten = prog.beaten || [];
   if (f.hidden) return beaten.includes('coach') ? { open: true, why: '' } : { open: false, why: 'hidden' };
@@ -59,7 +59,7 @@ export function availability(f, prog, love) {
   return { open: true, why: '' };
 }
 
-/** The next fighter Ori can take: the first open one he has not beaten (the boss once the champion has fallen). */
+/** The next fighter the hero can take: the first open one he has not beaten (the boss once the champion has fallen). */
 export function nextFight(prog, love) {
   const beaten = prog.beaten || [];
   for (const f of FIGHTERS) if (!beaten.includes(f.id) && availability(f, prog, love).open) return f;

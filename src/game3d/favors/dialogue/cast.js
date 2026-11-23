@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — who can speak: every character in content.js CAST plus Ori and the passers-by. Each speaker has a spec (people/specs.js),
+// Grand Tel Aviv 6 — who can speak: every character in content.js CAST plus the hero and the passers-by. Each speaker has a spec (people/specs.js),
 // a voice (voices.js), a colour and a portrait pose. Specs are plain data, so a stranger the crowd produced can be rebuilt any time.
 import { CAST } from '../content.js';
 import { randomSpec, ORI_SPEC, SHILO_SPEC } from '../people/specs.js';
@@ -24,7 +24,7 @@ export function speaker(id) {
   if (cache.has(id)) return cache.get(id);
   let rec;
   if (id === 'ori') {
-    rec = { id, name: 'Ori', role: 'You', color: '#ff9f43', spec: ORI_SPEC, voice: voiceFor('ori', { gender: 'm' }), ori: true };
+    rec = { id, name: 'Boss', role: 'You', color: '#ff9f43', spec: ORI_SPEC, voice: voiceFor('ori', { gender: 'm' }), ori: true };
   } else if (id.startsWith('stranger:')) {
     const n = +id.slice(9) || 0;
     const spec = randomSpec(7000 + n * 13);

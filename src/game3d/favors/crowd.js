@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — the passers-by (PURE): a few dozen pedestrians who stroll along the sidewalks of the street graph, turn at the
-// corners, and step out of Ori's way. Deterministic from the seed; the 3D side only draws what is here.
+// Grand Tel Aviv 6 — the passers-by (PURE): a few dozen pedestrians who stroll along the sidewalks of the street graph, turn at the
+// corners, and step out of the hero's way. Deterministic from the seed; the 3D side only draws what is here.
 import { mulberry32 } from '../rng.js';
 
 const LANE_MIN = 6.05; // metres from the street centre: between the lamps (5.6) and the palms (7.5)
@@ -52,7 +52,7 @@ export function createCrowd(map, { count = 40, seed = 7 } = {}) {
 
   return {
     walkers,
-    /** dt seconds; `avoid` = { x, z } (Ori) — walkers within 1.3 m are nudged aside. */
+    /** dt seconds; `avoid` = { x, z } (the hero) — walkers within 1.3 m are nudged aside. */
     update(dt, avoid) {
       for (const w of walkers) {
         if (w.stop > 0) { w.stop -= dt; continue; }

@@ -1,4 +1,4 @@
-/* "Ori, Can You...?" — the Sababa Cup board (T51) [experimental]. Prefix lg-. Nothing here names a cursor. */
+/* Grand Tel Aviv 6 — the Sababa Cup board (T51) [experimental]. Prefix lg-. Nothing here names a cursor. */
 .lg-card { width: min(560px, 94vw); text-align: left; gap: 10px; }
 .lg-card h2 { margin: 2px 0 0; }
 .lg-me { display: grid; gap: 6px; padding: 10px 12px; border-radius: 14px; background: rgba(255, 255, 255, 0.06); }

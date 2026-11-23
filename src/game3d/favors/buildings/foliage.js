@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the small plants on the facades, as instanced meshes: window boxes, pots, bougainvillea that hangs down over a balcony, and a café
+// Grand Tel Aviv 6 — the small plants on the facades, as instanced meshes: window boxes, pots, bougainvillea that hangs down over a balcony, and a café
 // chair. Each kind is two meshes: the LEAVES (fixed greens, a little wind) and the BLOOMS (tinted per instance: magenta, red, white). The instances arrive
 // grouped by chunk of the neighbourhood so the ones behind the camera are not drawn.
 import * as THREE from 'three';

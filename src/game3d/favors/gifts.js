@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — gifts from the neighbours (PURE) [experimental]: the hello + love loop pays back. Somebody Ori keeps saying hello to (on enough different days) hands him a small gift in their own voice:
+// Grand Tel Aviv 6 — gifts from the neighbours (PURE) [experimental]: the hello + love loop pays back. Somebody the hero keeps saying hello to (on enough different days) hands him a small gift in their own voice:
 // a lucky coin, a jar of jam, a paper plane. One gift each, twenty-one in all; they are kept in a collection on the journal's Achievements page and each one adds a little love. What counts is DAYS: a hello on
 // a game day is one day (more hellos the same day are a pleasure, not a day), so a gift cannot be farmed by pressing H every minute.
 import { CAST } from './content.js';

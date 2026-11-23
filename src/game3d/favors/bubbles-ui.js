@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — speech bubbles over people's heads (DOM, placed every frame from a world position): Ori's "Hi!" and the answer of whoever he greeted,
+// Grand Tel Aviv 6 — speech bubbles over people's heads (DOM, placed every frame from a world position): the hero's "Hi!" and the answer of whoever he greeted,
 // the barks of passers-by, a heart that floats up when the love goes up. Pointer-events none; a few at a time.
 import * as THREE from 'three';
 import './bubbles.css';

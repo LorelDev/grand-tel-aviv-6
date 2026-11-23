@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — small helpers so the game's overlays behave like proper modal dialogs for keyboard and screen-reader users: the focus goes in when one opens, Tab / Shift+Tab
+// Grand Tel Aviv 6 — small helpers so the game's overlays behave like proper modal dialogs for keyboard and screen-reader users: the focus goes in when one opens, Tab / Shift+Tab
 // walk round inside it (the game's input layer swallows the keys, so the walking is done here), and the focus is given back when it closes.
 const FOCUSABLE = 'button, [href], input, select, textarea, [tabindex]';
 const usable = (n) => !n.disabled && !n.hidden && n.tabIndex >= 0 && !n.closest('[hidden]') && n.getClientRects().length > 0;

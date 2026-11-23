@@ -1,11 +1,11 @@
-// "Ori, Can You...?" — the dialogue runner (PURE: no three, no DOM). A conversation is a plain-data graph:
+// Grand Tel Aviv 6 — the dialogue runner (PURE: no three, no DOM). A conversation is a plain-data graph:
 //   { id, who, title, start, nodes: { key: { s: speaker id, e: emotion, t: 'line', next: 'key' | choices: [{ t, next, if, fx }] | end: true, fx } } }
 //   s  = a speaker id from dialogue/cast.js ('ori' is the player)        e = an expression name from people/expressions.js
 //   if = { flag: 'x' } | { noFlag: 'x' } | { rel: 70 } (the relationship with the speaker is at least that)
 //   fx = { rel: +3, chaos: -2, flag: 'name', give: 'item', hint: 'a line for the phone' }   (the runner collects them, the game applies them)
 // Strings stay in the graph files (nothing is built from pieces of words), so they can be translated.
 
-/** Words Ori never says (the persona rule: always positive). Lines of every other speaker may be grumpy, Ori's never. */
+/** Words the hero never says (the persona rule: always positive). Lines of every other speaker may be grumpy, the hero's never. */
 export const BANNED = /\b(miss(ed|ing)?|fail(ed|s|ure|ing)?|sorry|can'?t|cannot|won'?t|not now|never|hate[sd]?|angry|annoy(ed|ing)?|stupid|useless|loser|lazy|too late|give up|ignore[ds]?|refuse[sd]?|terrible|awful|worst|shut up|boring)\b/i;
 
 const EMOTIONS = new Set(['neutral', 'smile', 'grin', 'laugh', 'wink', 'surprised', 'flustered', 'sleepy', 'smirk', 'proud', 'love', 'talking']);
@@ -80,7 +80,7 @@ export function createRunner(graph, ctx = { flags: new Set(), rel: 60 }) {
 
 /**
  * Checks a graph: every node reachable, every target exists, no dead ends (a node has `next`, `choices` or `end`), every flag it asks for is
- * set somewhere (by the graph or by `known`), choices are never empty, Ori's lines are warm. Returns a list of problems (empty = fine).
+ * set somewhere (by the graph or by `known`), choices are never empty, the hero's lines are warm. Returns a list of problems (empty = fine).
  */
 export function validateGraph(graph, { known = [], speakers = null } = {}) {
   const bad = [];
@@ -112,7 +112,7 @@ export function validateGraph(graph, { known = [], speakers = null } = {}) {
       if (!c.next && !c.end) bad.push(`${at}: choice "${c.t}" leads nowhere`);
       for (const f of [c.if].filter(Boolean)) for (const name of [f.flag, f.noFlag].filter(Boolean)) if (!setFlags.has(name)) bad.push(`${at}: asks for flag "${name}" that nothing sets`);
     }
-    if (n.s === 'ori' && BANNED.test(n.t || '')) bad.push(`${at}: Ori says something negative: "${n.t}"`);
+    if (n.s === 'ori' && BANNED.test(n.t || '')) bad.push(`${at}: Boss says something negative: "${n.t}"`);
   }
   // reachability
   const seen = new Set();

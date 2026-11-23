@@ -1,6 +1,6 @@
-// "Ori, Can You...?" — a living character in three.js: the skinned layers of assemble.js on ONE skeleton, the cartoon outline, the animator
+// Grand Tel Aviv 6 — a living character in three.js: the skinned layers of assemble.js on ONE skeleton, the cartoon outline, the animator
 // (walk / run / gestures / held phone or box), the face (expressions, blinking, talking, a sweat drop) and the little props. `createPerson(spec)` is
-// what Ori and every shopkeeper / neighbour who stops to talk is made with; the far crowd uses the same parts through an instanced shortcut.
+// what the hero and every shopkeeper / neighbour who stops to talk is made with; the far crowd uses the same parts through an instanced shortcut.
 import * as THREE from 'three';
 import { buildPersonData, personStats } from './assemble.js';
 import { createAnimator } from './anim.js';

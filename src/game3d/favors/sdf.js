@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — signed distance fields and a surface-nets mesher (PURE: numbers in, typed arrays out; no three, no DOM). The characters
+// Grand Tel Aviv 6 — signed distance fields and a surface-nets mesher (PURE: numbers in, typed arrays out; no three, no DOM). The characters
 // are built from SMOOTH organic forms — a head from smoothly blended ellipsoids, a mass of hair clumps, sleeves, hands — described as distance
 // fields and turned into watertight meshes with smooth gradient normals. Units are metres; y is up.
 

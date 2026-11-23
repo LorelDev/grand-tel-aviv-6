@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — Ori the boxer (PURE): levels, what each level gives, which moves it unlocks. XP comes from fights (and a little from training);
+// Grand Tel Aviv 6 — the hero the boxer (PURE): levels, what each level gives, which moves it unlocks. XP comes from fights (and a little from training);
 // nothing is ever taken away. The numbers feed boxing.js (the fight itself).
 export const MAX_LEVEL = 10;
 
@@ -20,7 +20,7 @@ export function statsFor(level = 1) {
   };
 }
 
-/** The moves of Ori by the level that opens them (the keys: J jab, K cross, hold L / Shift guard, Space dash; the rest come from the combinations). */
+/** The moves of the hero by the level that opens them (the keys: J jab, K cross, hold L / Shift guard, Space dash; the rest come from the combinations). */
 export const MOVE_LIST = [
   { id: 'jab', lv: 1, name: 'Jab', how: 'J' },
   { id: 'cross', lv: 1, name: 'Cross', how: 'K' },

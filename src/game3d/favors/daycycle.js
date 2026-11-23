@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the game clock and the light of the day (PURE). The day runs from 06:00 to midnight in about 14 real minutes
+// Grand Tel Aviv 6 — the game clock and the light of the day (PURE). The day runs from 06:00 to midnight in about 14 real minutes
 // (configurable). `skyAt(hour)` returns every colour / intensity the 3D side needs as plain numbers, so it is testable without three.
 // Colours are linear-ish sRGB triples in 0..1.
 import { DAY } from './content.js';

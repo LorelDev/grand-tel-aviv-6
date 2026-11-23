@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — parked cars: three crisp shapes (a hatchback, a sedan, a delivery van), each an extruded SIDE PROFILE with a small bevel, so the silhouette
+// Grand Tel Aviv 6 — parked cars: three crisp shapes (a hatchback, a sedan, a delivery van), each an extruded SIDE PROFILE with a small bevel, so the silhouette
 // is clean instead of a melted blob. Glass is a dark panel on the sides plus a windscreen and a rear window; the wheels sit in dark arches; lamps, grille, bumpers,
 // plate and mirrors are small boxes. The paint takes the instance colour (white vertex colour); everything else keeps its own colour in the vertex colour.
 import * as THREE from 'three';
@@ -21,7 +21,7 @@ const KINDS = {
     cab: [[-1.4, 0.86], [-0.85, 1.4], [0.4, 1.42], [1.0, 0.86]],
     wind: [[1.0, 0.86], [0.4, 1.42]], rear: [[-1.4, 0.86], [-0.85, 1.4]], pillar: -0.25,
   },
-  // Ori's own car: nothing like the neighbours' - a low, wide wedge in pearl white: a nose that dives, a glass bubble far back, flared haunches, big aero wheels with peach rims, one
+  // the hero's own car: nothing like the neighbours' - a low, wide wedge in pearl white: a nose that dives, a glass bubble far back, flared haunches, big aero wheels with peach rims, one
   // thin light bar nose and tail, a floating rear wing and a pale under-glow. No grille, no badge but the peach.
   ori: {
     hw: 0.96, cabHw: 0.74, wr: 0.43, wheels: [-1.6, 1.62], nose: 2.55, tail: -2.55, lampY: 0.72, noseY: 0.6, glassCab: true, aero: true, wedge: true,
@@ -100,7 +100,7 @@ function slope([a, b], halfW, push) {
   return g;
 }
 
-/** Ori's peach: a little badge (a body with a dip at the top and a leaf), in the XY plane facing +z, about `size` m wide. */
+/** the hero's peach: a little badge (a body with a dip at the top and a leaf), in the XY plane facing +z, about `size` m wide. */
 function peachBadge(size) {
   // a round peach: a smooth top, a slight point at the bottom, a groove down one side (cut out, so the paint shows through) and one long pointed leaf: nothing like a bitten apple
   const body = new THREE.Shape();
@@ -131,7 +131,7 @@ export function carGeometry({ kind = 'hatch' } = {}) {
   const glass = lin(0.07, 0.11, 0.17);
   const trim = lin(0.08, 0.08, 0.09);
   const tyre = lin(0.04, 0.04, 0.045);
-  const rim = K.wedge ? lin(0.2, 0.21, 0.23) : lin(0.72, 0.74, 0.78); // (Ori's wheels are graphite)
+  const rim = K.wedge ? lin(0.2, 0.21, 0.23) : lin(0.72, 0.74, 0.78); // (the hero's wheels are graphite)
   const bodyParts = [paint(slab(round(K.lower, 2), hw, 0.09), white)];
   const parts = [];
   const box = (x0, y0, z0, x1, y1, z1, c, into = parts) => {

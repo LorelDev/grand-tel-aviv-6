@@ -1,8 +1,8 @@
-/* "Ori's Life" — the in-game overlay: a glass clock, the place label, a stamina bar, the pause menu and the touch controls.
+/* "Grand Tel Aviv 6" — the in-game overlay: a glass clock, the place label, a stamina bar, the pause menu and the touch controls.
    The shell (.g3d, .g3d-menu, .g3d-card, .g3d-btn) comes from game3d.css; everything here is prefixed fv-. */
 .g3d[data-game='favors'] { --fv-glass: rgba(20, 24, 36, 0.55); --fv-edge: rgba(255, 255, 255, 0.16); --fv-ink: #f5f6fa; --fv-ink2: rgba(235, 238, 250, 0.7); --fv-accent: #ff9f43; background: #bcd4ea; }
 .g3d[data-game='favors'].booting::after {
-  content: "Ori's Life"; font: 700 34px Inter, system-ui, sans-serif; font-style: normal; letter-spacing: -0.01em; color: #1d1d1f; text-shadow: none;
+  content: "Grand Tel Aviv 6"; font: 700 34px Inter, system-ui, sans-serif; font-style: normal; letter-spacing: -0.01em; color: #1d1d1f; text-shadow: none;
   background: radial-gradient(ellipse at 50% 55%, #fdf3e3, #cfe0f1 75%);
 }
 .g3d[data-game='favors'] .g3d-card { background: linear-gradient(180deg, rgba(36, 40, 58, 0.96), rgba(22, 25, 38, 0.96)); }

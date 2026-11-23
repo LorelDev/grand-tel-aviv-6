@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — THE RING in the street (three.js): a boxing ring on the court with a crowd that grows with the neighbourhood's love, and the fight mode
-// that plays a bout (boxing.js) on it: the two fighters (Ori in his southpaw guard, the opponent a person from the cast), the animations that follow the sim,
+// Grand Tel Aviv 6 — THE RING in the street (three.js): a boxing ring on the court with a crowd that grows with the neighbourhood's love, and the fight mode
+// that plays a bout (boxing.js) on it: the two fighters (the hero in his southpaw guard, the opponent a person from the cast), the animations that follow the sim,
 // the hit-stop, the shakes, the sparks, the glitch of the hidden boss, the fight camera, the keys. The sim is pure and tested on its own; this file only shows it.
 import * as THREE from 'three';
 import { createPerson } from './people/person.js';
@@ -25,7 +25,7 @@ const FALL = 0.75;
 const RISE = 0.8; // (a fighter who was knocked down gets up over this long)
 const HEAD_Y = 0.05; // the numbers float up from this far over the head of a fighter
 const BAG_INTRO = 2.6; // seconds from the bell to GO in the speed-bag drill (three clicks, then GO is the fourth)
-const BAG_ORI_Z = 0.3; // where Ori stands for the drill (the bag hangs on the other side of the middle of the ring, 0.64 m from him)
+const BAG_ORI_Z = 0.3; // where the hero stands for the drill (the bag hangs on the other side of the middle of the ring, 0.64 m from him)
 const GRADE_POWER = { perfect: 1, good: 0.7, ok: 0.45 };
 
 const tex = (w, h, draw) => { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t; };
@@ -285,7 +285,7 @@ export function createFightMode(o) {
   let held = new Set();
   const pend = { jab: false, cross: false, dash: false, fury: false };
   let koT = [0, 0];
-  let upT = [0, 0]; // the time left of a get-up (Ori, the opponent)
+  let upT = [0, 0]; // the time left of a get-up (the hero, the opponent)
   let introStage = 0;
   let phaseT = 0;
   let pending = null; // what to do when the fade is black
@@ -294,7 +294,7 @@ export function createFightMode(o) {
   let bossIntro = false;
   let winPlayed = 0;
   let cb = {};
-  const names = { me: 'Ori', foe: '', title: '' };
+  const names = { me: 'Boss', foe: '', title: '' };
   // the speed-bag drill (training.js): the bag and its stand are made the first time they are needed
   let mode = 'bout'; // 'bout' (a fight) | 'bag' (the drill)
   let run = null;
@@ -364,7 +364,7 @@ export function createFightMode(o) {
       bout = createBout({ level, opp: def, seed, intro: bossIntro ? 3.6 : 2.6, buff, hpFrac });
       me = { person: ori.person };
       ori.setMirror(true); ori.hold('guard'); ori.group.rotation.order = 'YXZ';
-      names.me = 'Ori'; names.level = level; names.foe = def.name; names.title = def.title; names.fury = !!bout.P.unlocks.fury;
+      names.me = 'Boss'; names.level = level; names.foe = def.name; names.title = def.title; names.fury = !!bout.P.unlocks.fury;
       ui.show(bout, names); ui.setRound(round);
       mode = 'bout'; run = null;
       side = { x: 1, z: 0 }; koT = [0, 0]; upT = [0, 0]; introStage = 0; timeT = 0; winPlayed = 0; shake = 0; hitStop = 0; camPos = null; camLook = null;
@@ -378,7 +378,7 @@ export function createFightMode(o) {
   }
 
   function end() {
-    // back to the street: Ori stands at the foot of the steps
+    // back to the street: the hero stands at the foot of the steps
     const ori = getOri();
     ori.setMirror(false); ori.hold(null); ori.force(null);
     ori.group.rotation.set(0, ori.group.rotation.y, 0); ori.group.rotation.order = 'XYZ';
@@ -466,7 +466,7 @@ export function createFightMode(o) {
         if (e.dir) {
           const fx = Math.sin(a.f.face); const fz = Math.cos(a.f.face);
           const fwd = e.dir[0] * fx + e.dir[1] * fz; const side = -e.dir[0] * fz + e.dir[1] * fx; // side > 0: to his right
-          if (Math.abs(side) > Math.abs(fwd) * 0.8) name = (side > 0) !== (e.who === 'player') ? 'dodgeR' : 'dodgeL'; // (Ori is a southpaw: his poses are mirrored, so the names swap)
+          if (Math.abs(side) > Math.abs(fwd) * 0.8) name = (side > 0) !== (e.who === 'player') ? 'dodgeR' : 'dodgeL'; // (the hero is a southpaw: his poses are mirrored, so the names swap)
           else name = fwd < 0 ? 'dodgeB' : 'dodge';
         }
         a.person.play(name, 1.2); sfx.dash(); break;
@@ -486,11 +486,11 @@ export function createFightMode(o) {
     }
   }
 
-  // ── the camera: beside the ring, Ori on the left; it follows the middle of the fight and pushes in on a heavy punch ──
+  // ── the camera: beside the ring, the hero on the left; it follows the middle of the fight and pushes in on a heavy punch ──
   function camera(dt) {
     const P = bout.P; const O = bout.O;
     let ax = O.x - P.x; let az = O.z - P.z; const sep = Math.hypot(ax, az) || 1; ax /= sep; az /= sep;
-    const rx = -az; const rz = ax; // Ori's right: the camera stands about there, on the nearest middle of a side of the ring
+    const rx = -az; const rz = ax; // the hero's right: the camera stands about there, on the nearest middle of a side of the ring
     const cardinal = (vx, vz) => (Math.abs(vx) > Math.abs(vz) ? { x: Math.sign(vx), z: 0 } : { x: 0, z: Math.sign(vz) });
     if (side.x * rx + side.z * rz < 0.4) side = cardinal(rx, rz); // (only when the fight has turned a lot)
     const mx = cx + (P.x + O.x) / 2; const mz = cz + (P.z + O.z) / 2;
@@ -577,7 +577,7 @@ export function createFightMode(o) {
       mode = 'bag'; run = createBagRun(); bout = null;
       me = { person: ori.person };
       ori.setMirror(true); ori.hold('guard'); ori.group.rotation.order = 'YXZ';
-      names.me = 'Ori'; names.fury = false;
+      names.me = 'Boss'; names.fury = false;
       ui.showBag(); ui.updateBag(run.view());
       side = { x: 1, z: 0 }; introStage = 0; timeT = 0; shake = 0; hitStop = 0; camPos = null; camLook = null; clicks = 0; hinted = false; overT = 0; contacts.length = 0;
       pend.jab = pend.cross = pend.dash = pend.fury = false; held = new Set(); stick.x = stick.y = 0; touchGuard = false;
@@ -640,7 +640,7 @@ export function createFightMode(o) {
     if (!hinted && phase === 'fight' && v.lost >= 3) { hinted = true; ui.subWord(TEXT.bagHint, 2800); }
     cameraBag(dt);
   }
-  /** The camera for the drill: beside the ring, Ori on the left, the bag swinging on the right; it steps back until both fit across a narrow window. */
+  /** The camera for the drill: beside the ring, the hero on the left, the bag swinging on the right; it steps back until both fit across a narrow window. */
   function cameraBag(dt) {
     const aspect = Math.max(0.3, (overlay && overlay.clientWidth ? overlay.clientWidth / Math.max(1, overlay.clientHeight) : window.innerWidth / Math.max(1, window.innerHeight)));
     const baseDist = 4.8;
@@ -662,7 +662,7 @@ export function createFightMode(o) {
     const sh = calm() ? 0 : shake * 0.12;
     setCamera({ pos: [camPos.x + (Math.random() - 0.5) * sh, camPos.y + (Math.random() - 0.5) * sh, camPos.z + (Math.random() - 0.5) * sh], look: [camLook.x, camLook.y, camLook.z], fov: fov + (calm() ? 0 : shake * 3) });
   }
-  /** Per frame in the drill: Ori at the bag, the bag on its swivel. */
+  /** Per frame in the drill: the hero at the bag, the bag on its swivel. */
   function renderBag(dt, t, night) {
     lastNight = night;
     const ori = getOri();
@@ -697,7 +697,7 @@ export function createFightMode(o) {
     const ori = getOri();
     const k = bout.slow > 0 ? 0.35 : 1;
     const P = bout.P; const O = bout.O;
-    // Ori
+    // the hero
     const eP = fallOf(P, 0, dt);
     ori.hold(holdFor(P));
     if (P.blocking) me.person.face.react('determined', 0.15); // (a face set for the blow while the guard is up)
@@ -757,7 +757,7 @@ export function createFightMode(o) {
     abort() { if (phase === 'off') return; pending = null; if (bout || run) end(); phase = 'off'; setFade(0); ui.hideCard(); ui.closeMenu(false); ui.hide(); touch.hide(); ui.setTouch(false); },
     /** The way out: fade to black, back to the street. */
     leave() { if (phase === 'off' || phase === 'leaving' || phase === 'fadeout') return; phase = 'fadeout'; phaseT = 0; ui.closeMenu(false); },
-    /** The apron: where Ori stands when he comes out of the ring. */
+    /** The apron: where the hero stands when he comes out of the ring. */
     apron() { return { x: cx, z: cz + HALF_PLATFORM + 1.9 + 1.2, heading: Math.PI }; },
     setCrowd(love) { crowd.setCount(Math.floor(6 + love * 0.3)); },
     cheer(k) { crowd.cheer(k); },

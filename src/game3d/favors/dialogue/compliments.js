@@ -1,11 +1,11 @@
-// "Compliment" — Ori can compliment anyone (PURE). The line is built from what the person really looks like (their spec) or from who they are,
-// so it is always specific, and they always react warmly. Returns the exchange: what Ori says, how they answer, how it lands.
+// "Compliment" — the hero can compliment anyone (PURE). The line is built from what the person really looks like (their spec) or from who they are,
+// so it is always specific, and they always react warmly. Returns the exchange: what the hero says, how they answer, how it lands.
 //   { topic, ori, reply, emo, hearts, hint }   hearts = relationship gain (1-3), hint = sometimes a little tip (a quest lead), else null
 import { mulberry32 } from '../../rng.js';
 
 const pick = (rnd, a) => a[Math.floor(rnd() * a.length) % a.length];
 
-/** What can be admired: each topic knows if it applies (`when(spec, id)`), what Ori says and how they answer. */
+/** What can be admired: each topic knows if it applies (`when(spec, id)`), what the hero says and how they answer. */
 const TOPICS = [
   { key: 'hair-curly', when: (s) => s.hair && s.hair.style === 'curly', ori: ['Your curls are unreal. Do they have a secret?', 'Those curls deserve their own postcode.'], reply: ['Water, patience and a lot of conditioner. Thank you!', 'Ha! A fellow curl person. We are a club, you know.'] },
   { key: 'hair', when: (s) => s.hair && s.hair.style !== 'bald' && s.hair.style !== 'curly', ori: ['Your hair looks great today.', 'That hairstyle suits you so well.'], reply: ['Really? I almost changed it this morning. Now I will not.', 'You are sweet. New haircut, you noticed!'] },

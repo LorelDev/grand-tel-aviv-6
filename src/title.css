@@ -28,7 +28,7 @@ html, body { margin: 0; height: 100%; background: #0b0613; overflow: hidden; fon
 .t-kicker { letter-spacing: .5em; font-size: clamp(11px, 1.4vw, 15px); font-weight: 700; opacity: .85; text-transform: uppercase; }
 .t-name { margin: 10px 0 6px; font-family: 'Rubik', sans-serif; font-weight: 900; font-size: clamp(44px, 9vw, 128px); line-height: .92; letter-spacing: -.02em; text-shadow: 0 6px 0 rgba(0,0,0,.25), 0 24px 60px rgba(0,0,0,.45); }
 .t-name b { display: inline-block; color: #ffe14d; transform: rotate(-4deg) translateY(.04em); margin-inline-start: .12em; }
-.t-sub { font-size: clamp(15px, 2vw, 22px); font-weight: 500; opacity: .92; margin: 0 0 30px; direction: rtl; }
+.t-sub { font-size: clamp(15px, 1.7vw, 20px); font-weight: 500; line-height: 1.55; opacity: .95; margin: 14px auto 30px; max-width: 34em; direction: rtl; text-wrap: balance; }
 #start { font: inherit; font-weight: 800; font-size: clamp(17px, 2.2vw, 24px); color: #1a0b2e; background: #ffe14d; border: 0; border-radius: 999px; padding: 16px 44px; cursor: pointer; box-shadow: 0 10px 0 #b98a00, 0 22px 40px rgba(0,0,0,.4); transition: transform .12s ease, box-shadow .12s ease; direction: rtl; }
 #start:hover { transform: translateY(-2px); }
 #start:active { transform: translateY(8px); box-shadow: 0 2px 0 #b98a00, 0 8px 16px rgba(0,0,0,.4); }

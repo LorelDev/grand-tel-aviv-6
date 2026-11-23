@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the achievements (PURE) [experimental]: things worth being proud of, each one read off the counters the game already keeps (hellos, fights, love, ...).
+// Grand Tel Aviv 6 — the achievements (PURE) [experimental]: things worth being proud of, each one read off the counters the game already keeps (hellos, fights, love, ...).
 // Nothing here is ever taken away: once a trophy is earned its id goes on the save (`progress.trophies`) and stays, whatever the counters do later.
 import { CAST } from './content.js';
 import { GAMES } from './arcade.js';
@@ -7,7 +7,7 @@ import { count as giftCount, GIFT_IDS } from './gifts.js';
 import { friends as catFriends, petted as catPetted } from './cats.js';
 import { RIVAL_IDS, EVENT_IDS } from './league.js';
 
-/** The named people Ori can meet (everybody in the cast but himself). */
+/** The named people the hero can meet (everybody in the cast but himself). */
 export const CAST_IDS = Object.keys(CAST).filter((id) => id !== 'self');
 
 const n = (v) => (Number.isFinite(v) ? v : 0);

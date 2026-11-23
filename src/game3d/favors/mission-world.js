@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — what the missions put into the street (three.js): a passenger waving at the kerb, the lost cat, the parrot that bolts, the
+// Grand Tel Aviv 6 — what the missions put into the street (three.js): a passenger waving at the kerb, the lost cat, the parrot that bolts, the
 // rival courier's car, the rings of the race, and the golden peaches hidden around the neighbourhood. Everything is small, built from a few
 // primitives (a handful of meshes), made when a mission needs it and removed when it is over. `sync(targets, t)` keeps the street in step with
 // `mission.targets()`.
@@ -155,7 +155,7 @@ export function createMissionWorld({ scene, makeCar, tier = 'high', shadows = tr
 
   return {
     group,
-    /** targets: mission.targets(); t: seconds. `player` { x, z }: the lost things only show when Ori is near. */
+    /** targets: mission.targets(); t: seconds. `player` { x, z }: the lost things only show when the hero is near. */
     sync(targets, t, dt, player) {
       const seen = new Set();
       targets.forEach((tg, i) => {

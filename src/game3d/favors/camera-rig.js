@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the chase camera (PURE: numbers in, numbers out). It sits behind Ori on an orbit, eases its yaw towards where he is
+// Grand Tel Aviv 6 — the chase camera (PURE: numbers in, numbers out). It sits behind the hero on an orbit, eases its yaw towards where he is
 // walking, pulls in when a wall would be in the way, and kicks the field of view a little when he sprints. Yaw uses the controller's
 // convention: the camera looks along (sin yaw, cos yaw).
 import { wrapPi } from '../rng.js';
@@ -12,7 +12,7 @@ export function createCameraRig(world, { yaw = Math.PI, pitch = 0.42, dist = 7.6
     state: c,
     /**
      * @param {number} dt seconds
-     * @param {{x:number,z:number,vx:number,vz:number,speed:number,sprinting:boolean,heading?:number,drive?:boolean}} t Ori (drive: he is in a car, heading = where its nose points)
+     * @param {{x:number,z:number,vx:number,vz:number,speed:number,sprinting:boolean,heading?:number,drive?:boolean}} t the hero (drive: he is in a car, heading = where its nose points)
      * @param {{orbit?:number, pitch?:number, zoom?:number}} [inp] manual camera: radians per second / zoom factor
      */
     update(dt, t, inp = {}) {
@@ -45,7 +45,7 @@ export function createCameraRig(world, { yaw = Math.PI, pitch = 0.42, dist = 7.6
       const horiz = Math.cos(c.pitch) * c.dist;
       const ux = t.x - fx * horiz; // where the camera would like to be
       const uz = t.z - fz * horiz;
-      // a wall between Ori and the camera: sit just in front of it (snaps in at once, eases back out)
+      // a wall between the hero and the camera: sit just in front of it (snaps in at once, eases back out)
       let k = world ? world.segment(t.x, t.z, ux, uz, 0.5) : 1;
       if (k < 1) k = Math.max(0.18, k - 0.04);
       c.hitT = !c.init || k < c.hitT ? k : damp(c.hitT, k, 2.5, dt);

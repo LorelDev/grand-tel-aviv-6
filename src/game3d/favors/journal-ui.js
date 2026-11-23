@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the journal (Tab): no phone, no messages. One card with how much the neighbourhood loves Ori, his boxer level and moves, the ladder of
+// Grand Tel Aviv 6 — the journal (Tab): no phone, no messages. One card with how much the neighbourhood loves the hero, his boxer level and moves, the ladder of
 // fighters, the goals and the little stats. Opening it stops the walking (the day itself goes on); Tab or Esc closes it.
 import './fight.css';
 import './journal.css';
@@ -57,7 +57,7 @@ export function createJournal({ root }) {
       <section><h3>Goals</h3><ul class="jr-goals">${goals}</ul></section>
       <section><h3>Career</h3><ul class="jr-career">${career}</ul></section>
       `;
-    el.innerHTML = `<div class="fi-card fv-glass jr-card"><header><div class="g3d-kicker">JOURNAL · DAY ${d.day} · <span data-clock>${esc(d.clock)}</span></div><h2>Ori</h2>${tabs}</header>${page === 'trophies' ? trophies : page === 'wishes' ? wishes : `<div id="jr-panel" role="tabpanel" aria-labelledby="jr-tab-life">${lifeBody}</div>`}
+    el.innerHTML = `<div class="fi-card fv-glass jr-card"><header><div class="g3d-kicker">JOURNAL · DAY ${d.day} · <span data-clock>${esc(d.clock)}</span></div><h2>Boss</h2>${tabs}</header>${page === 'trophies' ? trophies : page === 'wishes' ? wishes : `<div id="jr-panel" role="tabpanel" aria-labelledby="jr-tab-life">${lifeBody}</div>`}
       <footer><small>${d.peaches} peaches · ${d.golden} of 12 golden peaches · <kbd>←</kbd><kbd>→</kbd> pages</small><button type="button" class="fi-btn" data-close="1">Close <kbd>Tab</kbd></button></footer></div>`;
   }
   function setPage(p) { if (p === page) return; page = p; sig = null; render(); }

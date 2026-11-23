@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the missions (PURE: no DOM, no three, seeded). A favour used to be "walk to the door, press Space". Now every kind of favour has its
+// Grand Tel Aviv 6 — the missions (PURE: no DOM, no three, seeded). A favour used to be "walk to the door, press Space". Now every kind of favour has its
 // own mechanic that uses the world:
 //   verb      a little action at the door (verbs.js: fix, handle, queue, chat, shop, assemble, carry)
 //   delivery  fetch it, carry it gently (a meter drops with bumps, hard turns, sprinting, melting), hand it over
@@ -67,7 +67,7 @@ function shell(kind, spec, env, body) {
     act() { return false; },
     /** Where the beam / arrow points right now: { x, z, place? } or null. */
     goal() { return null; },
-    /** True while Ori must not be bumped off the mission by a follow switch (cargo in hand, a passenger aboard). */
+    /** True while the hero must not be bumped off the mission by a follow switch (cargo in hand, a passenger aboard). */
     get committed() { return false; },
     /** True while the car must not move (the countdown of a race: no false start). */
     get locked() { return false; },
@@ -295,7 +295,7 @@ function chaseMission(spec, env) {
       const dx = s.x - px;
       const dz = s.z - pz;
       const d = Math.hypot(dx, dz) || 1e-6;
-      // flee: away from Ori when he is near (with a sidestep so it curves instead of running dead straight), wander when he is far
+      // flee: away from the hero when he is near (with a sidestep so it curves instead of running dead straight), wander when he is far
       let wx; let wz; let sp;
       if (d < 11) {
         const side = ((Math.floor(s.clock / 1.7) % 2) ? 1 : -1) * 0.55;

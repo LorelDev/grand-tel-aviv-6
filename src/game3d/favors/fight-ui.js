@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the DOM of the ring: the choice of opponent (the ladder), the health and breath bars, the combo counter, the big words (FIGHT!, KO!,
+// Grand Tel Aviv 6 — the DOM of the ring: the choice of opponent (the ladder), the health and breath bars, the combo counter, the big words (FIGHT!, KO!,
 // PERFECT!), the hit flash and the card after a fight (XP, level, new moves, peaches). The words come from fight-content.js / texts.js; this only lays them out.
 import './fight.css';
 import './calm.css';
@@ -15,7 +15,7 @@ export function createFightUi({ root }) {
   const hud = mk('fi-hud');
   hud.hidden = true;
   hud.innerHTML = `
-    <div class="fi-side fi-me fv-glass"><div class="fi-name"><b data-k="mename">Ori</b><span data-k="melv">Lv 1</span></div><div class="fi-bar hp"><i data-k="mehp"></i><u data-k="mehpn"></u></div><div class="fi-bar st"><i data-k="mest"></i></div><div class="fi-bar fury" data-k="mefuryw" hidden><i data-k="mefury"></i><small>F</small></div></div>
+    <div class="fi-side fi-me fv-glass"><div class="fi-name"><b data-k="mename">Boss</b><span data-k="melv">Lv 1</span></div><div class="fi-bar hp"><i data-k="mehp"></i><u data-k="mehpn"></u></div><div class="fi-bar st"><i data-k="mest"></i></div><div class="fi-bar fury" data-k="mefuryw" hidden><i data-k="mefury"></i><small>F</small></div></div>
     <div class="fi-mid fv-glass"><b data-k="clock">1:15</b><span data-k="round">ROUND 1</span></div>
     <div class="fi-side fi-foe fv-glass"><div class="fi-name"><b data-k="foename">Moti</b><span data-k="foetitle">The Neighbour</span></div><div class="fi-bar hp"><i data-k="foehp"></i><u data-k="foehpn"></u></div></div>
     <div class="fi-combo" data-k="combo"></div>
@@ -158,7 +158,7 @@ export function createFightUi({ root }) {
     }).join('');
     const moves = MOVE_LIST.filter((m) => m.lv <= level).map((m) => `<span title="${esc(m.how)}">${esc(m.name)}</span>`).join('');
     menu.innerHTML = `<div class="fi-card fv-glass"><div class="g3d-kicker">THE RING</div><h2>Pick your fight</h2>
-      <div class="fi-me-card"><b>Ori · Lv ${level}</b><div class="fi-xp"><i style="width:${Math.round((level >= MAX_LEVEL ? 1 : xp / xpNeed) * 100)}%"></i></div><small>Love of the neighbourhood: ${Math.round(love)}</small>${fed ? `<small class="fi-fed">${esc(fed)}</small>` : ''}</div>
+      <div class="fi-me-card"><b>Boss · Lv ${level}</b><div class="fi-xp"><i style="width:${Math.round((level >= MAX_LEVEL ? 1 : xp / xpNeed) * 100)}%"></i></div><small>Love of the neighbourhood: ${Math.round(love)}</small>${fed ? `<small class="fi-fed">${esc(fed)}</small>` : ''}</div>
       <div class="fi-moves">${moves}</div>
       <ul class="fi-list">${body}</ul>
       ${onTrain ? `<button type="button" class="fi-train" data-train="1"><i class="fi-bagic" aria-hidden="true"></i><div><b>${TEXT.bagName}</b><small>${TEXT.bagMenuSub}</small></div><kbd>B</kbd></button>` : ''}

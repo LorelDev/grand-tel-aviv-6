@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — the big map (M): the whole neighbourhood with every place named, the stars of the game (the ring, the office computer, the garage, the cafe) as badges with
-// what they offer, Ori's arrow and the goal of the moment. Click a place (on the map or in the list) to follow it: the beam and the arrow lead there. M or Esc closes it.
+// Grand Tel Aviv 6 — the big map (M): the whole neighbourhood with every place named, the stars of the game (the ring, the office computer, the garage, the cafe) as badges with
+// what they offer, the hero's arrow and the goal of the moment. Click a place (on the map or in the list) to follow it: the beam and the arrow lead there. M or Esc closes it.
 // Opening it stops the walking (the day itself goes on).
 import './map.css';
 import { createMap2d, paintBadge } from './map2d.js';

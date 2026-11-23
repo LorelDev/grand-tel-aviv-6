@@ -1,10 +1,10 @@
-// "Ori, Can You...?" — the speed bag (three.js): a stand with a wooden board and a teardrop leather bag that hangs from it on a swivel, set up in the ring for the
+// Grand Tel Aviv 6 — the speed bag (three.js): a stand with a wooden board and a teardrop leather bag that hangs from it on a swivel, set up in the ring for the
 // drill (training.js). Only the look and the swing live here: the beat and the score are pure and tested on their own. The bag swings to the beat (the cue), swings
 // wider the better the combo, and takes a kick when a punch lands.
 import * as THREE from 'three';
 
-export const BAG_Z = -0.34; // the bag hangs this far from the middle of the ring (Ori stands on the other side of it, 0.62 m from the bag: a glove reaches 0.4 m)
-export const BAG_Y = 1.05; // the height of the middle of the bag above the floor (Ori is a small man: his gloves are at about 1 m)
+export const BAG_Z = -0.34; // the bag hangs this far from the middle of the ring (the hero stands on the other side of it, 0.62 m from the bag: a glove reaches 0.4 m)
+export const BAG_Y = 1.05; // the height of the middle of the bag above the floor (the hero is a small man: his gloves are at about 1 m)
 const SWIVEL = 0.19; // from the middle of the bag up to the swivel under the board
 export const FIST_LAG = 0.07; // seconds from the key to the glove arriving: the bag is closest to him then, not at the beat
 
@@ -96,7 +96,7 @@ export function createBagStage({ shadows = false } = {}) {
       S.kickV += (-w * w * S.kick - 2 * z * w * S.kickV) * dt;
       S.kick += S.kickV * dt;
       S.squash = Math.max(0, S.squash - dt * 9);
-      // positive rotation about x moves the bottom of the bag away from Ori (who is on the +z side): swing > 0 = towards him
+      // positive rotation about x moves the bottom of the bag away from the hero (who is on the +z side): swing > 0 = towards him
       pivot.rotation.x = -S.amp * swing + S.kick;
       const sq = S.squash;
       bag.scale.set(1 + 0.16 * sq, 1 - 0.12 * sq, 1 + 0.16 * sq);

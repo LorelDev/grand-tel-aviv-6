@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — person specs: Ori himself (built from ORI.look in content.js and the selfie that stays in .duo/assets) and the parametric
+// Grand Tel Aviv 6 — person specs: the hero himself (built from ORI.look in content.js and the selfie that stays in .duo/assets) and the parametric
 // generator for everybody else. A spec is plain data; assemble.js turns it into geometry, person.js into a living, skinned character.
 import { ORI } from '../content.js';
 import { mulberry32 } from '../../rng.js';
@@ -9,26 +9,27 @@ export const ORI_SPEC = (() => {
   const L = ORI.look;
   return {
     id: 'ori', seed: 2026,
-    // olive-tan skin, a strong jaw, a prominent rounded nose, full lower lip, thick straight brows, relaxed eyes
-    face: { skin: hex(L.skin), width: 1.03, jaw: 1.1, chinW: 1.12, cheek: 1.18, brow: 1.2, nose: { len: 0.82, width: 0.8, tip: 0.8, bridge: 0.85 }, lips: { upper: 1.05, lower: 1.2, width: 1.05 }, eyeSep: 1.02, eyeSize: 0.86, ear: 1.3, stubble: 0.85, blush: 0.1, lipColor: '#a85a4e' },
-    eyes: { iris: '#3a2216' },
-    brows: { color: '#17100d', thick: 1.1 },
-    hair: { style: 'curly', color: hex(L.hair), highlight: '#4a3020', volume: 1 },
-    facialHair: { moustache: true, goatee: true, color: '#17100d' },
-    glasses: { frame: hex(L.glasses), frameW: 0.006, w: 0.074, h: 0.048, r: 0.014 },
+    // the street boss: a buzz cut, heavy brows over black shades, a full dark stubble with a moustache and goatee, a square jaw,
+    // a thick gold rope chain, a gold hoop and a gold watch, a broad chest in a tight black tee, black track pants, white sneakers
+    face: { skin: hex(L.skin), width: 1.05, jaw: 1.18, chinW: 1.2, cheek: 1.05, brow: 1.32, nose: { len: 0.9, width: 0.92, tip: 0.85, bridge: 1.0 }, lips: { upper: 0.95, lower: 1.1, width: 1.0 }, eyeSep: 1.02, eyeSize: 0.82, ear: 1.15, stubble: 1, blush: 0.04, lipColor: '#96524a' },
+    eyes: { iris: '#2a180f' },
+    brows: { color: '#0c0907', thick: 1.35 },
+    hair: { style: 'buzz', color: hex(L.hair), highlight: '#1c1410', volume: 1.25 },
+    facialHair: { moustache: true, goatee: true, color: '#0c0907' },
+    glasses: { frame: hex(L.glasses), shades: '#050506', frameW: 0.007, w: 0.08, h: 0.046, r: 0.012 },
     hoop: { color: hex(L.earring), side: 1 }, // his LEFT ear (+x, the model faces +z)
-    chain: { color: hex(L.chain) },
-    body: { build: 1.08, shoulders: 1.12, belly: 0.12, arms: 1.35, hands: 1.3 },
-    outfit: { top: 'tee', sleeve: 1, topColor: hex(L.tee), bottom: 'jeans', bottomColor: hex(L.jeans), shoes: 'sneakers', shoeColor: hex(L.shoes), soleColor: '#d9d9d4', accent: '#e5625e', skin: hex(L.skin) },
+    chain: { color: hex(L.chain), thick: 1.9 },
+    body: { build: 1.16, shoulders: 1.22, belly: 0.05, arms: 1.4, hands: 1.3 },
+    outfit: { top: 'tee', sleeve: 1, watch: '#f2b632', topColor: hex(L.tee), bottom: 'jeans', bottomColor: hex(L.jeans), shoes: 'sneakers', shoeColor: hex(L.shoes), soleColor: '#e8e8e4', accent: '#f2b632', skin: hex(L.skin) },
   };
 })();
 
 /**
- * Shilo (the owner of the game, Ori's teammate and the hidden last boss): values only, no photo anywhere. Short brown hair brushed up at the front, light blue-grey eyes,
+ * Shilo (the owner of the game, the hero's teammate and the hidden last boss): values only, no photo anywhere. Short brown hair brushed up at the front, light blue-grey eyes,
  * strong brows, a straight nose, a few days of stubble, fair skin, a black button shirt with a watch, dark jeans. Built by the same pipeline as everybody else.
  */
 export const SHILO_SPEC = {
-  // Shilo in the regular game style (same head / hair / body pipeline as Ori and the neighbours): fair skin, short brown hair brushed up at the front, light blue-grey eyes,
+  // Shilo in the regular game style (same head / hair / body pipeline as the hero and the neighbours): fair skin, short brown hair brushed up at the front, light blue-grey eyes,
   // strong straight brows, a straight nose, a few days of stubble, a black button shirt with a watch, dark jeans
   id: 'shilo', seed: 3131, gender: 'm', age: 'adult', scale: 1.0,
   face: { skin: '#f0c4a0', width: 1.0, height: 1.0, jaw: 0.98, chinW: 1.12, chinLen: 0.94, cheek: 0.85, brow: 1.0, nose: { len: 1.0, width: 0.85, tip: 0.9, bridge: 1.0 }, lips: { upper: 0.95, lower: 1.05, width: 1.0 }, eyeSep: 1.0, eyeSize: 0.9, eyeY: 0, ear: 1.0, earOut: 1.0, blush: 0.2, lipColor: '#b8665a', stubble: 0.5, beardTone: '#6b4a35' },

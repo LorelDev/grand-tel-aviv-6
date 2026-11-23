@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — synthesised 'voices' (PURE data; sfx.js plays them): every character has a pitch, a rhythm and a timbre, so a line of text
+// Grand Tel Aviv 6 — synthesised 'voices' (PURE data; sfx.js plays them): every character has a pitch, a rhythm and a timbre, so a line of text
 // sounds like mumbling in their own voice (an Animal-Crossing-style blip per letter). Deterministic from the id.
 function hash(str) {
   let h = 2166136261;

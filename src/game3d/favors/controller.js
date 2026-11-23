@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — how Ori moves (PURE, fixed timestep, deterministic: the same inputs always give the same walk).
+// Grand Tel Aviv 6 — how the hero moves (PURE, fixed timestep, deterministic: the same inputs always give the same walk).
 // Third-person on foot: acceleration, turning, a sprint that burns stamina (coffee refills it), collisions that slide along walls.
 // Heading convention: facing = (sin θ, cos θ) in (x, z) — so a three.js model that faces +z rotates by θ about y.
 import { hashNumbers, wrapPi } from '../rng.js';
@@ -12,7 +12,7 @@ const BRAKE = 18;
 const TURN = 13; // rad/s
 const DRAIN = 0.2; // stamina per second of sprinting
 const REGEN = 0.1;
-const REST = 0.25; // after running dry Ori must recover this much before sprinting again
+const REST = 0.25; // after running dry the hero must recover this much before sprinting again
 
 export function createController(world, { x = 0, z = 0, heading = 0 } = {}) {
   const s = { x, z, vx: 0, vz: 0, heading, speed: 0, stamina: 1, sprinting: false, winded: false, buff: 0, blocked: false, steps: 0 };

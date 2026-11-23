@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the street furniture: lamps, palms, park trees, parked cars, scooters, benches, beach umbrellas and the bus
+// Grand Tel Aviv 6 — the street furniture: lamps, palms, park trees, parked cars, scooters, benches, beach umbrellas and the bus
 // shelter. Every kind is ONE InstancedMesh (two where a part takes the paint colour and the rest does not), so ~500 props cost ~14 draw calls.
 import * as THREE from 'three';
 import { mulberry32 } from '../rng.js';
@@ -262,7 +262,7 @@ export function buildProps(map, { shadows = true, tier = 'high', lib } = {}) {
   mats.push(carBody);
   const carDetails = vc(0xffffff, 0.5, { metalness: 0.1 });
   const kindOf = (p) => p.kind || CAR_KIND[p.v % CAR_KIND.length];
-  const carGeoCache = new Map(); // kind -> { body, dark }: shared by the parked cars, the one Ori drives and the traffic
+  const carGeoCache = new Map(); // kind -> { body, dark }: shared by the parked cars, the one the hero drives and the traffic
   const carGeoOf = (kind) => {
     if (!carGeoCache.has(kind)) {
       const g = tier === 'low' ? carGeos() : (() => { const c = carGeometry({ kind }); return { body: c.body, dark: c.details }; })();
@@ -271,7 +271,7 @@ export function buildProps(map, { shadows = true, tier = 'high', lib } = {}) {
     }
     return carGeoCache.get(kind);
   };
-  const carHandles = new Map(); // a parked car (map prop) -> [{ im, i, m }]: so one can be hidden while Ori drives it
+  const carHandles = new Map(); // a parked car (map prop) -> [{ im, i, m }]: so one can be hidden while the hero drives it
   const reg = (p, im, i, m) => { (carHandles.get(p) || carHandles.set(p, []).get(p)).push({ im, i, m }); };
   const colourOf = (p) => (p.mine ? ORI_CAR_COLOR : CAR_COLORS[p.v % CAR_COLORS.length]);
   for (const kind of ['hatch', 'sedan', 'van', 'ori']) {
@@ -282,7 +282,7 @@ export function buildProps(map, { shadows = true, tier = 'high', lib } = {}) {
     instanced(cg.dark, carDetails, list, (p) => matrix(p.x, 0, p.z, p.rot), { name: `car-details-${kind}`, cast: false, reg });
   }
   const ZERO = new THREE.Matrix4().makeScale(0, 0, 0);
-  /** A car that moves (Ori's drive, the traffic): one-instance meshes sharing the parked cars' geometry and paint. Returns { group, setColor, dispose }. */
+  /** A car that moves (the hero's drive, the traffic): one-instance meshes sharing the parked cars' geometry and paint. Returns { group, setColor, dispose }. */
   const makeCar = (kind, color) => {
     const cg = carGeoOf(kind);
     const grp = new THREE.Group();
@@ -345,13 +345,13 @@ export function buildProps(map, { shadows = true, tier = 'high', lib } = {}) {
 
   return {
     group,
-    /** The parked cars (map props with .kind / .mine), hide / show one while Ori has it out on the road, and the factory for moving cars. */
+    /** The parked cars (map props with .kind / .mine), hide / show one while the hero has it out on the road, and the factory for moving cars. */
     cars: byType.car || [],
     carKind: kindOf,
     carColor: colourOf,
     setCarHidden(p, hidden) { for (const h of carHandles.get(p) || []) { h.im.setMatrixAt(h.i, hidden ? ZERO : h.m); h.im.instanceMatrix.needsUpdate = true; } },
     makeCar,
-    /** A parked car moved (Ori left it somewhere else): its instance follows the new pose and shows again. */
+    /** A parked car moved (the hero left it somewhere else): its instance follows the new pose and shows again. */
     setCarPose(p) { const m = matrix(p.x, 0, p.z, p.rot); for (const h of carHandles.get(p) || []) { h.m = m; h.im.frustumCulled = false; h.im.setMatrixAt(h.i, m); h.im.instanceMatrix.needsUpdate = true; } },
     /** lamps: 0..1 street light level. */
     setLight({ lamps }) { lampHeadMat.emissiveIntensity = lamps * 2.2; poolMat.opacity = lamps * 0.42; },

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the skeleton every character shares (Ori, the passers-by, the shopkeepers): bone names, parents and rest positions in model
+// Grand Tel Aviv 6 — the skeleton every character shares (the hero, the passers-by, the shopkeepers): bone names, parents and rest positions in model
 // space (y up, +z forward, feet at y = 0, his left = +x), plus the helpers that turn a distance to a limb into skin weights. PURE data + maths.
 // The face bones live in the head frame and come from the face anchors (so a bigger nose / wider-set eyes move the eyelids with them).
 

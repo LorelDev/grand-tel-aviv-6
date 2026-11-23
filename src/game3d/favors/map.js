@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the neighbourhood as DATA (PURE: no three, no DOM, deterministic from a seed). Roughly 290 x 296 m of Tel-Aviv-ish
+// Grand Tel Aviv 6 — the neighbourhood as DATA (PURE: no three, no DOM, deterministic from a seed). Roughly 290 x 296 m of Tel-Aviv-ish
 // streets: a 3 x 3 grid of avenues, 4 block columns (the first is the beach promenade) x 4 rows. Every named place sits on a block
 // edge with its door on the sidewalk; the rest of the frontage is filled with plain apartment blocks. `buildMap` also makes the props,
 // the colliders and the street graph that the controller, the camera, the pedestrians and (later) the quest feasibility check use.
@@ -28,7 +28,7 @@ const SIDES = {
 
 /** The named places: which block, which edge, where along it, how big. (c, r) = block column / row. */
 const DEFS = [
-  { id: 'home', c: 2, r: 1, side: 'S', at: 12, w: 22, d: 16, h: 26 },
+  { id: 'home', c: 2, r: 1, side: 'S', at: 12, w: 22, d: 16, h: 38 },
   { id: 'mum', c: 2, r: 2, side: 'N', at: 4, w: 22, d: 15, h: 19 },
   { id: 'auntie', c: 1, r: 3, side: 'N', at: 10, w: 20, d: 14, h: 9 },
   { id: 'cityhall', c: 3, r: 1, side: 'W', at: 8, w: 38, d: 22, h: 20 },
@@ -58,7 +58,7 @@ function edgeRect(b, side, at, w, d) {
   if (side === 'W') return rect(b.x0, b.z0 + at, b.x0 + d, b.z0 + at + w);
   return rect(b.x1 - d, b.z0 + at, b.x1, b.z0 + at + w);
 }
-/** The door: the middle of the facade, plus a spot on the sidewalk where Ori stands to use it. */
+/** The door: the middle of the facade, plus a spot on the sidewalk where the hero stands to use it. */
 function doorOf(r, side, standOff = 1.3) {
   const n = SIDES[side];
   const cx = (r.x0 + r.x1) / 2;
@@ -223,7 +223,7 @@ export function buildMap(seed = 51) {
   }
   // the raised pavement of each block (up to the kerb of the roads around it); the beach column only from the boardwalk inwards
   const slabs = blocks.map((b) => rect(b.c === 0 ? -124 : b.x0 - WALK, b.r > 0 ? b.z0 - WALK : b.z0, b.c < 3 ? b.x1 + WALK : b.x1, b.r < 3 ? b.z1 + WALK : b.z1));
-  // Ori's own car: the parked car closest to his front door (pearl white, a design of its own; props3d draws kind 'ori')
+  // the hero's own car: the parked car closest to his front door (pearl white, a design of its own; props3d draws kind 'ori')
   {
     const hd = places.home.door;
     let best = null;
@@ -235,7 +235,8 @@ export function buildMap(seed = 51) {
     seed, bounds: BOUNDS, blocks, slabs, lots, places, props, colliders, nodes, edges,
     roads: { x: ROAD_X, z: ROAD_Z, width: ROAD_W, walk: WALK, half: HALF },
     zones: { park: places.park.rect, court: courtRect, sand: rect(BOUNDS.x0 - 40, BOUNDS.z0, -124, BOUNDS.z1), promenade: rect(-124, BOUNDS.z0, ROAD_X[0] - HALF, BOUNDS.z1) },
-    spawn: { x: places.home.door.x + 2.5, z: places.home.door.z + 1.5, heading: Math.PI },
+    // the day starts on the doorstep of the JLL offices: he has just walked out (facing the street), the camera looks back at the building
+    spawn: { x: places.home.door.x, z: places.home.door.z, heading: 0, camYaw: Math.PI },
     GX, GZ,
   };
   map.world = createCollisionWorld(colliders);

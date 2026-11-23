@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the first steps and "what now?" (PURE) [experimental]: three things to learn by doing (walk, say hello, open the map) that tick themselves off, and the words of the
+// Grand Tel Aviv 6 — the first steps and "what now?" (PURE) [experimental]: three things to learn by doing (walk, say hello, open the map) that tick themselves off, and the words of the
 // small panel that answers "what do I do now?" (the goal of the moment, where it is, the keys).
 
 /** The keys of the game, for the panel. */

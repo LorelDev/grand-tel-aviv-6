@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the life on a facade: balconies with railings, plants and a chair, AC units on brackets, window boxes, washing on a line, drain pipes.
+// Grand Tel Aviv 6 — the life on a facade: balconies with railings, plants and a chair, AC units on brackets, window boxes, washing on a line, drain pipes.
 // Plants are not drawn here: they are collected as INSTANCES (a position + a kind) and drawn by foliage.js, so a whole street of bougainvillea is a few draw calls.
 import { FLOOR, RC, faceBox, faceQuad, quadW, P, hash01 } from './face.js';
 

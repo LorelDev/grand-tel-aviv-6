@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — Ori himself. No photo anywhere: he is SCULPTED (people/head.js: a smooth stylised head from blended forms; hair.js: dense
+// Grand Tel Aviv 6 — the hero himself. No photo anywhere: he is SCULPTED (people/head.js: a smooth stylised head from blended forms; hair.js: dense
 // curls; face.js: eyes, lids, brows, moustache, goatee, glasses, hoop, an expressive mouth) and built on the shared skinned rig (people/*), so he
 // blinks, smiles, grins, laughs, winks, gets flustered-but-smiling, gives a thumbs-up, checks his phone. Facing: +z at rotation 0 (see controller.js).
 import * as THREE from 'three';

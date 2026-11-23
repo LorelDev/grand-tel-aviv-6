@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — Ori's iPhone (DOM). It is NON-MODAL: the world keeps running and WASD keeps walking while it is open. A compact panel
-// docks at the right edge; while Ori is on the move it shrinks to a peek (the top tasks and the count) and opens up again when he stops.
+// Grand Tel Aviv 6 — the hero's iPhone (DOM). It is NON-MODAL: the world keeps running and WASD keeps walking while it is open. A compact panel
+// docks at the right edge; while the hero is on the move it shrinks to a peek (the top tasks and the count) and opens up again when he stops.
 // Banners slide in with a buzz; Tab toggles it; 1-9 pick a task, F follows it, Y / L / N answer, [ ] switch the tabs. Tabs: Tasks (sorted
 // by deadline), Map (pins), Messages (quick replies), Focus (Do Not Disturb + the mentors).
 import './phone.css';
@@ -21,7 +21,7 @@ const PHONE_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2
 const hm = (min) => `${String(Math.floor(min / 60) % 24).padStart(2, '0')}:${String(Math.floor(min) % 60).padStart(2, '0')}`;
 const left = (m) => { if (m < 1) return 'now'; const t = Math.ceil(m); return t < 60 ? `${t} min` : `${Math.floor(t / 60)} h ${String(t % 60).padStart(2, '0')} min`; };
 const initial = (name) => esc(name.replace(/^(The|A|Little)\s+/i, '').charAt(0).toUpperCase());
-const HOLD_FULL = 3; // seconds the panel stays open after a tap or a key, even if Ori is walking
+const HOLD_FULL = 3; // seconds the panel stays open after a tap or a key, even if the hero is walking
 const SETTLE = 0.6; // seconds standing still before a peek opens up
 
 /**
@@ -47,7 +47,7 @@ export function createPhone(hudRoot, overlay, { map, q, sfx, getPlayer, onPin, p
   panel.setAttribute('role', 'complementary');
   panel.setAttribute('aria-label', 'Phone');
   panel.innerHTML = `
-    <header class="fv-ph-top"><b data-k="clock">06:00</b><span data-k="sub">Ori</span><i class="fv-bat" aria-hidden="true"></i></header>
+    <header class="fv-ph-top"><b data-k="clock">06:00</b><span data-k="sub">Boss</span><i class="fv-bat" aria-hidden="true"></i></header>
     <div class="fv-ph-body">
       <div class="fv-pane" data-pane="tasks"><h3>${TEXT.tasksTitle} <small data-k="count"></small></h3><ul class="fv-tasks" data-k="tasks"></ul><p class="fv-empty" data-k="empty" hidden>${TEXT.allCaught}</p><p class="fv-peekmore" data-k="more"></p></div>
       <div class="fv-pane" data-pane="map" hidden><h3>Map</h3><canvas width="330" height="336" data-k="map"></canvas><p class="fv-hint">${TEXT.mapHint}</p></div>
@@ -67,8 +67,8 @@ export function createPhone(hudRoot, overlay, { map, q, sfx, getPlayer, onPin, p
   let sel = null; // the highlighted task (its details are open)
   let active = null; // the followed task (its place is the beam)
   let thread = null; // the giver whose messages are open
-  let hold = 0; // seconds the panel stays full whatever Ori does
-  let still = 0; // seconds Ori has been standing still
+  let hold = 0; // seconds the panel stays full whatever the hero does
+  let still = 0; // seconds the hero has been standing still
   const history = []; // { uid, giver, dir: 'in' | 'out' | 'sys', text }
   let sig = '';
   let lastDraw = 0;
@@ -229,7 +229,7 @@ export function createPhone(hudRoot, overlay, { map, q, sfx, getPlayer, onPin, p
     },
     toggle() { if (open) api.close(); else api.open(); },
     /**
-     * Keys that act on the phone while it is open and Ori keeps walking: 1-9 pick a task, Enter opens it, F follows, Y / L / N answer,
+     * Keys that act on the phone while it is open and the hero keeps walking: 1-9 pick a task, Enter opens it, F follows, Y / L / N answer,
      * M hands it to the mentors, [ ] change the tab. Returns true when the key was used (so the game does not see it).
      */
     key(e) {
@@ -304,7 +304,7 @@ export function createPhone(hudRoot, overlay, { map, q, sfx, getPlayer, onPin, p
       tb.hidden = unread === 0;
       tb.textContent = String(unread);
     },
-    /** Per frame: `speed` = how fast Ori moves (m/s). While he walks the panel is a peek; when he stops it opens up. */
+    /** Per frame: `speed` = how fast the hero moves (m/s). While he walks the panel is a peek; when he stops it opens up. */
     update(now, dt = 0, speed = 0) {
       if (!open) return;
       hold = Math.max(0, hold - dt);

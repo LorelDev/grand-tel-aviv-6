@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — procedural material maps (PURE: typed arrays in, typed arrays out; no three, no DOM, deterministic from a seed).
+// Grand Tel Aviv 6 — procedural material maps (PURE: typed arrays in, typed arrays out; no three, no DOM, deterministic from a seed).
 // Every material is three maps made in code: ALBEDO (sRGB bytes), a tangent-space NORMAL map (made from a height field) and a ROUGHNESS map (green
 // channel, like glTF). They tile, so a wall or a pavement can repeat them over the whole neighbourhood. materials.js uploads them to the GPU.
 import { mulberry32 } from '../rng.js';

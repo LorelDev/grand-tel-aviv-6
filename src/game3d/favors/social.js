@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the social layer of the street: who can Ori talk to right now (a resident at their door, a passer-by close by),
+// Grand Tel Aviv 6 — the social layer of the street: who can the hero talk to right now (a resident at their door, a passer-by close by),
 // the "T · Talk" hint, the barks people call out as he walks past, and what a conversation does to the game (hearts, chaos, gifts, tips).
 // It owns the conversation panel (talk.js). The game calls update() every frame and key() for keystrokes.
 import './talk.css';
@@ -40,7 +40,7 @@ export function createSocial({ overlay, hud, sfx, map, crowd, tier, ctrl, quests
   overlay.append(bark);
 
   let target = null; // { id, name, x, z, walker? }
-  let inside = null; // the people in the room Ori is in: [{ id, name, x, z }] (null = outdoors)
+  let inside = null; // the people in the room the hero is in: [{ id, name, x, z }] (null = outdoors)
   let talking = null; // the walker / door being talked to
   let barkIn = 6;
   let barkOff = 0;
@@ -111,8 +111,8 @@ export function createSocial({ overlay, hud, sfx, map, crowd, tier, ctrl, quests
     let fx = o.x ?? (w ? w.x : null);
     let fz = o.z ?? (w ? w.z : null);
     if (fx == null && !inside && CAST[id] && map.places[CAST[id].home]) { fx = map.places[CAST[id].home].door.x; fz = map.places[CAST[id].home].door.z; }
-    if (w) { w.stop = 600; w.heading = Math.atan2(c.x - w.x, c.z - w.z); } // he stops and turns to Ori
-    if (fx != null && Math.hypot(fx - c.x, fz - c.z) > 0.4) c.heading = Math.atan2(fx - c.x, fz - c.z); // Ori turns to them
+    if (w) { w.stop = 600; w.heading = Math.atan2(c.x - w.x, c.z - w.z); } // he stops and turns to the hero
+    if (fx != null && Math.hypot(fx - c.x, fz - c.z) > 0.4) c.heading = Math.atan2(fx - c.x, fz - c.z); // the hero turns to them
     hint.classList.remove('on');
     return talk.start(id, { seed: w ? w.id + 1 : id.length, from: o.from || 'world' });
   }
@@ -180,7 +180,7 @@ export function createSocial({ overlay, hud, sfx, map, crowd, tier, ctrl, quests
     trigger,
     hello,
     closeTalk() { talk.close(); },
-    /** The people of the room Ori walked into (null when he is back outside). */
+    /** The people of the room the hero walked into (null when he is back outside). */
     setInside(list) { inside = list; target = null; hint.classList.remove('on'); bark.classList.remove('on'); barkTimer = 0; },
     state() { return { open: talk.isOpen, who: talk.speaker, line: talk.line, target: target ? { id: target.id, name: target.name } : null, flags: [...flags], gifts: gifts.slice() }; },
     /** The talk panel's keys; returns true when it used the key. */

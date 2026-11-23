@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — the DATA of the game around the favours (no logic): the week, the money, the garage upgrades, the cargo, the passengers, the
-// things that get lost, the guests of the party. Everything the player READS in Ori's own voice lives in texts.js; what other people say lives here.
+// Grand Tel Aviv 6 — the DATA of the game around the favours (no logic): the week, the money, the garage upgrades, the cargo, the passengers, the
+// things that get lost, the guests of the party. Everything the player READS in the hero's own voice lives in texts.js; what other people say lives here.
 // Keep everyone affectionate: a roast with love.
 
 /** The week: five days, then Friday night. Each day is a little harder (more favours, less slack) and the cast is a little crazier. */
@@ -43,7 +43,7 @@ export const UPGRADES = [
   { id: 'phone2', name: 'A second phone', icon: 'phone', blurb: 'One more helper from the mentors.', levels: [{ cost: 120, desc: '+1 mentor token' }] },
 ];
 
-/** What Ori carries. `fragile`: damage multiplier from bumps / sprinting / hard turns. `melt`: seconds until it is gone (0 = it keeps). */
+/** What the hero carries. `fragile`: damage multiplier from bumps / sprinting / hard turns. `melt`: seconds until it is gone (0 = it keeps). */
 export const CARGO = {
   casserole: { name: 'the casserole', fragile: 1.0, melt: 0, pickup: 'Mum hands over the casserole. It is warm. It is emotional.', drop: 'Auntie takes it with both hands.' },
   icecream: { name: 'the ice cream', fragile: 0.5, melt: 170, pickup: 'The ice cream is in. The clock is ticking!', drop: 'Still cold. Roee is moved.' },
@@ -74,7 +74,7 @@ export const PASSENGERS = {
   ],
 };
 
-/** Things that get lost and the zone to search. `clue` is what the person tells Ori. */
+/** Things that get lost and the zone to search. `clue` is what the person tells the hero. */
 export const FIND_KINDS = {
   cat: { name: 'Pishi the cat', zone: 'park', clue: 'She likes the shade near the fountain... or the trees... or wherever you are not looking.', found: 'Pishi! She was napping on a bench.' },
   itay: { name: 'Itay', zone: 'park', clue: 'He said he is behind something big and green.', found: 'Found you, Itay! Best hiding spot ever.' },

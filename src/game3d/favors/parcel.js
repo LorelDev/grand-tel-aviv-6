@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the parcel run (PURE) [experimental]: Uzi has a parcel for somebody across the neighbourhood. Take it from the garage, get it to the door before the clock says so
+// Grand Tel Aviv 6 — the parcel run (PURE) [experimental]: Uzi has a parcel for somebody across the neighbourhood. Take it from the garage, get it to the door before the clock says so
 // (the faster the better: up to three stars). Late is fine too: the parcel still gets there and somebody still says thank you. By car it is quick; on foot it is a walk.
 import { mulberry32 } from '../rng.js';
 

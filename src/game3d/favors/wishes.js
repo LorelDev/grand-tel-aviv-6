@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the daily wishes (PURE) [experimental]: every morning Ori has three small wishes, one easy, one a bit more, one a challenge, drawn by the day's seed from things the game already counts
+// Grand Tel Aviv 6 — the daily wishes (PURE) [experimental]: every morning the hero has three small wishes, one easy, one a bit more, one a challenge, drawn by the day's seed from things the game already counts
 // (hellos, a fight won, metres driven, a game on the office computer, a shift at the cafe, a parcel, a city event, the places gone into today ...). Each wish that is done pays peaches and earns a sticker; all three
 // pay a bonus. Nothing is lost for leaving one: a wish that is not done by the day's end is just not stickered, and the next morning brings three new ones. A wish with a time ("before noon") says "maybe tomorrow".
 import { mulberry32 } from '../rng.js';
@@ -15,7 +15,7 @@ export const POOL = [
   { id: 'hello-am', tier: 1, metric: 'hellos', n: [3, 4, 1], before: 12, words: (n) => `Say hello to ${n} people before noon` },
   { id: 'places', tier: 1, metric: 'places', n: [2, 3, 1], words: (n) => `Go inside ${n} different places` },
   { id: 'arcade', tier: 1, metric: 'arcade', n: [1, 1, 1], words: () => 'Play a game on the office computer' },
-  { id: 'drive', tier: 2, metric: 'driven', n: [400, 900, 100], words: (n) => `Drive ${n} metres in Ori's car` },
+  { id: 'drive', tier: 2, metric: 'driven', n: [400, 900, 100], words: (n) => `Drive ${n} metres in your car` },
   { id: 'coffee', tier: 2, metric: 'cafeRuns', n: [1, 1, 1], words: () => 'Help Roee with Coffee Rush' },
   { id: 'parcel', tier: 2, metric: 'parcels', n: [1, 1, 1], words: () => 'Deliver a parcel for Uzi' },
   { id: 'event', tier: 2, metric: 'evCount', n: [1, 1, 1], words: () => 'Enjoy a city event (look for the beam of light)' },

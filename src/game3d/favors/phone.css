@@ -1,4 +1,4 @@
-/* "Ori, Can You...?" — the phone: lock-screen banners, the phone button with its badge, and the phone itself (an iOS-like glass panel). */
+/* Grand Tel Aviv 6 — the phone: lock-screen banners, the phone button with its badge, and the phone itself (an iOS-like glass panel). */
 .fv-phonebtn { position: relative; }
 .fv-phonebtn.on { background-color: rgba(255, 159, 67, 0.55); }
 .fv-phonebtn.hot::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid #ffb25b; animation: fv-ring 1.2s ease-out infinite; pointer-events: none; }

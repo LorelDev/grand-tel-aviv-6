@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — asks the people factory (worker.js) for characters without freezing the page. `prewarmOri(tier)` is called when the site is idle,
-// so by the time somebody launches the game Ori is already built; `getOriData(tier)` gives the data at once (building it here, the slow way, only if the
+// Grand Tel Aviv 6 — asks the people factory (worker.js) for characters without freezing the page. `prewarmOri(tier)` is called when the site is idle,
+// so by the time somebody launches the game the hero is already built; `getOriData(tier)` gives the data at once (building it here, the slow way, only if the
 // worker has not finished or cannot run). If Web Workers are not allowed (some file:// setups), everything still works — on the main thread.
 import { buildPersonData, finishPersonData, peekPersonData, storePersonData } from './assemble.js';
 import { ORI_SPEC } from './specs.js';
@@ -8,7 +8,7 @@ import workerSource from 'worker-src:./worker.js';
 
 export const ORI_TIERS = { high: { q: 1, curls: 1, outline: true }, medium: { q: 0.72, curls: 0.5, outline: true }, low: { q: 0.45, curls: 0, outline: false } };
 export const oriTier = (tier) => ORI_TIERS[tier] || ORI_TIERS.high;
-/** Ori's spec for a tier (the number of curls follows the tier). */
+/** the hero's spec for a tier (the number of curls follows the tier). */
 export const oriSpecFor = (tier) => ({ ...ORI_SPEC, hair: { ...ORI_SPEC.hair, curlDensity: oriTier(tier).curls } });
 export const oriKey = (tier) => `ori-${tier}`;
 
@@ -40,7 +40,7 @@ function ask(msg) {
   return new Promise((resolve, reject) => { const id = nextId++; waiting.set(id, { resolve, reject }); w.postMessage({ id, ...msg }); });
 }
 
-/** Builds Ori for a tier in the background; resolves with the data (also stored, so the game finds it). */
+/** Builds the hero for a tier in the background; resolves with the data (also stored, so the game finds it). */
 export function prewarmOri(tier = 'high') {
   const key = oriKey(tier);
   const q = oriTier(tier).q;
@@ -55,7 +55,7 @@ export function prewarmOri(tier = 'high') {
   return p;
 }
 
-/** Ori's data right now (the slow way if it is not ready yet). */
+/** the hero's data right now (the slow way if it is not ready yet). */
 export function getOriData(tier = 'high') {
   return buildPersonData(oriSpecFor(tier), { quality: oriTier(tier).q, key: oriKey(tier) });
 }

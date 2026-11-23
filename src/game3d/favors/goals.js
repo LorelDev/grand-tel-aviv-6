@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the goals (PURE): no phone, no messages. One goal at a time, shown in a chip with an arrow and a beam; when it is done the next one
+// Grand Tel Aviv 6 — the goals (PURE): no phone, no messages. One goal at a time, shown in a chip with an arrow and a beam; when it is done the next one
 // opens and a little reward comes. The state lives in the campaign (love, progress counters, the boxer record).
 
 /** `have(c)` = how far along, `need` = the target; `place` = where the beam points; `hidden`: shown only when `showIf(c)`. */
@@ -20,7 +20,7 @@ export function goalList(c) {
   return GOALS.map((g) => ({ id: g.id, title: g.title, hint: g.hint, place: g.place, need: g.need, have: Math.min(g.need, Math.floor(g.have(c))), done: done.includes(g.id), shown: !g.showIf || g.showIf(c), reward: g.reward }));
 }
 
-/** The goal Ori is on now (the first one not done and shown), or null when he has done them all. */
+/** The goal the hero is on now (the first one not done and shown), or null when he has done them all. */
 export function currentGoal(c) { return goalList(c).find((g) => g.shown && !g.done) || null; }
 
 /** Marks the goals that are reached now as done; returns them (the caller pays the reward). */

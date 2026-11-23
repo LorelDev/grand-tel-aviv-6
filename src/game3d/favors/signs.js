@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the painted signs of the neighbourhood on ONE canvas atlas: the named places and the ordinary shops (English on top, a little Hebrew
+// Grand Tel Aviv 6 — the painted signs of the neighbourhood on ONE canvas atlas: the named places and the ordinary shops (English on top, a little Hebrew
 // underneath). `uv(id)` gives the four UV corners of a cell. Drawn once in code, released with the world.
 import * as THREE from 'three';
 import { canvasTexture } from './gfx.js';

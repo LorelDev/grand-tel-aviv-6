@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — draws the passers-by. They are the same sculpted people as Ori (people/*), just meshed coarsely: a handful of ARCHETYPES (one
+// Grand Tel Aviv 6 — draws the passers-by. They are the same sculpted people as the hero (people/*), just meshed coarsely: a handful of ARCHETYPES (one
 // per hairstyle) each become one instanced mesh whose vertices carry a code (colour slot + which limb), so the vertex shader swings the legs and arms
 // and picks each instance's shirt, trousers, skin and hair colour: 40 different neighbours cost ~6 draw calls and no per-person work on the CPU.
 import * as THREE from 'three';

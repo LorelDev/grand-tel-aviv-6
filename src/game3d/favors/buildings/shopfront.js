@@ -1,10 +1,10 @@
-// "Ori, Can You...?" — the ground floor of a building's street side: shopfronts with big glass (you see a lit room behind it), a door with its canopy
+// Grand Tel Aviv 6 — the ground floor of a building's street side: shopfronts with big glass (you see a lit room behind it), a door with its canopy
 // and steps, striped awnings that move in the wind, painted fascia signs, and the plain doors + windows of the flats. The other faces get ordinary windows.
 import { RC, FLOOR, faceQuad, faceBox, slopeStrip, quadW, P, hash01 } from './face.js';
 import { dressOpening } from './facade.js';
 import { SHOP_SIGNS } from '../signs.js';
 
-const SHOP_LIKE = new Set(['cafe', 'studio', 'startup', 'sidegig', 'perach', 'workshop', 'cityhall']);
+const SHOP_LIKE = new Set(['home', 'cafe', 'studio', 'startup', 'sidegig', 'perach', 'workshop', 'cityhall']);
 const AWNINGS = [['#e5625e', '#fbf6ec'], ['#2f7f9a', '#fbf6ec'], ['#e8a73a', '#fbf6ec'], ['#4f8f5e', '#fbf6ec'], ['#b8456a', '#fbf6ec'], ['#35507f', '#fbf6ec']];
 
 /** A sign: a coloured board behind, then the painted atlas cell in front of it. */

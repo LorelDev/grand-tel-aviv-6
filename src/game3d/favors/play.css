@@ -1,4 +1,4 @@
-/* "Ori, Can You...?" — the game around the favours: peaches, the mission card, the little actions, the garage, the minimap, the day card.
+/* Grand Tel Aviv 6 — the game around the favours: peaches, the mission card, the little actions, the garage, the minimap, the day card.
    Everything is prefixed pl-; the glass look comes from favors.css (.fv-glass). */
 .pl-peach { width: 22px; height: 22px; flex: none; }
 .pl-peaches { position: absolute; top: calc(max(14px, env(safe-area-inset-top)) + 160px); left: max(14px, env(safe-area-inset-left)); display: flex; align-items: center; gap: 8px; padding: 7px 14px 7px 10px; border-radius: 999px; font: 700 17px/1 Inter, system-ui, sans-serif; font-variant-numeric: tabular-nums; }

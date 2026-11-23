@@ -1,6 +1,6 @@
-// "Ori, Can You...?" — the expression rig as PURE data + a tiny state machine. A face is a handful of numbers (eyelids, brows, mouth, gaze, a sweat
+// Grand Tel Aviv 6 — the expression rig as PURE data + a tiny state machine. A face is a handful of numbers (eyelids, brows, mouth, gaze, a sweat
 // drop, a flush); named expressions are targets for them; `createFace()` eases towards the target, blinks on its own, glances around, flaps the
-// mouth while talking. There is NO angry or negative face on purpose: Ori (and everybody in this neighbourhood) is warm. Overloaded = flustered-but-smiling.
+// mouth while talking. There is NO angry or negative face on purpose: the hero (and everybody in this neighbourhood) is warm. Overloaded = flustered-but-smiling.
 
 const lerp = (a, b, t) => a + (b - a) * t;
 const clamp01 = (v) => Math.max(0, Math.min(1, v));

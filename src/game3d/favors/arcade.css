@@ -1,4 +1,4 @@
-/* "Ori, Can You...?" — the office computer: a CRT monitor over the street. Prefix ar-. */
+/* Grand Tel Aviv 6 — the office computer: a CRT monitor over the street. Prefix ar-. */
 .ar { position: absolute; inset: 0; z-index: 7; display: grid; place-items: center; background: rgba(6, 8, 14, 0.62); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace; }
 .ar[hidden] { display: none; }
 .ar-mon { padding: 22px 22px 12px; border-radius: 28px; background: linear-gradient(180deg, #d9d3c4, #b9b2a2); box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.5); animation: fv-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }

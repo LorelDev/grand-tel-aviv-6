@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the weather (PURE except for createRain). A day may bring ONE afternoon shower: `weatherPlan(seed)` decides if and when, `weatherAt(plan, hour)`
+// Grand Tel Aviv 6 — the weather (PURE except for createRain). A day may bring ONE afternoon shower: `weatherPlan(seed)` decides if and when, `weatherAt(plan, hour)`
 // says how hard it rains, how wet the streets still are (the puddles linger for an hour after) and how grey the sky is. It never changes the gameplay,
 // it is only the look (and a soft pitter-patter): the shower is the best moment for a rain check.
 import * as THREE from 'three';

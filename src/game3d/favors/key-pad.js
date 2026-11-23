@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the on-screen key pad (DOM) [experimental]: a row of big buttons that send KEYS (touch.js says which). A button sends the key down when the finger lands and up when it leaves, through
+// Grand Tel Aviv 6 — the on-screen key pad (DOM) [experimental]: a row of big buttons that send KEYS (touch.js says which). A button sends the key down when the finger lands and up when it leaves, through
 // the same window the keyboard uses, so the games and the cards need no second code path: hold "right" and a block slides, tap "Back" and the card closes. A pad only shows on a touch device (a coarse pointer,
 // ?touch=1, or from the first finger that touches the game) and only while it has a set of keys to show.
 import './touch.css';

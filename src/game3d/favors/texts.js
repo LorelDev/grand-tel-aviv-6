@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — every word the game says in its own voice (the HUD, the toasts, the phone's empty states, the end-of-day lines),
-// in one place: easy to translate, and `scripts/test-favors-persona.mjs` reads it to check the PERSONA. Ori is ALWAYS positive, warm and
+// Grand Tel Aviv 6 — every word the game says in its own voice (the HUD, the toasts, the phone's empty states, the end-of-day lines),
+// in one place: easy to translate, and `scripts/test-favors-persona.mjs` reads it to check the PERSONA. the hero is ALWAYS positive, warm and
 // kind: he never snaps, never sulks, never says "missed" or "failed"; when he cannot do something he says so lovingly; humour comes from the
 // absurd day and from his relentless niceness. (What other people say to him — the task texts in content.js — is theirs, not his.)
 
@@ -79,7 +79,7 @@ export const TEXT = {
   tomorrow: (theme) => `Tomorrow: ${theme}`,
   helpedToday: (n) => `You helped ${n} ${n === 1 ? 'person' : 'people'}.`,
   saved: 'Your week is saved',
-  // the life of Ori (T63): goals, boxing, hello
+  // the life of the hero (T63): goals, boxing, hello
   goalDone: (title) => `Goal done: ${title}`,
   levelUp: (n) => `Boxing level ${n}! You feel stronger`,
   newMove: (name) => `New move: ${name}`,
@@ -103,7 +103,7 @@ export const TEXT = {
   bagGood: 'GOOD',
   bagOk: 'OK',
   bagStars: (n) => ['Warm-up done!', 'Nice start!', 'Good rhythm!', 'Perfect rhythm!'][n] || 'Nice work!',
-  bagLine: (n) => ['Coach: Easy does it. The bag will wait for you!', 'Coach: You found the beat. Now keep it!', 'Coach: Good hands! Your rhythm is coming along.', 'Coach: A metronome with fists. That is my student!'][n] || 'Coach: Nice work, Ori!',
+  bagLine: (n) => ['Coach: Easy does it. The bag will wait for you!', 'Coach: You found the beat. Now keep it!', 'Coach: Good hands! Your rhythm is coming along.', 'Coach: A metronome with fists. That is my student!'][n] || 'Coach: Nice work, Boss!',
   bagBest: (n) => `Best combo: ${n}`,
   bagAgain: 'Train again',
   bagLadder: 'Back to the ladder',

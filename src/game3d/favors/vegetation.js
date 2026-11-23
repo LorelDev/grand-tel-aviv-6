@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — palms and the leafy edge of the trees. A palm is a curved trunk with scar rings (one bark texture) and a crown of arching fronds, each
+// Grand Tel Aviv 6 — palms and the leafy edge of the trees. A palm is a curved trunk with scar rings (one bark texture) and a crown of arching fronds, each
 // a ribbon with an alpha cut-out of leaflets (so the silhouette against the sky is feathery, not a green blob). A tree's smooth canopy (props-sdf.js) gets a
 // scatter of leaf-cluster cards around its surface. Both come out as plain BufferGeometries with uv, vertex colour and a wind weight (aSway), ready to instance.
 import * as THREE from 'three';

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the week (PURE): which day it is, what carries over from day to day (money, upgrades, the hearts, the golden peaches), the save
+// Grand Tel Aviv 6 — the week (PURE): which day it is, what carries over from day to day (money, upgrades, the hearts, the golden peaches), the save
 // slot, and the finale: who comes to Sababa Night. A day ends with a report; the campaign turns it into a summary and moves on.
 import { WEEK, GUESTS, PARTY_LINES, GOLDEN } from './play-content.js';
 import { createEconomy } from './economy.js';
@@ -36,7 +36,7 @@ export function createCampaign({ storage = safeStorage(), fresh = false, onProbl
     history: saved && Array.isArray(saved.history) ? saved.history.slice() : [],
     seed: saved && saved.seed ? saved.seed : 1,
     wins: saved && saved.wins ? { ...saved.wins } : {}, // set pieces won / tried: { race, inspection }
-    // the life of Ori (T63): the love of the neighbourhood, the boxer, and what he has done (counters for the goals)
+    // the life of the hero (T63): the love of the neighbourhood, the boxer, and what he has done (counters for the goals)
     love: saved && saved.love != null ? saved.love : 0,
     boxer: { xp: 0, level: 1, beaten: [], fights: 0, wins: 0, reveal: false, ...(saved && saved.boxer ? JSON.parse(JSON.stringify(saved.boxer)) : {}) },
     progress: { ...freshProgress(), ...(saved && saved.progress ? JSON.parse(JSON.stringify(saved.progress)) : {}) },

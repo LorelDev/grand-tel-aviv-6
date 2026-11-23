@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the Sababa Cup board (DOM) [experimental]: the card in Uzi's workshop where the next car race is picked: the driver level and its bar, the seven rivals (a star for each one beaten, "Race!" for the next, what is missing for the locked ones), 1-7 or a click picks, Esc or Close goes back.
+// Grand Tel Aviv 6 — the Sababa Cup board (DOM) [experimental]: the card in Uzi's workshop where the next car race is picked: the driver level and its bar, the seven rivals (a star for each one beaten, "Race!" for the next, what is missing for the locked ones), 1-7 or a click picks, Esc or Close goes back.
 // The numbers and the rules are in league.js (pure); starting the race is the game's job (`onPick`).
 import './league.css';
 import { board, eventBoard, openRow, levelOf } from './league.js';

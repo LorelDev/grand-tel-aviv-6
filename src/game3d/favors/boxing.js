@@ -1,10 +1,10 @@
-// "Ori, Can You...?" — the BOXING RING (PURE, seeded: no DOM, no three). One bout: Ori against an opponent on a small square ring, in real time.
+// Grand Tel Aviv 6 — the BOXING RING (PURE, seeded: no DOM, no three). One bout: the hero against an opponent on a small square ring, in real time.
 // What you DO: move, jab (J), cross (K), guard (hold L / Shift), dash (Space) - and read the other fighter: every punch shows its wind-up before it lands, so
 // a dash at the right moment (a PERFECT dodge) or a guard at the right moment (a PARRY) beats the strongest punch and opens the counter.
 // The sim turns inputs into fighter states + a list of events (hit, block, parry, dodge, blink, ko ...) that the 3D side shows and plays.
 //   input   = { mx, mz (world axes, <= 1), jab, cross, fury, dash (one-frame pulses), block (held) }
 //   fighter = { x, z, face, hp, st, state: 'idle' | 'attack' | 'dash' | 'hit' | 'guardbreak' | 'down' | 'ko' | 'win', move, phase: 'wind' | 'active' | 'rec', t, blocking, ... }
-// The first time Ori's health runs out he goes DOWN (a count of five, he gets up on his own - quicker by mashing the punch keys - with a little health back); the second time is the knock-out.
+// The first time the hero's health runs out he goes DOWN (a count of five, he gets up on his own - quicker by mashing the punch keys - with a little health back); the second time is the knock-out.
 // The OPPONENT can go down up to five times, and each time it is a throw of the dice whether he gets up (RISE: 60 %, 30 %, 15 %, 7.5 %, 3 %), with half the health of the time before;
 // if he does not, the count runs out and it is a knock-out, so nobody can count on the man on the canvas. Events: knockdown { who, n }, count { who, n }, getup { who }, ko { who, fromDown }.
 import { mulberry32, subSeed, wrapPi } from '../rng.js';
@@ -25,7 +25,7 @@ export const MOVES = {
 };
 const DASH = { dist: 2.1, time: 0.2, iframes: 0.15, cd: 0.42, st: 11, perfect: 0.26 };
 const BLINK = { dist: 3.4, time: 0.07, iframes: 0.2, cd: 1.1 };
-/** The odds that the OPPONENT gets up after his 1st, 2nd ... 5th knock-down of a bout (Shilo's rule: nobody can count on it, so the man on the canvas is never certain to rise); a sixth time he stays down. He gets up with RISE_HP of his health the first time, and half of the time before after that. Ori always gets up (once). */
+/** The odds that the OPPONENT gets up after his 1st, 2nd ... 5th knock-down of a bout (Shilo's rule: nobody can count on it, so the man on the canvas is never certain to rise); a sixth time he stays down. He gets up with RISE_HP of his health the first time, and half of the time before after that. the hero always gets up (once). */
 export const RISE = [0.6, 0.3, 0.15, 0.075, 0.03];
 export const RISE_HP = 0.22;
 const COUNT_OUT = 5.6; // (a man who is not getting up is counted out here: the five, then the referee waves it off)
@@ -227,7 +227,7 @@ export function createBout({ level = 1, opp, seed = 1, round = 75, intro = 1.6, 
     tgt.hurt = 0.25;
     b.stats[att.id === 'player' ? 'dealt' : 'taken'] += dmg;
     if (att.id === 'player') { b.stats.hits++; b.stats.maxCombo = Math.max(b.stats.maxCombo, att.combo); att.meter = Math.min(100, att.meter + 7 + (counter ? 8 : 0)); }
-    att.st = Math.min(att.maxSt, att.st + (att.id === 'player' ? 1 + mv.st * 0.25 * (counter ? 1.6 : 1) : 3)); // (a punch of Ori that lands gives breath back: the accurate go on, the wild run dry)
+    att.st = Math.min(att.maxSt, att.st + (att.id === 'player' ? 1 + mv.st * 0.25 * (counter ? 1.6 : 1) : 3)); // (a punch of the hero that lands gives breath back: the accurate go on, the wild run dry)
     tgt.blocking = false;
     if (tgt.armor > 0) { knock(tgt, fx, fz, mv.push * 0.2); } else {
       tgt.state = 'hit'; tgt.stun = mv.stun * (guarded ? 0.7 : 1); tgt.t = 0; tgt.move = null; tgt.phase = null; tgt.queued = null;

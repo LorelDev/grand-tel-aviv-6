@@ -1,4 +1,4 @@
-/* "Ori, Can You...?" — the conversation panel: two live faces, the line typed out, the choices. Glass, like the rest of the HUD. */
+/* Grand Tel Aviv 6 — the conversation panel: two live faces, the line typed out, the choices. Glass, like the rest of the HUD. */
 .fv-talk { position: absolute; left: 50%; bottom: max(18px, env(safe-area-inset-bottom)); width: min(1020px, calc(100% - 24px)); transform: translate(-50%, 24px); opacity: 0; z-index: 6; pointer-events: auto; display: grid; grid-template-columns: 170px 1fr 170px; align-items: end; gap: 0; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--fv-ink, #f5f6fa); transition: opacity 0.22s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1); }
 .fv-talk[hidden] { display: none; }
 .fv-talk.on { opacity: 1; transform: translate(-50%, 0); }

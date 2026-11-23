@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the inside of the buildings as DATA (PURE: no three, no DOM). Every place with a door has a room: its size, its look, the
+// Grand Tel Aviv 6 — the inside of the buildings as DATA (PURE: no three, no DOM). Every place with a door has a room: its size, its look, the
 // furniture (kind, position, rotation, size), the people who stand in it, and what Space does at each prop. interior3d.js builds the 3D from this;
 // the tests check that everything fits, nothing blocks the door and every prop and person can be reached.
 //   Room frame: x → east, z → south, the door is in the middle of the SOUTH wall (z = +d/2). rot = degrees about y; 0 faces +z (the door),
@@ -34,14 +34,15 @@ export function footprint(it) {
 
 /** The rooms. `use` = what Space does at a prop (toast text, or a verb the game knows: 'coffee', 'number', 'sit'), `say` = the toast. */
 export const ROOMS = {
-  home: {
-    w: 9, d: 7, floor: 'wood', wall: '#efe9e0', accent: '#5b8def', mood: 'warm', hum: 'quiet',
+  home: { // the JLL offices: a reception sofa, rows of desks, a meeting table and the screen with the listings
+    w: 9, d: 7, floor: 'wood', wall: '#f1eeea', accent: '#e30613', mood: 'cool', hum: 'quiet',
     items: [
-      { k: 'rug', x: 0, z: -0.4, c: '#8aa5d6' }, { k: 'sofa', x: -2.4, z: -2.5, rot: 0, c: '#6d86b8' }, { k: 'coffeeTable', x: -2.4, z: -1.4, c: '#c9a57a' },
-      { k: 'desk', x: 2.9, z: -2.9, rot: 0, c: '#d9cdb8', screen: true, work: true, say: 'The desk. The portfolio glows softly.' }, { k: 'chair', x: 2.9, z: -2.0, rot: 180, c: '#2b2e38' },
-      { k: 'shelf', x: 0.4, z: -3.2, c: '#caa87e', stuff: 'trophies' }, { k: 'plant', x: -4.0, z: -3.0 }, { k: 'plant', x: 4.0, z: 2.6 },
-      { k: 'bed', x: 3.2, z: 1.0, rot: 270, c: '#e8e3da', sheet: '#7fa0d8' }, { k: 'lamp', x: 1.6, z: -3.0 },
-      { k: 'poster', x: -4.44, z: -1.0, rot: 90, art: 0, say: 'A poster of a place he has not been to yet. Yet.' }, { k: 'window', x: 0, z: -3.44, rot: 0, sill: true },
+      { k: 'rug', x: -2.4, z: -1.6, c: '#c9463f' }, { k: 'sofa', x: -2.4, z: -2.5, rot: 0, c: '#3a3d47' }, { k: 'coffeeTable', x: -2.4, z: -1.4, c: '#d8d2c6' },
+      { k: 'desk', x: 2.9, z: -2.9, rot: 0, c: '#e6e1d8', screen: true, work: true, say: 'His desk at JLL. A spreadsheet of towers glows softly.' }, { k: 'chair', x: 2.9, z: -2.0, rot: 180, c: '#2b2e38' },
+      { k: 'desk', x: 0.9, z: -2.9, rot: 0, c: '#e6e1d8', screen: true }, { k: 'chair', x: 0.9, z: -2.0, rot: 180, c: '#2b2e38' },
+      { k: 'table', x: 2.6, z: 1.4, rot: 0, c: '#d9d3c8' }, { k: 'chair', x: 1.9, z: 0.6, rot: 0, c: '#2b2e38' }, { k: 'chair', x: 3.3, z: 0.6, rot: 0, c: '#2b2e38' }, { k: 'chair', x: 1.9, z: 2.2, rot: 180, c: '#2b2e38' }, { k: 'chair', x: 3.3, z: 2.2, rot: 180, c: '#2b2e38' },
+      { k: 'plant', x: -4.0, z: -3.0 }, { k: 'plant', x: 4.0, z: 2.9 }, { k: 'cooler', x: -4.0, z: 0.6, say: 'The water cooler. All the real deals close here.' },
+      { k: 'poster', x: -4.44, z: -1.0, rot: 90, art: 0, say: 'A skyline he has not sold yet. Yet.' }, { k: 'window', x: -0.6, z: -3.44, rot: 0, sill: true },
     ],
     npcs: [],
   },
@@ -50,7 +51,7 @@ export const ROOMS = {
     items: [
       { k: 'rug', x: -1.6, z: -0.4, c: '#b46a5a' }, { k: 'sofa', x: -2.0, z: -2.5, rot: 0, c: '#c9a98a', plastic: true, use: 'sit', say: 'Squeak. The plastic cover has protected this sofa since 1994.' },
       { k: 'coffeeTable', x: -2.0, z: -1.3, c: '#7a5a3c', doily: true }, { k: 'tv', x: -2.0, z: 1.4, rot: 180, c: '#3a2f28', doily: true },
-      { k: 'photos', x: 0.2, z: -3.44, rot: 0, count: 40, say: 'Forty photos of Ori. Baby Ori, camp Ori, graduation Ori. She has a favourite.' },
+      { k: 'photos', x: 0.2, z: -3.44, rot: 0, count: 40, say: 'Forty photos of her boy. Baby photos, camp photos, graduation photos. She has a favourite.' },
       { k: 'glassCase', x: 3.7, z: -1.0, rot: 270, cups: true, say: 'The good cups. For guests. Nobody has ever been allowed to use them.' },
       { k: 'table', x: 2.4, z: 1.4, rot: 0, c: '#d9c3a0', pot: true, use: 'food:soup', say: 'A pot of chicken soup. It is already served, somehow.' },
       { k: 'chair', x: 1.6, z: 0.6, rot: 0, c: '#8a5a3a' }, { k: 'chair', x: 3.2, z: 0.6, rot: 0, c: '#8a5a3a' }, { k: 'chair', x: 1.6, z: 2.2, rot: 180, c: '#8a5a3a' }, { k: 'chair', x: 3.2, z: 2.2, rot: 180, c: '#8a5a3a' },
@@ -187,7 +188,7 @@ export function collidersOf(id) {
   return out;
 }
 
-/** Where Ori appears when he walks in: just inside the door, facing the room (heading = atan2(dx, dz), north = π). */
+/** Where the hero appears when he walks in: just inside the door, facing the room (heading = atan2(dx, dz), north = π). */
 export function spawnOf(id) {
   const r = ROOMS[id];
   const o = originOf(id);
@@ -211,7 +212,7 @@ export function spotsOf(id) {
   return out;
 }
 
-/** Pure check: the cells of the room that Ori can reach from the door (grid 0.25 m) — the tests use it to be sure nothing is walled off. */
+/** Pure check: the cells of the room that the hero can reach from the door (grid 0.25 m) — the tests use it to be sure nothing is walled off. */
 export function reachable(id) {
   const r = ROOMS[id];
   const o = originOf(id);

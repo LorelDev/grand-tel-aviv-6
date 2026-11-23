@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — the little events of the city by the hour (PURE) [experimental]: fresh bread at the kiosk in the morning, the lunch rush at the cafe, a street band in the park at golden
-// hour, pizza in the office at night. Each one is announced when it starts, shows on the maps, and pays a little (once a day) if Ori goes and enjoys it for a few seconds.
+// Grand Tel Aviv 6 — the little events of the city by the hour (PURE) [experimental]: fresh bread at the kiosk in the morning, the lunch rush at the cafe, a street band in the park at golden
+// hour, pizza in the office at night. Each one is announced when it starts, shows on the maps, and pays a little (once a day) if the hero goes and enjoys it for a few seconds.
 // This file has the schedule, how far away is "there", how loud the band is, and the tracker that decides when to announce and when to pay.
 
 /**

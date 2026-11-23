@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the first-steps card and the "what now?" panel (the DOM side of guide.js) [experimental]. The card is NOT modal: it sits at the side while he walks, ticks its
+// Grand Tel Aviv 6 — the first-steps card and the "what now?" panel (the DOM side of guide.js) [experimental]. The card is NOT modal: it sits at the side while he walks, ticks its
 // steps off as he does them and goes away by itself. The panel (? or the "?" button or a click on the goal chip) is a small dialog: the goal, where it is, the keys.
 import './guide.css';
 import { KEYS } from './guide.js';

@@ -1,7 +1,7 @@
-// "Ori, Can You...?" — the finishing of every frame, in four small passes on top of the scene render (which also writes a DEPTH texture):
+// Grand Tel Aviv 6 — the finishing of every frame, in four small passes on top of the scene render (which also writes a DEPTH texture):
 //   1. AO     ambient occlusion from the depth buffer (half resolution, a spiral of 12 taps, depth-aware blur in the next pass): corners, under awnings and
 //             balconies, the foot of every wall and every car get their soft contact darkening.
-//   2. SCENE  AO applied + a gentle depth of field (the far street and the near foreground soften, Ori stays sharp) + light SHAFTS (a radial march from the sun
+//   2. SCENE  AO applied + a gentle depth of field (the far street and the near foreground soften, the hero stays sharp) + light SHAFTS (a radial march from the sun
 //             through the sky pixels that the buildings leave open, strongest at golden hour).
 //   3. BLOOM  the standard three bloom on whatever glows (lit windows, signs, lamps, the low sun).
 //   4. GRADE  a colour grade that follows the time of day (warm gold at sunset, cool blue at night), a vignette, a hint of film grain, then tone mapping.
@@ -175,7 +175,7 @@ export function createFavorsPost(renderer, scene, camera, { tier = 'high', bloom
     uniforms: { ao: aoU, scene: sceneU, grade: gradeU },
     /**
      * look: { tint: [r,g,b], sat, contrast, vignette } the colour grade; sun: { dir: [x,y,z], color: [r,g,b], shafts: 0..1 } for the light shafts;
-     * focus: the distance (m) that stays sharp (Ori); ao: 0..1 how strong the occlusion is.
+     * focus: the distance (m) that stays sharp (the hero); ao: 0..1 how strong the occlusion is.
      */
     setLook({ tint, sat, contrast, vignette, sun, focus, ao, bloomStrength } = {}) {
       if (tint) gradeU.uTint.value.setRGB(tint[0], tint[1], tint[2]);

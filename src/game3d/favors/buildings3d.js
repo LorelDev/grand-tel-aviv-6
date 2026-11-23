@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the buildings. Every lot becomes a real facade (buildings/facade.js: walls with openings and depth, windows with interior mapping,
+// Grand Tel Aviv 6 — the buildings. Every lot becomes a real facade (buildings/facade.js: walls with openings and depth, windows with interior mapping,
 // balconies, shopfronts, roofs); the geometry is merged per CHUNK of the neighbourhood and per material, so the ones behind the camera are never drawn and
 // the whole city is a few dozen draw calls. Plants are instanced (buildings/foliage.js). The light of the day only moves a few uniforms.
 import * as THREE from 'three';

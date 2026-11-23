@@ -1,4 +1,4 @@
-// "Ori's Life" — the race tracks out of town (PURE) [experimental] (Shilo: "tracks that are not inside the city, a race somewhere else, and not only one against one"): a track is a closed loop
+// "Grand Tel Aviv 6" — the race tracks out of town (PURE) [experimental] (Shilo: "tracks that are not inside the city, a race somewhere else, and not only one against one"): a track is a closed loop
 // (a smooth line through a few control points), a width, some laps and a look. This file makes the geometry the races and the 3D world need: the line sampled every few metres,
 // where a point of it is, how far a car is from it (the barrier), the rings to pass, the places on the grid, how tight each turn is (the speed a driver can carry through it) and the obstacles
 // on the road (cones, tyres, barrels, oil). The 3D side is track3d.js; the race itself is missions.js (fieldRace).

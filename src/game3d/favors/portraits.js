@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the faces in the conversation panel. One small WebGL renderer draws each speaker's real 3D head (the same sculpted
+// Grand Tel Aviv 6 — the faces in the conversation panel. One small WebGL renderer draws each speaker's real 3D head (the same sculpted
 // character as in the street, so the expressions, blinks and lip-flap are the real ones) and copies the picture into a 2D canvas.
 // Nothing is rendered while no conversation is open; the renderer is created on the first conversation and freed on dispose().
 import * as THREE from 'three';

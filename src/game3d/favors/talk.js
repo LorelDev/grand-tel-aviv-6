@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the conversation panel (DOM + the portraits). Two real 3D faces (Ori and whoever he is talking to) with their expressions
+// Grand Tel Aviv 6 — the conversation panel (DOM + the portraits). Two real 3D faces (the hero and whoever he is talking to) with their expressions
 // and lip-flap, the speaker's name, the line typed out letter by letter with a blip per letter in that character's own voice (subtitles are always
 // the text itself), numbered choices, a Compliment button (C), relationship hearts. The game feeds it effects through `onEffects`.
 //   Space / Enter / click = next (first press finishes the line)     1-4 = choose     C = compliment     Esc = say goodbye
@@ -25,7 +25,7 @@ export function createTalk(overlay, { tier = 'high', sfx, getRel, getFlags, onEf
   root.setAttribute('role', 'dialog');
   root.setAttribute('aria-label', 'Conversation');
   root.innerHTML = `
-    <div class="fv-tk-face ori" data-k="faceO"><canvas data-k="cvO" aria-hidden="true"></canvas><b>Ori</b></div>
+    <div class="fv-tk-face ori" data-k="faceO"><canvas data-k="cvO" aria-hidden="true"></canvas><b>Boss</b></div>
     <div class="fv-tk-main fv-glass">
       <header><span class="fv-tk-name" data-k="name"></span><span class="fv-tk-role" data-k="role"></span><span class="fv-tk-hearts" data-k="hearts" aria-label="Friendship"></span></header>
       <p class="fv-tk-text" data-k="text" aria-live="polite"></p>
@@ -90,7 +90,7 @@ export function createTalk(overlay, { tier = 'high', sfx, getRel, getFlags, onEf
     acc = 0;
     speaking = line.speaker === 'ori' ? 'ori' : 'them';
     const sp = line.speaker === 'ori' ? null : speaker(who2speaker(line.speaker));
-    el.name.textContent = line.speaker === 'ori' ? 'Ori' : who.name;
+    el.name.textContent = line.speaker === 'ori' ? 'Boss' : who.name;
     el.role.textContent = line.speaker === 'ori' ? '' : who.role || '';
     el.faceO.classList.toggle('talking', speaking === 'ori');
     el.faceT.classList.toggle('talking', speaking === 'them');
@@ -167,7 +167,7 @@ export function createTalk(overlay, { tier = 'high', sfx, getRel, getFlags, onEf
   }
   function next() { afterStep(); }
 
-  /** Ori pays a compliment: a little exchange about the other person, then back to where the conversation was. */
+  /** the hero pays a compliment: a little exchange about the other person, then back to where the conversation was. */
   function compliment() {
     if (!open || complimented || stack[stack.length - 1].interlude) return;
     complimented = true;

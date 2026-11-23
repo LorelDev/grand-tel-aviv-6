@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — builds ALL the geometry of one character from a person spec (specs.js): the sculpted head, hair, facial parts, body, outfit,
+// Grand Tel Aviv 6 — builds ALL the geometry of one character from a person spec (specs.js): the sculpted head, hair, facial parts, body, outfit,
 // glasses and jewellery, merged into a handful of skinned layers (one per material) that share one skeleton (rig.js). PURE (typed arrays only), so
 // node can build and preview a person; person.js turns the layers into three.js skinned meshes. Results are cached per spec.
 import { buildHead, faceSpec, skinColor } from './head.js';
@@ -91,7 +91,7 @@ export function computePersonData(spec, { quality = 1 } = {}) {
   F.buildBrows(brows, A, f, ids, spec.brows?.color || spec.hair?.color || '#1a1210', spec.brows || {});
   if (spec.facialHair) F.buildFacialHair(fhair, A, f, ids, spec.facialHair, spec.facialHair.color || '#1a1210', skinFn);
   const glint = mk();
-  if (spec.glasses) F.buildGlasses(frame, lens, A, f, ids, spec.glasses, glint);
+  if (spec.glasses) F.buildGlasses(frame, spec.glasses.shades ? frame : lens, A, f, ids, spec.glasses, glint);
   if (spec.hoop) F.buildHoop(hoop, A, f, ids, spec.hoop.color, spec.hoop.side || 1);
   L.eyes.add(eyes.finish(), { offset: H, scale: HS });
   L.shine.add(shine.finish(), { offset: H, scale: HS });
@@ -102,7 +102,7 @@ export function computePersonData(spec, { quality = 1 } = {}) {
   L.lens.add(lens.finish(), { offset: H, scale: HS });
   L.glint.add(glint.finish(), { offset: H, scale: HS });
   L.metal.add(hoop.finish(), { offset: H, scale: HS });
-  if (spec.chain) L.metal.add(buildChain(rig, spec.chain.color), { scale: S });
+  if (spec.chain) L.metal.add(buildChain(rig, spec.chain.color, spec.chain.thick), { scale: S });
   // hair (rigid to the hair bone, a bone that can jiggle a little)
   const hair = spec.hair && spec.hair.style !== 'bald' ? buildHair(spec.hair, A, { cell: 0.0072 / quality, seed: spec.seed || 7, quality }) : null;
   if (hair) { L.hair.add(hair.mesh, { offset: H, scale: HS, bone: ids.hair }); if (hair.curls) L.hair.add(hair.curls, { offset: H, scale: HS, bone: ids.hair }); }

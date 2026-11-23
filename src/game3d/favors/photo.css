@@ -1,4 +1,4 @@
-/* "Ori, Can You...?" — photo mode (T27) [experimental]: the viewfinder, the flash and the little polaroid. The HUD is put away while it is on (the overlay carries .fv-photo). Prefix ph-. Nothing here names a cursor. */
+/* Grand Tel Aviv 6 — photo mode (T27) [experimental]: the viewfinder, the flash and the little polaroid. The HUD is put away while it is on (the overlay carries .fv-photo). Prefix ph-. Nothing here names a cursor. */
 .g3d.fv-photo .fv-hud { visibility: hidden; }
 .g3d.fv-photo .fv-gohint, .g3d.fv-photo .fv-talkhint { visibility: hidden; } /* (the door and hello chips live beside the HUD, not in it) */
 .ph { position: absolute; inset: 0; z-index: 5; pointer-events: none; font-family: Inter, system-ui, sans-serif; }

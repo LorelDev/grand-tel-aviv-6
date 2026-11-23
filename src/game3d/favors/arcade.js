@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the games on the office computer (PURE): a game inside the game inside a computer. Two little classics built on the rules the site
+// Grand Tel Aviv 6 — the games on the office computer (PURE): a game inside the game inside a computer. Two little classics built on the rules the site
 // already has (src/ui/games/*-logic.js): TETRIS (falling blocks) and 2048 (slide and merge). A run ends with a score; the score pays peaches.
 import {
   COLS, TOTAL, HIDDEN, TYPES, newBoard, spawnPiece, createBag, collides, tryMove, rotate, dropY, lockPiece, clearLines, toppedOut, gravitySeconds, levelForLines, scoreClear, cellsOf,

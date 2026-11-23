@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — one building's walls: a solid core, a skin of wall pieces around REAL window openings (you see the reveal and the glass set back
+// Grand Tel Aviv 6 — one building's walls: a solid core, a skin of wall pieces around REAL window openings (you see the reveal and the glass set back
 // inside), frames, sills, shutters, roller-shutter boxes, eyebrows over the windows, a plinth, floor lines, a cornice and a parapet. The ground floor of
 // the street side comes from shopfront.js; balconies, AC units and washing from balconies.js.
 import { FLOOR, RC, FACES, P, faceQuad, faceBox, wallBands, hash01 } from './face.js';
@@ -13,7 +13,7 @@ const SILL = 0.8; // from the floor up to the sill
 
 /** The look of one lot: colours + which dressing it gets. */
 export function lotStyle(lot, rnd, named) {
-  const style = lot.id === 'startup' ? 'modern' : lot.id === 'cityhall' ? 'civic' : lot.id === 'auntie' ? 'house' : rnd() < 0.5 ? 'shutters' : rnd() < 0.7 ? 'bauhaus' : 'plain';
+  const style = lot.id === 'startup' || lot.id === 'home' ? 'modern' : lot.id === 'cityhall' ? 'civic' : lot.id === 'auntie' ? 'house' : rnd() < 0.5 ? 'shutters' : rnd() < 0.7 ? 'bauhaus' : 'plain';
   const wall = named && lot.id !== 'kiosk' ? (lot.id === 'cityhall' ? '#f1ebe0' : WALL_TONES[Math.floor(rnd() * 6)]) : lot.tone && rnd() < 0.35 ? lot.tone : WALL_TONES[Math.floor(rnd() * WALL_TONES.length)];
   // street art: a mural on the ground floor of one long side wall, and posters beside the shops
   const r = lot.rect;

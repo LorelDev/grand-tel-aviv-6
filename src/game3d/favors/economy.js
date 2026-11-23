@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — the money (PURE). Peaches come from favours, tips and golden peaches; they are spent at Uzi's Garage on upgrades that change
-// HOW Ori plays (a quicker car, a bigger afterburner, springier sneakers, a padded cargo box, one more helper). Nothing is ever taken away.
+// Grand Tel Aviv 6 — the money (PURE). Peaches come from favours, tips and golden peaches; they are spent at Uzi's Garage on upgrades that change
+// HOW the hero plays (a quicker car, a bigger afterburner, springier sneakers, a padded cargo box, one more helper). Nothing is ever taken away.
 import { ECON, UPGRADES } from './play-content.js';
 
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);

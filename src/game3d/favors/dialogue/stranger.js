@@ -1,4 +1,4 @@
-// Conversation 3 — a passer-by who has been looking for Bus 5 for a while. "The stranger" is whoever Ori stopped (the game fills in the face and name).
+// Conversation 3 — a passer-by who has been looking for Bus 5 for a while. "The stranger" is whoever the hero stopped (the game fills in the face and name).
 export default {
   id: 'stranger', who: 'stranger', title: 'A stranger asks', start: 'hi',
   nodes: {
@@ -20,7 +20,7 @@ export default {
     bagq: { s: 'stranger', e: 'proud', t: 'Tahini. Six jars, for the whole family. They never believe me that it is better here.', fx: { hint: 'The stranger loves tahini. A jar makes a good thank-you.' }, next: 'bye' },
     jacket: { s: 'stranger', e: 'proud', t: 'Thank you! I bought it for exactly this trip, and nobody has said a word. You made my day.', next: 'bye' },
     carry: { s: 'stranger', e: 'love', t: "I'll never forget this. What is your name? I'll tell them about you.", next: 'name' },
-    name: { s: 'ori', e: 'grin', t: "Ori! If they ask: the one with the curls and the glasses. I'm easy to find.", next: 'bye' },
-    bye: { s: 'stranger', e: 'smile', t: 'Thank you, Ori. Shalom, and enjoy the day!', end: true },
+    name: { s: 'ori', e: 'grin', t: "They call me Boss. If they ask: the one with the shades and the gold chain. I'm easy to find.", next: 'bye' },
+    bye: { s: 'stranger', e: 'smile', t: 'Thank you, Boss. Shalom, and enjoy the day!', end: true },
   },
 };

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — smooth, modelled versions of the props people see most: parked cars (rounded body, glass, wheel arches), e-scooters and
+// Grand Tel Aviv 6 — smooth, modelled versions of the props people see most: parked cars (rounded body, glass, wheel arches), e-scooters and
 // the leafy street / park trees. Same signed-distance tools as the characters (sdf.js): a field in, a smooth mesh with baked occlusion out, as
 // THREE geometries ready for instancing (the paint takes the instance colour; glass, trim and leaves keep their own colour in the vertex colour).
 import * as THREE from 'three';

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the little sounds of the phone and the day, synthesised (no files). One AudioContext, made on the first sound (the
+// Grand Tel Aviv 6 — the little sounds of the phone and the day, synthesised (no files). One AudioContext, made on the first sound (the
 // game is opened by a click or a key, so the browser lets it play). The room's mute switch is honoured through `isMuted`.
 export function createSfx({ isMuted = () => false, volume = () => 1 } = {}) {
   let ctx = null;
@@ -205,7 +205,7 @@ export function createSfx({ isMuted = () => false, volume = () => 1 } = {}) {
     eng.screech.g.gain.setTargetAtTime(Math.max(0, (o.slide || 0) - 0.45) * 0.5, t, 0.05);
   }
 
-  // ── the sound of a room Ori walks into (rebuilt: a soft bed per kind of room) ──
+  // ── the sound of a room the hero walks into (rebuilt: a soft bed per kind of room) ──
   let roomNodes = null;
   let roomKind = null;
   function roomStop() {
@@ -243,7 +243,7 @@ export function createSfx({ isMuted = () => false, volume = () => 1 } = {}) {
 
   return {
     engine,
-    /** The sound of the room Ori is in ('quiet' | 'hall' | 'office' | 'hum' | 'chatter'); null = outdoors. */
+    /** The sound of the room the hero is in ('quiet' | 'hall' | 'office' | 'hum' | 'chatter'); null = outdoors. */
     room,
     /** Starts / stops the loop (kept quiet under the sound effects). */
     music(on) {

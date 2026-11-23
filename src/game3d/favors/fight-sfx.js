@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the SOUND of THE RING, synthesised (no files). Three layers:
+// Grand Tel Aviv 6 — the SOUND of THE RING, synthesised (no files). Three layers:
 //   1. createRingAudio()  the engine: ONE AudioContext (made on the first sound: the game is opened by a click or a key, and the room's mute switch and volume are
 //      honoured), a master chain that cannot clip (buses -> slow-motion low-pass -> compressor -> soft ceiling 0.88 -> master gain), an arena reverb, the ducking of
 //      the music under big hits, and the "voice" player that turns a plain description of a sound into WebAudio nodes (and takes every node down again when it ends).
@@ -11,7 +11,7 @@
 //   thud(hit)                 a punch lands. hit = the sim's 'hit' event ({ dmg, heavy, counter, combo, target }) or a power 0..1. Layers: a sub thump that drops in pitch, a
 //                             "knock", a body-noise burst, a bright slap + click, a leather pop; a rumble / crack / boom when it is heavy. Scaled by the damage, a little
 //                             random every time (pitch +-7%, gain +-10%, which layer leads), higher with the combo. Ducks the music when heavy.
-//   whoosh(wind, weight, mine) a punch is thrown: a band-pass sweep over `wind` seconds that PEAKS AT THE STRIKE (weight 0.4 jab ... 1 uppercut; mine = Ori's own, quieter)
+//   whoosh(wind, weight, mine) a punch is thrown: a band-pass sweep over `wind` seconds that PEAKS AT THE STRIKE (weight 0.4 jab ... 1 uppercut; mine = the hero's own, quieter)
 //   block(dmg)                a guarded punch: a dull thump + glove pat (no bright slap, so it is never mistaken for a hit)
 //   parry()                   a bright "ting": inharmonic metal partials + a short shing
 //   perfect()                 a perfect dodge: a rising chime and a time-warp swoop      fury()  Peach Fury power-up      guardbreak()  the guard cracks
@@ -73,7 +73,7 @@ export function noiseComp(v, nyquist = 22050) {
  */
 export const TRIM_DB = { whoosh: -20.6, dash: -13.2, feint: -12.9, parry: -11, perfect: -15.6, guardbreak: 1, bell: -15.6, knockdown: 3.6, count: 3.6, getup: -15.8, fury: -9, blink: -9.2, lag: -13.1, gasp: -5.9, cheer: -10, level: -17.5, tick: 0.6, bagHit: -3.8, bagGlance: -0.3, click: -3.6, ko: 0.8 };
 export const dbGain = (d) => 10 ** (d / 20);
-/** A hit's trim by its power: the jab and the cross about the same, the heavy ones a few dB up (a counter a little more, a hit on Ori a little more). */
+/** A hit's trim by its power: the jab and the cross about the same, the heavy ones a few dB up (a counter a little more, a hit on the hero a little more). */
 export function thudDb(hit) {
   const p = powerOf(hit);
   const x = clamp((p - 0.15) / 0.85, 0, 1);
@@ -103,7 +103,7 @@ export const RECIPES = {
     const p = powerOf(hit);
     const obj = typeof hit === 'object' && hit;
     const combo = obj ? clamp(obj.combo || 1, 1, 9) : 1;
-    const mine = !!obj && obj.target === 'player'; // Ori takes it: a little more in the chest
+    const mine = !!obj && obj.target === 'player'; // the hero takes it: a little more in the chest
     const pan = mine ? -0.28 : 0.28;
     const cb = 1 + (combo - 1) * 0.012; // the combo climbs in pitch
     const flavor = Math.floor(rnd() * 3); // which layer leads this time: 0 slap, 1 body, 2 pop

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the look of a character: one material per layer (skin with a warm back-scatter rim, cloth with a soft sheen, glossy eyes, glass
+// Grand Tel Aviv 6 — the look of a character: one material per layer (skin with a warm back-scatter rim, cloth with a soft sheen, glossy eyes, glass
 // lenses, silver) and the cartoon OUTLINE — an inverted hull whose width is measured in screen pixels, so a character stays outlined at any distance.
 import * as THREE from 'three';
 

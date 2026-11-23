@@ -1,4 +1,4 @@
-// The conversations of "Ori, Can You...?": three fully written ones (Mum, the City Hall clerk, a stranger) and a small warm chat for everybody else.
+// The conversations of Grand Tel Aviv 6: three fully written ones (Mum, the City Hall clerk, a stranger) and a small warm chat for everybody else.
 import { CAST } from '../content.js';
 import mum from './mum.js';
 import clerk from './clerk.js';
@@ -15,12 +15,12 @@ export function graphFor(id) {
 }
 
 const ROLE_LINES = {
-  work: ['Ori! The deadline moved again. Only by a day, but a day is a lot.', 'Perfect timing. Everything is on fire, politely.'],
+  work: ['Boss! The deadline moved again. Only by a day, but a day is a lot.', 'Perfect timing. Everything is on fire, politely.'],
   city: ['Number?', 'Please take a seat. Not that one. The other one.'],
-  perach: ['Ori! The kids asked about you all week.', 'The whiteboard is full of ideas. Half are good!'],
-  friends: ['Ori! What a day, hey? Tell me everything.', 'You look like you need a coffee. I will not take no.'],
-  hobbies: ['Ori! Ready for a round?', 'Perfect, you came. I saved the best spot for you.'],
-  family: ['Ori, motek! Come in, come in.', 'You came! Are you hungry? You must be hungry.'],
+  perach: ['Boss! The kids asked about you all week.', 'The whiteboard is full of ideas. Half are good!'],
+  friends: ['Boss! What a day, hey? Tell me everything.', 'You look like you need a coffee. I will not take no.'],
+  hobbies: ['Boss! Ready for a round?', 'Perfect, you came. I saved the best spot for you.'],
+  family: ['Boss, motek! Come in, come in.', 'You came! Are you hungry? You must be hungry.'],
   strangers: ['Oh, hello! Lovely day for it.', 'Hi there! Good timing, I was about to ask somebody something.'],
 };
 
@@ -39,8 +39,8 @@ export function genericGraph(id) {
         { t: 'Just saying hello. You make this street better!', next: 'warm', fx: { rel: 3 } },
       ] },
       day: { s: id, e: 'laugh', t: 'Busy, busy, but better now that you are here.', next: 'bye' },
-      offer: { s: id, e: 'proud', t: 'You are a good one, Ori. Check your phone later. I might have something.', next: 'bye' },
-      warm: { s: id, e: 'love', t: 'Oh! Stop it. ...No, keep going. Thank you, Ori.', fx: { chaos: -1 }, next: 'bye' },
+      offer: { s: id, e: 'proud', t: 'You are a good one, Boss. Check your phone later. I might have something.', next: 'bye' },
+      warm: { s: id, e: 'love', t: 'Oh! Stop it. ...No, keep going. Thank you, Boss.', fx: { chaos: -1 }, next: 'bye' },
       bye: { s: 'ori', e: 'grin', t: 'See you soon!', end: true },
     },
   };

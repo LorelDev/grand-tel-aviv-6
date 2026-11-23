@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — the pigeons (PURE: no three, no DOM, deterministic from a seed). Little flocks live on a few spots (the plaza, the fountain, the café terrace, the bus
-// stop): they walk about with their heads bobbing, peck at the ground, and when Ori (or anybody) comes close they burst into the air, fly an arc and settle again a few
+// Grand Tel Aviv 6 — the pigeons (PURE: no three, no DOM, deterministic from a seed). Little flocks live on a few spots (the plaza, the fountain, the café terrace, the bus
+// stop): they walk about with their heads bobbing, peck at the ground, and when the hero (or anybody) comes close they burst into the air, fly an arc and settle again a few
 // metres further on. `update(dt, intruders)` moves them; the renderer reads `birds`.
 import { mulberry32 } from '../rng.js';
 

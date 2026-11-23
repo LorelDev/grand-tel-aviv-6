@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the player's comfort settings (PURE): what the pause menu changes and the game remembers. The sound level and "reduce motion" belong to the room's
+// Grand Tel Aviv 6 — the player's comfort settings (PURE): what the pause menu changes and the game remembers. The sound level and "reduce motion" belong to the room's
 // System Settings (the game reads them through the host's hooks and writes them back through the same hooks, so there is one truth); what is only about THIS game is kept
 // here: a high-contrast HUD (which reaches every card), the sound captions (words for the sounds that tell you something; off by default), the key hints (auto = shown for the first seconds, on = always, off = never) and the resolution (auto = the frame-rate keeper may lower it, full = never). Nothing here can throw: a blocked storage just means "not remembered".
 const KEY = 'ori-favors-settings-v1';

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — small helpers the procedural 3D shares: a geometry builder that appends boxes / quads / prisms into ONE buffer
+// Grand Tel Aviv 6 — small helpers the procedural 3D shares: a geometry builder that appends boxes / quads / prisms into ONE buffer
 // (so a whole neighbourhood is a handful of draw calls), canvas textures, and a dispose helper.
 import * as THREE from 'three';
 

@@ -1,7 +1,7 @@
-// "Ori, Can You...?" — the 3D inside of a building, built from interiors.js on demand: a dollhouse room (the walls facing the camera are culled, so
+// Grand Tel Aviv 6 — the 3D inside of a building, built from interiors.js on demand: a dollhouse room (the walls facing the camera are culled, so
 // you see in from above), the floor and walls from the material library, furniture made of rounded boxes and cylinders, windows that follow the
 // daylight, photo walls / whiteboards / signs drawn on canvases, and the people who stand in it (the same characters as the conversations).
-// Only the room Ori is in exists; leaving frees it.
+// Only the room the hero is in exists; leaving frees it.
 import * as THREE from 'three';
 import { ROOMS, KINDS, WALL_H, DOOR_W, originOf, spawnOf, exitOf, spotsOf } from './interiors.js';
 import { createPerson } from './people/person.js';
@@ -238,7 +238,7 @@ export function createInteriors({ scene, lib, tier = 'high', shadows = true }) {
       const c = skyGlass.clone().multiplyScalar(0.35 + 0.65 * day);
       for (const m of cur.glass) m.color.copy(c);
     },
-    /** Per frame: the people idle, breathe, blink, and turn to face Ori when he is near. */
+    /** Per frame: the people idle, breathe, blink, and turn to face the hero when he is near. */
     update(dt, ori) {
       if (!cur) return;
       for (const n of cur.npcs) {
@@ -253,7 +253,7 @@ export function createInteriors({ scene, lib, tier = 'high', shadows = true }) {
         n.person.update(dt, { speed: 0 });
       }
     },
-    /** Make a person wave / smile (used when Ori speaks to them). */
+    /** Make a person wave / smile (used when the hero speaks to them). */
     npc(id) { return cur ? cur.npcs.find((n) => n.id === id) || null : null; },
     dispose() {
       if (cur) { free(cur); cur = null; }

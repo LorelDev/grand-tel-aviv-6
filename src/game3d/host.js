@@ -1,6 +1,6 @@
 // The 3D game host: opens the full-viewport overlay above the whole site, owns the WebGL renderer + the loop, pauses the room
 // while it runs, and tears everything down again on quit (geometries, materials, textures, renderer, GL context). It runs one game at a time
-// from the GAMES table (NEON DRIFT, and "Ori, Can You...?"); a game only gets a renderer, an overlay, its input and the clock.
+// from the GAMES table (NEON DRIFT, and Grand Tel Aviv 6); a game only gets a renderer, an overlay, its input and the clock.
 // A game controller offers: open(), update(dt, input), render(dt), resize(w, h), pause(), resume(), paused, onEscape(), onReset(),
 // onCamera(), onKey(e), state(), dispose() and a `hud` with message()/clearMessage(); optionally attachInput(input) and onAction(name).
 import * as THREE from 'three';
@@ -19,7 +19,7 @@ import { createAdaptiveRes } from './adaptive-res.js';
 /** The games the host can run: how to build the controller and its input, what it is called, the colour behind the canvas. */
 const GAMES = {
   drift: { title: 'NEON DRIFT', create: (o) => createGame(o), input: (hooks) => createKeyboard(hooks), clear: 0x07030f },
-  favors: { title: FAVORS.title, who: 'Ori', create: (o) => createFavorsGame(o), input: (hooks, canvas) => createFavorsInput(hooks, canvas), clear: 0xbcd4ea, prewarm: (tier) => Promise.all([prewarmOri(tier), prewarmCrowd()]) },
+  favors: { title: FAVORS.title, who: 'The Boss', create: (o) => createFavorsGame(o), input: (hooks, canvas) => createFavorsInput(hooks, canvas), clear: 0xbcd4ea, prewarm: (tier) => Promise.all([prewarmOri(tier), prewarmCrowd()]) },
 };
 
 const hooks = { pauseRoom() {}, resumeRoom() {}, duck() {}, emit() {}, isMuted: () => false, volume: () => 1, reduceMotion: () => false, setVolume: null, setReduceMotion: null, storage: null, scores: null, achievements: null };
@@ -27,7 +27,7 @@ const settings = { pixelRatioCap: 2, tier: 'high' };
 let current = null;
 let lastMemory = null; // renderer.info.memory right after the last session was disposed (leak checks)
 
-/** Builds what a game needs while the page is idle (for "Ori, Can You...?": Ori and the crowd, in a worker), so launching it is quick. Safe to call any time. */
+/** Builds what a game needs while the page is idle (for Grand Tel Aviv 6: the hero and the crowd, in a worker), so launching it is quick. Safe to call any time. */
 export function prewarmGame3D(id) {
   const def = GAMES[id];
   if (!def || !def.prewarm) return Promise.resolve();
@@ -279,7 +279,7 @@ export function launchGame3D(id = 'drift', opts = {}) {
     };
     requestAnimationFrame(() => requestAnimationFrame(() => {
       if (gone) return;
-      if (game.preload) game.preload().catch(() => {}).then(begin); else begin(); // (Ori is built off the main thread; this is instant when the site had idle time)
+      if (game.preload) game.preload().catch(() => {}).then(begin); else begin(); // (the hero is built off the main thread; this is instant when the site had idle time)
     }));
   }
   return Promise.resolve(api);
@@ -322,7 +322,7 @@ export const game3dDebug = {
     g.render(1 / 60);
     return g.state();
   },
-  /** NEON DRIFT: puts the car at arc length s with a speed (m/s). Ori, Can You...?: stands Ori at a place ('cafe') or { x, z }. Redraws. */
+  /** NEON DRIFT: puts the car at arc length s with a speed (m/s). Grand Tel Aviv 6: stands the hero at a place ('cafe') or { x, z }. Redraws. */
   teleport(...a) {
     const g = current?.api?.game;
     if (!g) return null;
@@ -330,11 +330,11 @@ export const game3dDebug = {
     g.render(1 / 60);
     return g.state();
   },
-  /** Ori, Can You...?: a place's door, rect and walking distance from where Ori is. */
+  /** Grand Tel Aviv 6: a place's door, rect and walking distance from where the hero is. */
   place(id) { return current?.api?.game?.place?.(id) ?? null; },
-  /** Ori, Can You...?: the game clock { hour, label, progress, done }; `setHour(h)` jumps the day. */
+  /** Grand Tel Aviv 6: the game clock { hour, label, progress, done }; `setHour(h)` jumps the day. */
   clock() { return current?.api?.game?.clockInfo?.() ?? null; },
-  /** Ori, Can You...?: conversations (dev / tests). */
+  /** Grand Tel Aviv 6: conversations (dev / tests). */
   talk(id) { return current?.api?.game?.talk?.(id) ?? false; },
   enter(pid, o) { return current?.api?.game?.enter?.(pid, o) ?? false; },
   leave(o) { return current?.api?.game?.leave?.(o) ?? false; },

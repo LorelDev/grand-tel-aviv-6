@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — a head built from MEASURED PROFILES (used by a person whose spec has face.sculpt.real: Shilo). The tables below were measured from a clean
+// Grand Tel Aviv 6 — a head built from MEASURED PROFILES (used by a person whose spec has face.sculpt.real: Shilo). The tables below were measured from a clean
 // reference of his bare head (front and side silhouettes of the sheet in .duo/gpt, traced by scripts/_sil.mjs), so the outline in front and side view is the real one:
 // at every height y a rounded cross-section (a superellipse) whose half-width, front and back come from three small tables. The nose, lips, chin, ears and neck are then
 // blended on with smooth unions at the measured landmark positions, exactly as in head.js. PURE.

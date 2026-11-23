@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the material library: the procedural maps of matgen.js uploaded as textures, ready-made MeshStandardMaterials that share them,
+// Grand Tel Aviv 6 — the material library: the procedural maps of matgen.js uploaded as textures, ready-made MeshStandardMaterials that share them,
 // and the two shader tricks every surface of the neighbourhood shares: WET (damp darkening, puddles that mirror the sky and flatten the bumps, streaks of
 // lamp light on the road) and WIND (awnings, washing and flags that move with a per-vertex weight). Everything is generated in code, nothing is loaded.
 import * as THREE from 'three';

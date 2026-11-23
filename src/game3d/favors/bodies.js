@@ -1,10 +1,10 @@
-// "Ori, Can You...?" — cars that can be knocked about. A parked car or a traffic car that the car Ori drives touches turns into a free BODY: it takes the impulse of the hit (it slides,
-// spins, bounces off walls and other bodies, rolls to a stop) and the driver loses some speed too. A body is three circles in the collision world (so Ori on foot and the traffic
+// Grand Tel Aviv 6 — cars that can be knocked about. A parked car or a traffic car that the car the hero drives touches turns into a free BODY: it takes the impulse of the hit (it slides,
+// spins, bounces off walls and other bodies, rolls to a stop) and the driver loses some speed too. A body is three circles in the collision world (so the hero on foot and the traffic
 // stop for it). PURE apart from the meshes it moves (props.makeCar groups).
 import { wrapPi } from '../rng.js';
 
 const R = 0.95; // circle radius of a car
-const MASS_P = 1.1; // the car Ori drives is a little heavier
+const MASS_P = 1.1; // the car the hero drives is a little heavier
 const INERTIA = 2.1;
 const E = 0.25; // bounciness
 const MAX_V = 19; // a knocked car never flies off faster than this (arcade)

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — window glass with INTERIOR MAPPING: every window is a flat quad, but the fragment shader ray-casts into an imaginary room behind it
+// Grand Tel Aviv 6 — window glass with INTERIOR MAPPING: every window is a flat quad, but the fragment shader ray-casts into an imaginary room behind it
 // (floor, ceiling, side walls, back wall with a picture, a sofa, a lamp; shops get shelves, a counter and hanging lights), so the rooms have real parallax
 // as the camera moves. Each window has its own room (colour, depth, curtains / blinds) from a seed in the vertex data; lit rooms glow at dusk.
 //   aLit  = kind + 4 * seed(0..250): kind 0 = dark glass (a door), 1 = a room whose light is on in the evening, 2 = a shop (lit all day)

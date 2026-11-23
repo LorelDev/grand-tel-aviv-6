@@ -1,4 +1,4 @@
-/* "Ori, Can You...?" — speech bubbles over heads. Prefix fb-. */
+/* Grand Tel Aviv 6 — speech bubbles over heads. Prefix fb-. */
 .fb-layer { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; }
 .fb { position: absolute; left: 0; top: 0; max-width: 230px; padding: 7px 12px 8px; border-radius: 16px; background: #fff; color: #1d1d24; font: 600 14px/1.25 Inter, system-ui, sans-serif; text-align: center; box-shadow: 0 6px 18px rgba(10, 14, 30, 0.28); will-change: transform; margin-top: -10px; }
 .fb::after { content: ''; position: absolute; left: 50%; bottom: -7px; width: 14px; height: 14px; background: inherit; transform: translateX(-50%) rotate(45deg); border-radius: 0 0 4px 0; }

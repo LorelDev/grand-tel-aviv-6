@@ -18,7 +18,7 @@ export function createTripwire({ now = () => Date.now(), calm = 2000, max = 3 } 
   };
 }
 
-/** What the card says. `who` = the game's own name for itself ("Ori" in the favors game). */
+/** What the card says. `who` = the game's own name for itself ("the hero" in the favors game). */
 export function tripCard({ carryOn, who = 'The game', startup = false }) {
   if (startup) return { title: 'Something tripped', body: `${who} stumbled while starting up. Press Esc to go back to the desktop and open the game again.` };
   if (carryOn) return { title: 'Something tripped', body: `${who} stumbled over something. Your day is safe: carry on, or head back to the desktop (Esc).` };

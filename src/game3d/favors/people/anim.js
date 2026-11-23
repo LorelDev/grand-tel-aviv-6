@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — procedural animation for the shared skeleton (PURE: numbers in, joint angles out; no three). An animator turns what the character is
+// Grand Tel Aviv 6 — procedural animation for the shared skeleton (PURE: numbers in, joint angles out; no three). An animator turns what the character is
 // doing (speed, sprinting, out of breath, carrying something, checking the phone, a gesture) into a pose: Euler angles per bone + a few extras (hip bob,
 // finger curl, which expression to wear). Convention: a bone hanging down turns BACKWARD with +x; the head leans FORWARD with +x; +z lifts a left
 // (+x) limb outward and a right limb inward, so right-hand values mirror in z / y.
@@ -353,7 +353,7 @@ export function createAnimator() {
     /** hold = 'phone' | 'carry' | 'guard' | null */
     hold(name) { held = name; },
     get held() { return held; },
-    /** Fight poses with the right hand in front (Ori fights as a southpaw so that his lead hand is the one the camera sees). */
+    /** Fight poses with the right hand in front (the hero fights as a southpaw so that his lead hand is the one the camera sees). */
     setMirror(on) { mirror = !!on; },
     /** fw = { fwd, side }: where he moves, relative to the way he faces (-1..1; side > 0 = to his right) - the footwork of a fighter. */
     update(dt, { speed = 0, sprinting = false, winded: w = false, stress = 0, hold = held, talking = false, acc = 0, fw = null } = {}) {

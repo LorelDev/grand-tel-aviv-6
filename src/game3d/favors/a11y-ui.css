@@ -1,4 +1,4 @@
-/* "Ori, Can You...?" — the last of the accessibility pass (T40): the sound captions, and the high-contrast setting reaching every card, not only the HUD. */
+/* Grand Tel Aviv 6 — the last of the accessibility pass (T40): the sound captions, and the high-contrast setting reaching every card, not only the HUD. */
 
 /* ── sound captions [experimental]: a short line of words for the sounds that tell you something (a setting in the pause menu, off by default) ── */
 .fv-cap { position: absolute; left: 50%; bottom: max(92px, env(safe-area-inset-bottom)); translate: -50% 0; display: grid; gap: 6px; justify-items: center; max-width: min(560px, calc(100vw - 28px)); pointer-events: none; z-index: 4; }

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — facade geometry helpers. A facade is described in its own little frame: `s` runs along the wall (left to right as seen from
+// Grand Tel Aviv 6 — facade geometry helpers. A facade is described in its own little frame: `s` runs along the wall (left to right as seen from
 // the street), `y` up, and `e` out of the wall (negative = into the wall). The four faces of a lot share one description (FACES).
 export const FLOOR = 3.1;
 export const RC = 0.3; // how far the windows are set back from the face of the wall (the reveal)

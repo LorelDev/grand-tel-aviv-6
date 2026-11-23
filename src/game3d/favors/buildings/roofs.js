@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the Tel Aviv roof: solar water heaters (a tilted collector with a tank on top), water tanks on frames, stair cores, satellite dishes,
+// Grand Tel Aviv 6 — the Tel Aviv roof: solar water heaters (a tilted collector with a tank on top), water tanks on frames, stair cores, satellite dishes,
 // antennas with crossbars and AC condensers; plus the terracotta gable of Auntie's house.
 import * as THREE from 'three';
 

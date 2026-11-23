@@ -1,4 +1,4 @@
-/* "Ori, Can You...?" — the big map (map-ui.js). Uses the overlay / card look of the ring (fight.css). */
+/* Grand Tel Aviv 6 — the big map (map-ui.js). Uses the overlay / card look of the ring (fight.css). */
 .mp-card { width: min(980px, 96vw); max-height: 94vh; overflow: auto; display: flex; flex-direction: column; gap: 10px; }
 .mp-card header h2 { margin: 2px 0 0; }
 .mp-body { display: grid; grid-template-columns: minmax(260px, 470px) 1fr; gap: 16px; align-items: start; }

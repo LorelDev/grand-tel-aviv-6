@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the cafe job "Coffee Rush" (PURE) [experimental]: Roee is swamped, Ori takes the orders. A customer wants one, two or three drinks in a row; press the matching keys
+// Grand Tel Aviv 6 — the cafe job "Coffee Rush" (PURE) [experimental]: Roee is swamped, the hero takes the orders. A customer wants one, two or three drinks in a row; press the matching keys
 // (J espresso, K latte, L tea) before the customer's patience runs out. A mistake starts the order again, a streak of happy customers pays a bonus and adds a little to the clock.
 import { mulberry32 } from '../rng.js';
 

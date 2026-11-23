@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the beach: striped parasols with scalloped edges, sun loungers with towels, sunbathers, a lifeguard tower with a flying flag, beach balls, buckets and a
+// Grand Tel Aviv 6 — the beach: striped parasols with scalloped edges, sun loungers with towels, sunbathers, a lifeguard tower with a flying flag, beach balls, buckets and a
 // sandcastle, a wet-sand band where the sea reaches. The little things are instanced (a few draw calls for the whole shore).
 import * as THREE from 'three';
 import { mulberry32 } from '../rng.js';

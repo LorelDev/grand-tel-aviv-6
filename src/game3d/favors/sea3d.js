@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the sea: one big plane with a water shader. Three travelling waves give the surface a normal (so it catches the sky and the sun), the colour
+// Grand Tel Aviv 6 — the sea: one big plane with a water shader. Three travelling waves give the surface a normal (so it catches the sky and the sun), the colour
 // goes from clear turquoise at the shore to deep blue, a lacy foam line surges up the sand and back, white caps scatter further out, and the water is
 // see-through where it is shallow. West is the sea: the sun sets into it, and at golden hour the glitter runs all the way to the camera.
 import * as THREE from 'three';

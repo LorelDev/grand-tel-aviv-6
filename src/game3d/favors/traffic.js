@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — the neighbourhood's moving traffic: a few cars cruise along every avenue and street in their own lane (right-hand traffic), slow for anything in
-// front of them (a car, Ori on foot, the car Ori drives) and give way at the crossings (the east-west streets yield to the avenues). They share the parked cars' geometry
+// Grand Tel Aviv 6 — the neighbourhood's moving traffic: a few cars cruise along every avenue and street in their own lane (right-hand traffic), slow for anything in
+// front of them (a car, the hero on foot, the car the hero drives) and give way at the crossings (the east-west streets yield to the avenues). They share the parked cars' geometry
 // and paint (props.makeCar). Deterministic from the seed; wraps round the neighbourhood.
 import { mulberry32 } from '../rng.js';
 import { ROAD_X, ROAD_Z, BOUNDS } from './map.js';
@@ -41,7 +41,7 @@ export function createTraffic({ props, seed = 1, perLane = 2 }) {
 
   return {
     cars,
-    /** `others`: [{ x, z, r }] things to stop for (Ori on foot, the car he drives). */
+    /** `others`: [{ x, z, r }] things to stop for (the hero on foot, the car he drives). */
     update(dt, others = []) {
       dt = Math.min(dt, 0.1);
       clock += dt;

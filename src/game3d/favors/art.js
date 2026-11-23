@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the street art of the neighbourhood, painted once on a canvas: four wall MURALS on the side walls of the blocks (sunset with palms, a pop
+// Grand Tel Aviv 6 — the street art of the neighbourhood, painted once on a canvas: four wall MURALS on the side walls of the blocks (sunset with palms, a pop
 // collage, a school of fish, bubble letters) and eight little POSTERS for the shop walls (a gig, a lost cat, a yoga session...). One atlas, no files. Always cheerful.
 import { mulberry32 } from '../rng.js';
 import { canvasTexture } from './gfx.js';
@@ -82,7 +82,7 @@ function posters(g) {
   cell(4, () => { grad('#1b1b2f', '#3a0ca3'); for (let i = 0; i < 22; i++) { g.fillStyle = PALETTE[i % PALETTE.length]; g.fillRect(20 + i * 10, 300 - (10 + (i * 37) % 120), 7, 10 + (i * 37) % 120); } title('JAZZ', 100, 70, '#ffd166'); title('NIGHT', 160, 50); small('Thursdays', 340, 24); small('doors 21:00', 372, 18, '#cdf'); frame(); });
   cell(5, () => { grad('#4cc9f0', '#4361ee'); g.fillStyle = '#fff'; for (let i = 0; i < 4; i++) { g.beginPath(); g.arc(70 + i * 40, 90 + (i % 2) * 20, 22, 0, 6.283); g.fill(); } title('TLV', 250, 100); title('10K', 340, 92, '#ffd166'); small('run with us!', 400, 24); frame(); });
   cell(6, () => { grad('#ffd1dc', '#ff6b9d'); for (let i = 0; i < 6; i++) { g.fillStyle = PALETTE[i]; g.fillRect(0, 70 + i * 24, PW, 24); } title('LOVE', 300, 76, '#fff'); title('WINS', 366, 66, '#1b1b2f'); small('every day', 420, 22, '#fff'); frame(); });
-  cell(7, () => { grad('#f3ede0', '#d9c9a3'); g.fillStyle = '#c0392b'; g.fillRect(40, 70, PW - 80, 120); title('FALAFEL', 150, 46); title('פלאפל', 260, 56, '#1b1b2f'); small('10 NIS · best in town', 330, 18, '#1b1b2f'); small('(Ori approves)', 360, 16, '#6b4f2a'); frame(); });
+  cell(7, () => { grad('#f3ede0', '#d9c9a3'); g.fillStyle = '#c0392b'; g.fillRect(40, 70, PW - 80, 120); title('FALAFEL', 150, 46); title('פלאפל', 260, 56, '#1b1b2f'); small('10 NIS · best in town', 330, 18, '#1b1b2f'); small('(Boss approves)', 360, 16, '#6b4f2a'); frame(); });
 }
 
 /** The atlas texture + `uvMural(i)` / `uvPoster(i)` → [u0, v0, u1, v1] (v up). */

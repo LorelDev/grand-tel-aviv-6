@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the career (PURE): the little numbers of a life in the neighbourhood, counted as it happens (a few counters on the save's `progress`) and shown on the
+// Grand Tel Aviv 6 — the career (PURE): the little numbers of a life in the neighbourhood, counted as it happens (a few counters on the save's `progress`) and shown on the
 // journal's last section. Nothing here is ever taken away: the numbers only go up.
 import { GOLDEN } from './play-content.js';
 import { GAMES } from './arcade.js';

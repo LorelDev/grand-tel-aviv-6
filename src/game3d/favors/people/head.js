@@ -1,7 +1,7 @@
-// "Ori, Can You...?" — a stylised head SCULPTED from smoothly blended ellipsoids (Pixar / Mii proportions, about 1.5x life size): cranium, jaw
+// Grand Tel Aviv 6 — a stylised head SCULPTED from smoothly blended ellipsoids (Pixar / Mii proportions, about 1.5x life size): cranium, jaw
 // and chin, cheeks, brow ridge, nose with bridge / tip / wings / nostrils, lip pads, ears, a neck stub. It is a signed distance field turned
 // into a smooth mesh (sdf.js), so it can be tuned with a handful of numbers (`face` in a person spec) — a wider jaw, a bigger nose — and the
-// same code makes Ori and every passer-by. The eyes, brows, mouth, hair and glasses are separate parts (face.js, hair.js).
+// same code makes the hero and every passer-by. The eyes, brows, mouth, hair and glasses are separate parts (face.js, hair.js).
 // Head frame: x right, y up, z forward; origin = the centre of the skull; one unit = one metre.
 import { smin, smax, sdEllipsoid, sdCapsule, sdSphere, meshSDF, aoAt } from '../sdf.js';
 import { headFieldReal, anchorsReal, skinColorReal } from './head-real.js';

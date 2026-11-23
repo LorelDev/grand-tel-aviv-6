@@ -1,8 +1,8 @@
-// "Ori, Can You...?" — a short story with a clear end: "The Peach Tree" (PURE) [experimental]. After his first five hellos Mum starts whispering; five people each give a clue when Ori says hello
+// Grand Tel Aviv 6 — a short story with a clear end: "The Peach Tree" (PURE) [experimental]. After his first five hellos Mum starts whispering; five people each give a clue when the hero says hello
 // to them in the right order (Mum, Moti, Albert, Roee, Coach), and the last one sends him to the park, where the whole neighbourhood has planted a peach tree for him and the band plays.
 // Everything is kept on the save as two counters (`progress.story` = clues given so far, `progress.storyEnd` = the party happened).
 
-/** The clues, in order. `who` = the cast member who says it (when Ori says hello to them), `place` = where to find them, `chip` = the line on the screen. */
+/** The clues, in order. `who` = the cast member who says it (when the hero says hello to them), `place` = where to find them, `chip` = the line on the screen. */
 export const STEPS = [
   { who: 'ima', place: 'mum', chip: 'Mum has a secret: say hello to her', clue: 'Motek... the whole street is whispering about you. Ask Moti. Secrets do not stay long with him!' },
   { who: 'moti', place: 'home', chip: 'Ask Moti, in your building', clue: 'Shh! I said nothing! ...Ask Albert at the kiosk. He sold the soil.' },
@@ -11,7 +11,7 @@ export const STEPS = [
   { who: 'coach', place: 'court', chip: 'Ask Coach at the ring', clue: 'Fine! It is for you. Go to the park. Now. And act surprised.' },
 ];
 /** The last step: go to the park, stand there a moment, and the party starts. */
-export const PARTY = { place: 'park', chip: 'Go to the park: everybody is waiting', stay: 3, seconds: 50, chipDone: '', reward: { peaches: 50, love: 8, xp: 40 }, toast: 'SURPRISE! The neighbours planted a peach tree for you.', line: 'Act surprised, Ori. You are bad at it. We love you anyway.' };
+export const PARTY = { place: 'park', chip: 'Go to the park: everybody is waiting', stay: 3, seconds: 50, chipDone: '', reward: { peaches: 50, love: 8, xp: 40 }, toast: 'SURPRISE! The neighbours planted a peach tree for you.', line: 'Act surprised, Boss. You are bad at it. We love you anyway.' };
 /** The party in the park wears the look of an event (the beam, the sign, the band) while it lasts. */
 export const PARTY_EVENT = { id: 'party', name: 'Peach party', place: 'park', sign: 'PEACH PARTY', short: 'PARTY', color: '#ffb25b', music: true };
 /** What each clue pays (small: the story is the reward). */
@@ -36,7 +36,7 @@ export const chipText = (p) => { const c = current(p); return c ? c.step.chip : 
 export const placeOf = (p) => { const c = current(p); return c ? c.step.place : null; };
 
 /**
- * Ori said hello to `who`: if they are the next one in the story, the clue is theirs. Returns { clue, index, last } (and counts it on `p`), or null.
+ * the hero said hello to `who`: if they are the next one in the story, the clue is theirs. Returns { clue, index, last } (and counts it on `p`), or null.
  * `last` = this was the fifth clue: the park is next.
  */
 export function takeClue(p, who) {

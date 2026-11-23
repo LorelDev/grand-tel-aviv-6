@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the afterburner flames of Ori's car: a pool of additive glow points that shoot out of the tail while he boosts, burn from white-yellow to orange to red and
+// Grand Tel Aviv 6 — the afterburner flames of the hero's car: a pool of additive glow points that shoot out of the tail while he boosts, burn from white-yellow to orange to red and
 // fade. One Points object, no textures (the glow is a soft round falloff in the fragment shader).
 import * as THREE from 'three';
 

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — how a car drives (PURE, fixed timestep, deterministic): a simple bicycle model with arcade tuning. Forward = (sin θ, cos θ) like the
+// Grand Tel Aviv 6 — how a car drives (PURE, fixed timestep, deterministic): a simple bicycle model with arcade tuning. Forward = (sin θ, cos θ) like the
 // walking controller, so the same camera rig and the same collision world work for both. The body is three circles (nose, middle, tail) pushed out of walls.
 import { wrapPi } from '../rng.js';
 

@@ -1,5 +1,5 @@
-// "Ori, Can You...?" — the far crowd's body shapes as plain typed arrays (PURE; the worker makes them off the main thread): one ARCHETYPE per
-// hairstyle, built from the same sculpted parts as Ori but meshed coarsely, every colour white (so the vertex colour is just baked occlusion) and a
+// Grand Tel Aviv 6 — the far crowd's body shapes as plain typed arrays (PURE; the worker makes them off the main thread): one ARCHETYPE per
+// hairstyle, built from the same sculpted parts as the hero but meshed coarsely, every colour white (so the vertex colour is just baked occlusion) and a
 // code per vertex = colour slot + 10 * limb, which crowd3d's vertex shader uses to swing the arms and legs and to paint each instance.
 import { computeCrowdData } from './assemble.js';
 import { randomSpec } from './specs.js';

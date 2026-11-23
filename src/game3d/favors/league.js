@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the Sababa Cup, a car racing league (PURE) [experimental] (Shilo's own idea): a ladder of seven rivals, each a person Ori knows with a car to match, from a neighbour's hatchback to Uzi's Beast. The race itself is the
+// Grand Tel Aviv 6 — the Sababa Cup, a car racing league (PURE) [experimental] (Shilo's own idea): a ladder of seven rivals, each a person the hero knows with a car to match, from a neighbour's hatchback to Uzi's Beast. The race itself is the
 // existing lap round the neighbourhood (missions.js raceMission, started as a quest from the board in Uzi's workshop); this file says who, how fast, what a win pays, and how driving earns XP and a driver level. A win pays the prize
 // and the rival's XP and opens the next one (a rematch pays half); a loss pays a little XP and a kind word. The driver level opens the harder rivals and sharpens the car a little (the garage's upgrades, bought with peaches, do the rest).
 

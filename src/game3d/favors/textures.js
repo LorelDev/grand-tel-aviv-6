@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the canvas textures of the neighbourhood: stucco, asphalt, paving, lawn, sand and the shop-sign atlas.
+// Grand Tel Aviv 6 — the canvas textures of the neighbourhood: stucco, asphalt, paving, lawn, sand and the shop-sign atlas.
 // Everything is drawn once with a seeded generator (no files, no network) and released with the world.
 import * as THREE from 'three';
 import { mulberry32 } from '../rng.js';

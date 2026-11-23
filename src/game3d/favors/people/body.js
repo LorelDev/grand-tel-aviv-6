@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the body of a character as smooth distance-field parts with skin weights: torso in a tee (+ sleeves + collar), arms,
+// Grand Tel Aviv 6 — the body of a character as smooth distance-field parts with skin weights: torso in a tee (+ sleeves + collar), arms,
 // 3-finger-and-thumb hands, jeans (or shorts / a skirt), sneakers, the rope chain. Every part is meshed with surface nets (sdf.js), coloured
 // with baked occlusion and weighted to the shared skeleton (rig.js). PURE: returns typed arrays grouped by material. Model space: y up, +z forward.
 import { smin, smax, sdEllipsoid, sdCapsule, sdRoundBox, meshSDF, aoAt } from '../sdf.js';
@@ -219,7 +219,8 @@ export function buildBody(rig, spec = {}, { quality = 1, crowd = false } = {}) {
     const W = new MeshBuilder();
     const band = [];
     for (let i = 0; i < 18; i++) { const a = (i / 18) * Math.PI * 2; band.push([0.2985 + Math.cos(a) * 0.0335, 0.84, Math.sin(a) * 0.03]); }
-    sweepTube(W, band, () => [0.0085, 0.0105], { sides: 6, color: [0.025, 0.026, 0.03], closed: true, up: [0, 1, 0], bone: id.lowerArmL });
+    const wc = typeof of.watch === 'string' ? linear(of.watch) : null; // (a colour = a metal watch in that colour; true = the black digital one)
+    sweepTube(W, band, () => [0.0085, 0.0105], { sides: 6, color: wc || [0.025, 0.026, 0.03], closed: true, up: [0, 1, 0], bone: id.lowerArmL });
     sweepTube(W, [[0.3375, 0.84, -0.0025], [0.3375, 0.84, 0.0025]], () => [0.019, 0.016], { sides: 8, color: [0.03, 0.035, 0.05], up: [0, 1, 0], bone: id.lowerArmL });
     out.tee.push(W.finish());
   }
@@ -227,7 +228,7 @@ export function buildBody(rig, spec = {}, { quality = 1, crowd = false } = {}) {
 }
 
 /** The rope chain: a silver U from the back of the neck to the chest, striped like a twisted rope. Returns a mesh weighted to the chest. */
-export function buildChain(rig, hex = '#d5dae0') {
+export function buildChain(rig, hex = '#d5dae0', thick = 1) {
   const col = linear(hex);
   const B = new MeshBuilder();
   const torso = (x, y, z) => { // the chest front, for the z of the chain
@@ -245,9 +246,9 @@ export function buildChain(rig, hex = '#d5dae0') {
     const y = 1.345 - 0.115 * (1 - u * u) ** 1.0 + 0.012 * Math.abs(u);
     const zf = frontZ(torso, x, y);
     const zb = Math.min(zf, -0.02);
-    pts.push([x * 1.15, y, Math.abs(u) > 0.9 ? Math.max(-0.05, zb) : zf + 0.0065]);
+    pts.push([x * 1.15, y, Math.abs(u) > 0.9 ? Math.max(-0.05, zb) : zf + 0.0065 * thick]);
   }
-  sweepTube(B, pts, () => 0.0052, { sides: 6, color: (t, ph) => { const s = 0.55 + 0.45 * Math.sin(t * 150 + ph * 1.0); return [col[0] * s, col[1] * s, col[2] * s]; }, up: [0, 0, 1], bone: rig.ids.chest });
+  sweepTube(B, pts, () => 0.0052 * thick, { sides: 6, color: (t, ph) => { const s = 0.55 + 0.45 * Math.sin(t * 150 + ph * 1.0); return [col[0] * s, col[1] * s, col[2] * s]; }, up: [0, 0, 1], bone: rig.ids.chest });
   return B.finish();
 }
 

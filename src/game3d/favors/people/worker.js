@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the people factory, run in a Web Worker: building a sculpted character takes a second or two of pure number crunching, so it
+// Grand Tel Aviv 6 — the people factory, run in a Web Worker: building a sculpted character takes a second or two of pure number crunching, so it
 // happens off the main thread (at idle, long before anybody launches the game). Messages in: { id, kind: 'person' | 'crowd', ... } -> out: { id, data } or { id, error }.
 import { computePersonData } from './assemble.js';
 import { crowdArchetype } from './crowd-figure.js';

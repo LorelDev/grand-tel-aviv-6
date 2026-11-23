@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the SPEED BAG (PURE: no DOM, no three). A 20-second drill in the corner of the ring: the bag swings to a beat that gets quicker, and you
+// Grand Tel Aviv 6 — the SPEED BAG (PURE: no DOM, no three). A 20-second drill in the corner of the ring: the bag swings to a beat that gets quicker, and you
 // punch it (J or K, the same keys as in a fight) just as it comes back to your fist. Keep every beat to build the combo, alternate your hands to score
 // properly (the same hand twice in a row only counts as OK), and every eighth beat is an accent worth double. A stray press or a silent beat only drops the
 // combo: nothing is ever taken away. It pays a little XP (never peaches), less each time on the same day, so a real fight is always the better way to level.

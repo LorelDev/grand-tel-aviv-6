@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — sound captions (PURE) [experimental]: for a player who cannot hear (or plays with the sound off), the sounds that tell you something become a short line of words at the bottom of the screen:
+// Grand Tel Aviv 6 — sound captions (PURE) [experimental]: for a player who cannot hear (or plays with the sound off), the sounds that tell you something become a short line of words at the bottom of the screen:
 // the bell, the referee's count, a knock-out, a parry, a perfect dodge, the guard breaking, a level up, a car horn, the band in the park. A setting in the pause menu, off by default. Nothing here touches the DOM or
 // the audio: `withCaptions` wraps a sound engine so that the same call that makes the sound also says its words.
 

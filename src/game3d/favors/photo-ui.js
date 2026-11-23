@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — photo mode (DOM) [experimental]: the viewfinder (four corners, a hint, two buttons), the flash and the little polaroid that slides in; `take` draws the canvas onto a polaroid and hands it to the browser
+// Grand Tel Aviv 6 — photo mode (DOM) [experimental]: the viewfinder (four corners, a hint, two buttons), the flash and the little polaroid that slides in; `take` draws the canvas onto a polaroid and hands it to the browser
 // as a PNG download (only ever after a key press or a click). The numbers and the words are in photo.js (pure).
 import './photo.css';
 import { HINT, sizeFor, polaroid, captionOf, photoName } from './photo.js';

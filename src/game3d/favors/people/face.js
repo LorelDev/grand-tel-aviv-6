@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the facial parts that sit on the sculpted head (head.js): eyes (sclera + iris + pupil), eyelids, thick brows, moustache and
+// Grand Tel Aviv 6 — the facial parts that sit on the sculpted head (head.js): eyes (sclera + iris + pupil), eyelids, thick brows, moustache and
 // goatee, the glasses, and the mouth, a ribbon that is rebuilt for every expression. All PURE: they fill MeshBuilders (geo.js) in the head frame
 // and take `ids` (bone indices) so person.js can skin them; the preview script passes zeros. Colours are linear RGB.
 import { sweepTube, surfacePatch, roundedRect, extrudeRing, fillOutline, uvSphere, sphereCap } from './geo.js';
@@ -157,7 +157,7 @@ export function buildFacialHair(B, A, f, ids, spec = {}, hairHex = '#1a1210', sk
 /** Black rectangular frames (rounded-rect rings with real thickness), two lenses, a bridge and temples that run back over the ears. */
 export function buildGlasses(Bframe, Blens, A, f, ids, spec = {}, Bglint = null) {
   const frameCol = linear(spec.frame || '#0d0e11');
-  const lensCol = [0.55, 0.65, 0.7];
+  const lensCol = spec.shades ? linear(spec.shades) : [0.55, 0.65, 0.7]; // (shades: the caller sends the lenses to the opaque frame layer)
   const lw = spec.w ?? 0.083;
   const lh = spec.h ?? 0.054;
   const fw = spec.frameW ?? 0.0085;

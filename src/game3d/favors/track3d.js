@@ -1,4 +1,4 @@
-// "Ori's Life" — the race tracks out of town (three.js) [experimental]: the world of a track, built the first time it is needed and far away from the city: the grass (or the sand and the sea), the road with its edge lines and its
+// "Grand Tel Aviv 6" — the race tracks out of town (three.js) [experimental]: the world of a track, built the first time it is needed and far away from the city: the grass (or the sand and the sea), the road with its edge lines and its
 // dashed middle, red and white kerbs, a barrier all round, trees (or palms), a grandstand, the chequered start line and the banner over it. The line, the width and the distances come from tracks.js; nothing here is collidable
 // (the game keeps the car on the road: game.js trackWall). `show(id)` / `hide()` switch between the tracks. The obstacles (tracks.js hazards) are drawn here and judged in game.js (trackHazards).
 import * as THREE from 'three';

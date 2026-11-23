@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the beam of light over the place where a little event of the city is on (THREE) [experimental]: a soft column in the event's colour and a sign that bobs over it.
+// Grand Tel Aviv 6 — the beam of light over the place where a little event of the city is on (THREE) [experimental]: a soft column in the event's colour and a sign that bobs over it.
 // One beacon is enough (the events never overlap); it is moved to the place of the event that is on and painted again when the event changes.
 import * as THREE from 'three';
 

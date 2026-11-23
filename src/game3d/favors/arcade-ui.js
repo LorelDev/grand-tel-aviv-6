@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the office computer: a little CRT monitor over the street (DOM + a canvas), a boot screen, a menu of games and the games themselves
+// Grand Tel Aviv 6 — the office computer: a little CRT monitor over the street (DOM + a canvas), a boot screen, a menu of games and the games themselves
 // (arcade.js). A game inside the game, inside a computer. Esc leaves. The score pays peaches (the game calls `onDone`).
 import './arcade.css';
 import { GAMES, createTetrisRun, createRun2048, createSnakeRun, peachesFor, SNAKE } from './arcade.js';
@@ -12,7 +12,7 @@ export function createArcade({ root, sfx }) {
   const el = document.createElement('div');
   el.className = 'ar';
   el.hidden = true;
-  el.innerHTML = '<div class="ar-mon"><div class="ar-screen"><canvas width="360" height="440"></canvas><div class="ar-scan"></div></div><div class="ar-base"><i></i><b>ORI-OS</b><small>Esc: back to work</small></div></div>';
+  el.innerHTML = '<div class="ar-mon"><div class="ar-screen"><canvas width="360" height="440"></canvas><div class="ar-scan"></div></div><div class="ar-base"><i></i><b>TLV-OS</b><small>Esc: back to work</small></div></div>';
   root.append(el);
   const cv = el.querySelector('canvas');
   const g = cv.getContext('2d');
@@ -36,7 +36,7 @@ export function createArcade({ root, sfx }) {
 
   function drawBoot() {
     bg();
-    const lines = ['ORI-OS 1.0 (c) the startup', 'checking coffee........ OK', 'loading games.......... OK', 'warming up a world inside a world...', '', 'Welcome back, Ori.'];
+    const lines = ['TLV-OS 1.0 (c) the startup', 'checking coffee........ OK', 'loading games.......... OK', 'warming up a world inside a world...', '', 'Welcome back, Boss.'];
     const n = Math.min(lines.length, Math.floor(t / 0.35) + 1);
     for (let i = 0; i < n; i++) text(lines[i], 16, 24 + i * 24, 15);
     if (t > 2.6) setMode('menu');

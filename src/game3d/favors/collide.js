@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — 2D collision on the ground plane (PURE, no three): axis-aligned boxes and circles in a spatial hash.
+// Grand Tel Aviv 6 — 2D collision on the ground plane (PURE, no three): axis-aligned boxes and circles in a spatial hash.
 // The player is a circle: `push` slides it out of whatever it overlaps; `segment` tells the camera how far it can go before a wall.
 // Collider shapes:  { t: 0, x0, z0, x1, z1 } (box)   { t: 1, x, z, r } (circle)
 
@@ -24,7 +24,7 @@ export function createCollisionWorld(colliders, cell = 8) {
   }
   let stamp = 0;
   const seen = new Map();
-  const dyn = []; // a few colliders that come and go (the car Ori left in the street): checked every time, no spatial hash
+  const dyn = []; // a few colliders that come and go (the car the hero left in the street): checked every time, no spatial hash
 
   /** Calls fn(collider) once for every collider whose cells touch the square around (x, z). */
   function near(x, z, r, fn) {
@@ -35,7 +35,7 @@ export function createCollisionWorld(colliders, cell = 8) {
         if (!a) continue;
         for (let n = 0; n < a.length; n++) {
           const c = a[n];
-          if (c.off || seen.get(c) === stamp) continue; // (`off`: a parked car that Ori has driven away)
+          if (c.off || seen.get(c) === stamp) continue; // (`off`: a parked car that the hero has driven away)
           seen.set(c, stamp);
           fn(c);
         }

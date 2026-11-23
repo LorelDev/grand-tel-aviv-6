@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the small life of the street: pigeons that peck and burst into the air when somebody comes close (pigeons.js is their brain), three cats
+// Grand Tel Aviv 6 — the small life of the street: pigeons that peck and burst into the air when somebody comes close (pigeons.js is their brain), three cats
 // (one on a bench, one on the roof of a car, one on the kiosk counter) with swishing tails, petals / paper / leaves blown along the pavement by the sea
 // breeze, and flags. All cheap: a few instanced meshes and one point cloud.
 import * as THREE from 'three';
@@ -280,7 +280,7 @@ export function createLife(map, { lib, shadows = true, tier = 'high' } = {}) {
     group,
     pigeons,
     cats,
-    /** Per frame: `who` = [{ x, z }] the people the pigeons shy away from (Ori + the crowd near him). */
+    /** Per frame: `who` = [{ x, z }] the people the pigeons shy away from (the hero + the crowd near him). */
     update(dt, t, camera, who) {
       pigeons.update(dt, who);
       pigeons.birds.forEach((b, i) => {

@@ -1,28 +1,28 @@
 import { leagueTemplates, eventTemplates } from './league.js';
-// "Ori's Life" — ALL the personal facts, the cast and the place names live here, as plain data (no logic), so they can be edited
-// without touching code. Everything that still needs the real fact from Ori is marked `// TODO(real fact)`. Keep the family generic
+// "Grand Tel Aviv 6" — ALL the personal facts, the cast and the place names live here, as plain data (no logic), so they can be edited
+// without touching code. Everything that still needs the real fact from the hero is marked `// TODO(real fact)`. Keep the family generic
 // ('Mum', 'Auntie') and affectionate: this is a roast with love, never a cruel one.
 
 export const GAME = {
   id: 'favors',
   title: 'Grand Tel Aviv 6',
-  tagline: 'העיר שלא עוצרת. גם אתה לא.',
+  tagline: 'אין לך קונסולה? אין בעיה. Grand Tel Aviv מביא מרדפים בסגנון GTA ישר לדפדפן שלך. בלי הורדות ובלי הרשמה – רק אתה, רכב ובורקס אחד לוהט.',
 };
 
 /** The person. */
 export const ORI = {
-  name: 'Ori',
-  fullName: 'Ori Asher',
-  // how he looks (people/specs.js builds the sculpted Ori from these values; the selfie only lives in .duo/assets as a private reference)
+  name: 'Boss',
+  fullName: 'The Boss',
+  // how he looks (people/specs.js builds the sculpted the hero from these values; the selfie only lives in .duo/assets as a private reference)
   look: {
-    hair: 0x20130c, // very dark brown curls
-    tee: 0x16171b, // black crew-neck
-    jeans: 0x3a4b6e, // denim
-    shoes: 0xf3f3f1,
-    skin: 0xb48a63,
-    chain: 0xd5dae0, // silver rope chain
-    earring: 0xe6e9ee, // small silver hoop (his left ear)
-    glasses: 0x101114, // black rectangular frames
+    hair: 0x0c0907, // a black buzz cut
+    tee: 0x0e0e11, // tight black tee
+    jeans: 0x15161a, // black track pants
+    shoes: 0xf6f6f4, // clean white sneakers
+    skin: 0xa87c56,
+    chain: 0xf2b632, // heavy gold rope chain
+    earring: 0xf2b632, // gold hoop (his left ear)
+    glasses: 0x08080a, // black shades
   },
   // TODO(real fact): the real jobs, hobbies and Perach details — the user will send them; the labels below are placeholders
   jobs: ['Job A (the studio)', 'Job B (the startup)', 'Job C (the side gig)'],
@@ -34,7 +34,7 @@ export const ORI = {
  * `tone` picks the facade accent. `sign` is what the shop sign says (kept short: it is painted on a canvas).
  */
 export const PLACES = {
-  home: { name: 'הדירה בפלורנטין', sign: 'פלורנטין 6', kind: 'building', tone: '#5b8def', blurb: 'הדירה עם השולחן. כאן הכול מתחיל.' },
+  home: { name: 'משרדי JLL תל אביב', sign: 'JLL', kind: 'building', tone: '#e30613', blurb: 'המשרדים של JLL. כאן הכול מתחיל.' },
   mum: { name: 'הדירה של אמא', sign: 'אמא', kind: 'building', tone: '#e07a8f', blurb: 'קומה שלישית, בלי מעלית, ניילון על הספה.' },
   auntie: { name: 'הבית של דודה', sign: 'דודה', kind: 'building', tone: '#e8a24a', blurb: 'גינה, עץ לימון ודעות על הכול.' },
   cityhall: { name: 'עיריית תל אביב ותחנת המשטרה', sign: 'עיריית תל אביב', kind: 'building', tone: '#8d939c', blurb: 'קח מספר. מי שנעצר מתעורר כאן.' },
@@ -79,14 +79,14 @@ export const CAST = {
   tourist: { name: 'A Tourist', role: 'Visiting', rel: 'strangers', color: '#b07ad8', home: 'busstop' },
   coach: { name: 'Coach', role: 'The court', rel: 'hobbies', color: '#e77f3c', home: 'court' }, // TODO(real fact)
   uzi: { name: 'Uzi', role: 'The workshop', rel: 'hobbies', color: '#7a8aa0', home: 'workshop' }, // TODO(real fact)
-  self: { name: 'Ori', role: 'Himself', rel: 'hobbies', color: '#ff9f43', home: 'home' },
+  self: { name: 'Boss', role: 'Himself', rel: 'hobbies', color: '#ff9f43', home: 'home' },
 };
 
 /**
  * The task templates. Only what is unique is written here; quests.js fills the rest from the tone (trivial / absurd / epic):
  * priority, time allowed, reward and penalty. Optional fields: pri, mins (extra minutes to do it), win [hour, hour] (when it may
  * arrive), fake (it shouts URGENT but is trivial), delegable, then { id, delay } (a follow-up), calm (sitting down lowers the chaos),
- * coffee (it gives the coffee sprint). `doText` = what Ori does there ("E · Unmute the TV").
+ * coffee (it gives the coffee sprint). `doText` = what the hero does there ("E · Unmute the TV").
  */
 export const TEMPLATES = [
   // ── Family ──
@@ -183,7 +183,7 @@ export const TEMPLATES = [
   { id: 'city-inspection', rel: 'city', giver: 'inspector', at: 'cityhall', verb: 'handle', tone: 'epic', setpiece: true, title: 'The Inspector inspects you (four trials)', body: 'A routine inspection. Bring a smile, a stamp and a polite opinion.', doText: 'Pass the inspection', win: [8, 12], mech: 'gauntlet', rewardBoost: 2.2, mins: 60 },
 ];
 
-/** The three quick replies on the phone (Ori's voice: warm, and a no is always a loving rain check); see quests.js for what they do. */
+/** The three quick replies on the phone (the hero's voice: warm, and a no is always a loving rain check); see quests.js for what they do. */
 export const REPLIES = {
   yes: ['On my way!', 'Yalla, coming!', 'Sababa, on it!', 'Be right there!'],
   later: ['Give me a little bit?', 'Soon, I promise!', 'After this one, I am on it!'],

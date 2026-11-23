@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the map on the phone: the neighbourhood drawn flat on a canvas (the street layer once, the pins and Ori per frame).
+// Grand Tel Aviv 6 — the map on the phone: the neighbourhood drawn flat on a canvas (the street layer once, the pins and the hero per frame).
 import { ROAD_X, ROAD_Z, ROAD_W, BOUNDS } from './map.js';
 import { PLACES } from './content.js';
 
@@ -186,7 +186,7 @@ export function createMap2d(canvas, map) {
         if (m.short) haloText(g, m.short, x, z + r + 8, Math.max(8, Math.round(pinR * 0.95)));
         pins.push({ id: m.place, x, z });
       }
-      // Ori: a blue dot with a pointer
+      // the hero: a blue dot with a pointer
       const px = X(s.player.x);
       const pz = Z(s.player.z);
       g.save();

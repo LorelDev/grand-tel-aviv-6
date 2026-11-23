@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the DOM of the game around the favours: the peaches counter, the mission card (steps and meters), the afterburner bar,
+// Grand Tel Aviv 6 — the DOM of the game around the favours: the peaches counter, the mission card (steps and meters), the afterburner bar,
 // the little actions (verbs.js) drawn as a card in the middle of the street, the minimap, Uzi's Garage, the big countdown and the end-of-day card.
 // The words come from texts.js / play-content.js; this file only lays them out. Every DOM write is skipped when the value did not change.
 import './play.css';
@@ -81,7 +81,7 @@ export function createPlayUi({ root, hud, sfx, map }) {
     clearTimeout(bigWord.t);
     bigWord.t = setTimeout(() => big.classList.remove('on'), ms);
   }
-  /** The minimap: where Ori is, the beam's place and the extra points (golden peaches nearby are not shown on purpose). */
+  /** The minimap: where the hero is, the beam's place and the extra points (golden peaches nearby are not shown on purpose). */
   let miniAt = 0;
   /** The minimap is put away on a track out of town (it shows the city). */
   function setMinimapVisible(v) { mini.hidden = !v; }

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the stamp book (PURE) [experimental]: a stamp for every place Ori has been to. The eleven he can go inside are stamped at the door the first time he steps in; the three open ones (the bus stop, the park,
+// Grand Tel Aviv 6 — the stamp book (PURE) [experimental]: a stamp for every place the hero has been to. The eleven he can go inside are stamped at the door the first time he steps in; the three open ones (the bus stop, the park,
 // the ring) are stamped when he first walks up to them. A full book pays a little reward and an achievement. Rooms he went into before the book existed already count.
 import { PLACES } from './content.js';
 

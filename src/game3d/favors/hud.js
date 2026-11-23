@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the DOM side of the game: clock, place label, stamina, pause menu, message card, touch controls. The canvas lives in
+// Grand Tel Aviv 6 — the DOM side of the game: clock, place label, stamina, pause menu, message card, touch controls. The canvas lives in
 // the same overlay (host.js). Only touches the DOM when a value changed.
 import '../game3d.css';
 import './favors.css';
@@ -250,7 +250,7 @@ export function createFavorsHud(root, { onPause, onResume, onRestart, onQuit, se
       q('storyt').textContent = text;
       q('story').classList.toggle('on', !!text);
     },
-    /** The task Ori is following (null = none): the chip under the clock. */
+    /** The task the hero is following (null = none): the chip under the clock. */
     goal(g) {
       const key = g ? `${g.title}|${g.meta}` : '';
       if (last.goal === key) return;

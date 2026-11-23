@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — writes an animator pose (anim.js) and the face channels (expressions.js) onto a skeleton of three.js-style bones
+// Grand Tel Aviv 6 — writes an animator pose (anim.js) and the face channels (expressions.js) onto a skeleton of three.js-style bones
 // (anything with .rotation.set / .position.set — real THREE.Bone objects in the game, plain Object3D in the node preview).
 
 export const HEAD_SCALE = 0.9;

@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — input: keyboard, gamepad, mouse-drag camera and the on-screen joystick for touch, merged into one reading per
+// Grand Tel Aviv 6 — input: keyboard, gamepad, mouse-drag camera and the on-screen joystick for touch, merged into one reading per
 // frame. While the game is open the keys never reach the room (same rule as NEON DRIFT). Keys are read by `code` (layout independent).
 const MOVE = { fwd: ['KeyW', 'ArrowUp'], back: ['KeyS', 'ArrowDown'], left: ['KeyA', 'ArrowLeft'], right: ['KeyD', 'ArrowRight'] };
 const GAME_KEYS = new Set([...Object.values(MOVE).flat(), 'ShiftLeft', 'ShiftRight', 'Space', 'KeyE', 'KeyF', 'Enter', 'KeyQ', 'KeyZ', 'KeyX', 'KeyR', 'KeyC', 'KeyP', 'Escape', 'Tab', 'KeyM', 'KeyN', 'Equal', 'Minus']);

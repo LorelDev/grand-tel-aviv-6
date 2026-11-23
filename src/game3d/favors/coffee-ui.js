@@ -1,4 +1,4 @@
-// "Ori, Can You...?" — the cafe job "Coffee Rush" on the screen (DOM) [experimental]: the customer's ticket with the drinks they want, a patience bar, the clock and the score, the three keys.
+// Grand Tel Aviv 6 — the cafe job "Coffee Rush" on the screen (DOM) [experimental]: the customer's ticket with the drinks they want, a patience bar, the clock and the score, the three keys.
 // J / K / L serve; Esc leaves. The rules are in coffee.js (pure). When the clock runs out the card says how it went and `done({ served, score, peaches ... })` pays it.
 import './coffee.css';
 import { DRINKS, createCoffeeRun, peachesFor, SECONDS } from './coffee.js';

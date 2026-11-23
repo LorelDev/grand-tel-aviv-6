@@ -1,4 +1,4 @@
-/* "Ori, Can You...?" — the ring: health bars, big words, the card to pick a fight and the card after it. Prefix fi-. The glass look comes from favors.css (.fv-glass). */
+/* Grand Tel Aviv 6 — the ring: health bars, big words, the card to pick a fight and the card after it. Prefix fi-. The glass look comes from favors.css (.fv-glass). */
 .fi-peach { width: 18px; height: 18px; vertical-align: -3px; }
 .fi-hud { position: absolute; inset: 0; z-index: 3; pointer-events: none; font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--fv-ink, #f5f6fa); }
 .fi-hud[hidden] { display: none; }

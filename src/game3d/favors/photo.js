@@ -1,4 +1,4 @@
-// "Ori's Life" — photo mode (PURE) [experimental]: V puts the HUD away and Space takes a photo: a little polaroid of what the camera sees, with where and when written under it, saved as a PNG on the player's
+// "Grand Tel Aviv 6" — photo mode (PURE) [experimental]: V puts the HUD away and Space takes a photo: a little polaroid of what the camera sees, with where and when written under it, saved as a PNG on the player's
 // machine (a download, only because a key was pressed). Walk about, turn the camera (Q / E, the mouse) and find the shot; Esc or V comes back. Nothing here draws or touches the page: it only says how big, what is
 // written where, and what the file is called, so the numbers can be tested.
 
@@ -35,7 +35,7 @@ export function polaroid(w, h) {
 
 /** The words under the photo: where, and when. `place` null = nowhere in particular. */
 export function captionOf({ place = null, day = 1, label = '' } = {}) {
-  return { title: place || 'Out and about', sub: `Day ${day}${label ? ` · ${label}` : ''}`, tag: "Ori's Life" };
+  return { title: place || 'Out and about', sub: `Day ${day}${label ? ` · ${label}` : ''}`, tag: "Grand Tel Aviv 6" };
 }
 
 /** The file's name: ori-day3-1540.png (the clock without its colon; anything odd becomes 0000). */
