@@ -31,6 +31,4 @@ npm run deploy   # בנייה + פריסה ל-Firebase Hosting
 - `src/game3d/favors/gta.js` — מבוקשות, משטרה, הולכי רגל.
 - `src/game3d/favors/gta-missions.js` — המשימות.
 
-## קרדיט
 
-מבוסס על המשחק התלת־ממדי מתוך [Shilo744/ori-site](https://github.com/Shilo744/ori-site).
